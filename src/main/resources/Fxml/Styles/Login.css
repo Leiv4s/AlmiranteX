@@ -1,5 +1,36 @@
 #box {
     -fx-background-color: #003583;
-    -fx-min-width: 800px;
-    -fx-min-height: 72px;
+
+
+}
+
+#box2 {
+    -fx-background-color: #368BA5;
+
+}
+
+#boxLogin {
+    -fx-background-color: #D9D9D9;
+    -fx-background-radius: 5px;
+}
+
+.loginLabel {
+
+}
+
+.button {
+    -fx-alignment: center;
+    -fx-padding: 0.166667em 0.5em 0.166667em 0.5em; /* Espaçamento interno */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 18px;
+    -fx-background-radius: 10px;
+    -fx-min-width: 200px;
+    -fx-min-height: 40px;
+    -fx-font-weight: bold;
+    -fx-transition: all 0.3s;
+    -fx-background-color: #1976d2;
+}
+
+.button:hover {
+    -fx-opacity: 0.7;
 }
