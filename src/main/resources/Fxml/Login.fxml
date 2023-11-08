@@ -1,31 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="431.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.LoginController">
+
+<AnchorPane prefHeight="672.0" prefWidth="800.0" style="-fx-background-color: fff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.LoginController">
    <children>
-      <VBox id="box2" alignment="BOTTOM_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="300.0" stylesheets="@Styles/Login.css" AnchorPane.topAnchor="72.0">
-         <effect>
-            <DropShadow height="15.5" radius="5.875" width="10.0" />
-         </effect></VBox>
-      <VBox id="box" prefHeight="72.0" prefWidth="800.0" stylesheets="@Styles/Login.css">
+      <AnchorPane prefHeight="72.0" prefWidth="800.0" style="-fx-background-color: #0C2C5B;">
          <effect>
             <DropShadow />
-         </effect></VBox>
-      <Label id="passwordLabel" fx:id="label" alignment="CENTER" contentDisplay="CENTER" layoutX="454.0" layoutY="243.0" nodeOrientation="LEFT_TO_RIGHT" text="insira o código de acesso:" textAlignment="CENTER">
+         </effect>
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="36.0" layoutX="27.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/loginIcon.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="49.0" fitWidth="239.0" layoutX="69.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/logoName.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <VBox layoutX="415.0" layoutY="280.0" prefHeight="258.0" prefWidth="300.0">
+         <children>
+            <Label id="loginLabel" text="Login:" textFill="#e74f18">
+               <font>
+                  <Font name="Liberation Mono" size="18.0" />
+               </font>
             </Label>
-      <PasswordField id="passwordField" fx:id="passwordField" layoutX="400.0" layoutY="336.0" prefHeight="26.0" prefWidth="266.0" />
-      <Button layoutX="433.0" layoutY="394.0" mnemonicParsing="false" onAction="#testeLogin" stylesheets="@Styles/Login.css" text="Entrar">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <PasswordField id="passwordField" fx:id="passwordField1" layoutX="400.0" layoutY="274.0" prefHeight="26.0" prefWidth="266.0" />
+            <TextField prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: BDD0FB;">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+               <effect>
+                  <DropShadow height="5.0" offsetY="3.0" radius="0.75" width="0.0">
+                     <color>
+                        <Color red="0.7473683953285217" green="0.7473683953285217" blue="0.7473683953285217" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Liberation Mono" size="14.0" />
+               </font>
+            </TextField>
+            <Label text="Senha:" textFill="#e74f18">
+               <padding>
+                  <Insets top="40.0" />
+               </padding>
+               <font>
+                  <Font name="Liberation Mono" size="18.0" />
+               </font>
+            </Label>
+            <PasswordField prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: BDD0FB;">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+               <effect>
+                  <DropShadow height="2.5" offsetY="3.0" radius="0.125" width="0.0">
+                     <color>
+                        <Color red="0.7490196228027344" green="0.7490196228027344" blue="0.7490196228027344" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <Button id="loginButton" fx:id="loginButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="322.0" stylesheets="@Styles/Login.css" text="Entrar" textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="70.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Liberation Mono" size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow height="2.5" offsetY="3.0" radius="0.125" width="0.0">
+                     <color>
+                        <Color red="0.7490196228027344" green="0.7490196228027344" blue="0.7490196228027344" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+      <Label layoutX="400.0" layoutY="136.0" prefHeight="110.0" prefWidth="391.0" text="Faça o login para começar." textFill="#002253" wrapText="true">
+         <font>
+            <Font name="Liberation Mono" size="32.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.8736842274665833" green="0.8736842274665833" blue="0.8736842274665833" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <ImageView fitHeight="400.0" fitWidth="400.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/loginImagePainel.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

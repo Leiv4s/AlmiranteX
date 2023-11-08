@@ -1,15 +1,14 @@
-#box {
-    -fx-background-color: #003583;
+#topBar {
+    -fx-background-color: #001D49;
 
 
 }
 
-#box2 {
+#leftBar {
     -fx-background-color: #368BA5;
 
 }
 
-#boxLogin {
-    -fx-background-color: #D9D9D9;
-    -fx-background-radius: 5px;
+#menuBar {
+    -fx-background-color: #fff;
 }

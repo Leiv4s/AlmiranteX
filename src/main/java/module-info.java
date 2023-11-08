@@ -10,4 +10,5 @@ module app.pai.paiquemmanda {
     exports app.pai.Controllers.Admin;
     exports app.pai.views;
     exports app.pai;
+
 }

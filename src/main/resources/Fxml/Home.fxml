@@ -1,8 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.Home">
-
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.SceneController">
+   <children>
+      <AnchorPane layoutX="394.0" layoutY="108.0" prefHeight="370.0" prefWidth="422.0" style="-fx-background-color: #001D49;">
+         <children>
+            <ImageView fitHeight="82.0" fitWidth="350.0" layoutX="36.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/image-removebg-preview%20(3).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="209.0" fitWidth="122.0" layoutX="150.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+               <image>
+                  <Image url="@../../../../../../Downloads/image-removebg-preview%20(1).png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="82.0" fitWidth="350.0" layoutX="22.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/image-removebg-preview%20(3).png" />
+         </image>
+         <effect>
+            <DropShadow>
+               <input>
+                  <InnerShadow />
+               </input>
+            </DropShadow>
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="209.0" fitWidth="122.0" layoutX="136.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+         <image>
+            <Image url="@../../../../../../Downloads/image-removebg-preview%20(1).png" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="843.0" layoutY="108.0" prefHeight="370.0" prefWidth="422.0" style="-fx-background-color: #001D49;">
+         <children>
+            <ImageView fitHeight="49.0" fitWidth="218.0" layoutX="136.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/image-removebg-preview%20(3).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="65.0" fitWidth="48.0" layoutX="72.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+               <image>
+                  <Image url="@../../../../../../Downloads/image-removebg-preview%20(1).png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
