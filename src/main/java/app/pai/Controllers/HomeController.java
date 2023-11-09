@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
-public class SceneController {
+public class HomeController {
 
     private Stage stage;
     private Scene scene;
