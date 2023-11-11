@@ -1,14 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="app.pai.Controllers.InicioController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="1228.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="17.0" prefHeight="618.0" prefWidth="1155.0" style="-fx-background-color: white;" AnchorPane.topAnchor="8.0">
+         <children>
+            <HBox layoutX="48.0" layoutY="86.0" prefHeight="66.0" prefWidth="344.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo,">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuário!">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <FlowPane alignment="TOP_RIGHT" layoutX="902.0" layoutY="14.0" prefHeight="82.0" prefWidth="238.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sousa-PB, ">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="11/11/2023 ">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10h30">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </FlowPane>
+            <VBox layoutX="48.0" layoutY="208.0" prefHeight="400.0" prefWidth="703.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ultimas vendas:">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Text>
+                  <ListView prefHeight="350.0" prefWidth="660.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="794.0" layoutY="218.0" prefHeight="118.0" prefWidth="328.0">
+               <children>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="382.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lucro do dia:" wrappingWidth="169.17419385910034">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="RIGHT" wrappingWidth="82.77423095703125">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="3.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10,00" wrappingWidth="74.77423119544983">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="49.0" prefWidth="307.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vendas hoje:" wrappingWidth="231.57427978515625">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" 10" textAlignment="CENTER" wrappingWidth="94.77429246902466">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Pane layoutX="794.0" layoutY="342.0" prefHeight="246.0" prefWidth="328.0" style="-fx-background-color: blue;" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
