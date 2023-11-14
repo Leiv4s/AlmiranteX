@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
@@ -10,9 +11,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="1228.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1228.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="17.0" prefHeight="618.0" prefWidth="1155.0" style="-fx-background-color: white;" AnchorPane.topAnchor="8.0">
+      <AnchorPane layoutX="17.0" prefHeight="675.0" prefWidth="1155.0" style="-fx-background-color: white;" AnchorPane.topAnchor="8.0">
          <children>
             <HBox layoutX="48.0" layoutY="86.0" prefHeight="66.0" prefWidth="344.0">
                <children>
@@ -50,17 +51,46 @@
                   </Text>
                </children>
             </FlowPane>
-            <VBox layoutX="48.0" layoutY="208.0" prefHeight="400.0" prefWidth="703.0">
+            <VBox layoutX="48.0" layoutY="208.0" prefHeight="446.0" prefWidth="703.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ultimas vendas:">
                      <font>
                         <Font size="24.0" />
                      </font></Text>
-                  <ListView prefHeight="350.0" prefWidth="660.0" />
+                  <TreeTableView prefHeight="414.0" prefWidth="703.0">
+                    <columns>
+                      <TreeTableColumn prefWidth="75.0" text="C1" />
+                      <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TreeTableView>
                </children>
             </VBox>
-            <VBox layoutX="794.0" layoutY="218.0" prefHeight="118.0" prefWidth="328.0">
+            <VBox layoutX="778.0" layoutY="226.0" prefHeight="122.0" prefWidth="344.0">
                <children>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="382.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total vendido:" wrappingWidth="169.17419385910034">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="RIGHT" wrappingWidth="82.77423095703125">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="3.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Text fill="#f27f05" strokeType="OUTSIDE" strokeWidth="0.0" text="150,00" textAlignment="RIGHT" wrappingWidth="84.3743292093277">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="382.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lucro do dia:" wrappingWidth="169.17419385910034">
@@ -76,7 +106,7 @@
                               <Insets bottom="3.0" />
                            </HBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10,00" wrappingWidth="74.77423119544983">
+                        <Text fill="#04a94b" strokeType="OUTSIDE" strokeWidth="0.0" text="10,00" textAlignment="RIGHT" wrappingWidth="82.77423095703125">
                            <font>
                               <Font name="System Bold" size="26.0" />
                            </font>
@@ -85,7 +115,7 @@
                   </HBox>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="49.0" prefWidth="307.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vendas hoje:" wrappingWidth="231.57427978515625">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vendas hoje:" wrappingWidth="240.37426805496216">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -99,7 +129,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Pane layoutX="794.0" layoutY="342.0" prefHeight="246.0" prefWidth="328.0" style="-fx-background-color: blue;" />
+            <Pane layoutX="778.0" layoutY="399.0" prefHeight="254.0" prefWidth="344.0" style="-fx-background-color: blue;" />
          </children>
       </AnchorPane>
    </children>

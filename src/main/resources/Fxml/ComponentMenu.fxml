@@ -68,6 +68,11 @@
                   <FontAwesomeIconView glyphName="MONEY" styleClass="iconMenu" />
                </graphic>
             </Button>
+            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Produtos">
+               <graphic>
+                  <FontAwesomeIconView glyphName="FOLDER" styleClass="iconMenu" />
+               </graphic>
+            </Button>
             <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Estoque">
                <graphic>
                   <FontAwesomeIconView glyphName="FOLDER" styleClass="iconMenu" />
