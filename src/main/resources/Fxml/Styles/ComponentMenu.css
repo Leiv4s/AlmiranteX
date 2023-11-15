@@ -1,0 +1,41 @@
+.menuText {
+    -fx-text-fill: #001D49;
+    -fx-font-size: 34px;
+    -fx-start-margin: 200px;
+}
+
+/* No Scene builder configurei a margem (nao consegui via comando) */
+
+.button {
+    -fx-background-color: white;
+    -fx-alignment: center-left;
+    -fx-padding: 0px 0px 0px 40px;
+    -fx-cursor: hand;
+    -fx-font-size: 24px;
+
+
+}
+
+.button:hover {
+    -fx-background-color: #3e88ff;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 3, 2, 1;
+    -fx-text-fill: white;
+    -fx-border-radius: 15;
+    -fx-fill: white;
+}
+
+.logoImage {
+
+}
+
+.logoImage:hover {
+    -fx-effect: dropshadow(three-pass-box, #999999, 7, 0.5, 0, 0);
+}
+
+.iconMenu {
+}
+
+.iconMenu:hover {
+    -fx-fill: white;
+}

@@ -1,0 +1,12 @@
+.topBarContainer {
+ -fx-background-color:  #0C2C5B;
+ -fx-effect: dropshadow(three-pass-box, #000, 10, 0.0, 0, 0);
+}
+
+.topBarLogoName {
+ -fx-effect: dropshadow(three-pass-box, #000, 10, 0.0, 0, 0);
+}
+
+.topBarLogoName:hover {
+ -fx-effect: dropshadow(three-pass-box, #fff, 3, 0.0, 0, 0);
+}

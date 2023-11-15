@@ -7,3 +7,8 @@
 .button:hover {
     -fx-background-color: rgb(23, 172, 241);
 }
+
+
+.logo:hover {
+    -fx-effect: dropshadow(three-pass-box, #fff, 3, 0.0, 0, 0);
+}

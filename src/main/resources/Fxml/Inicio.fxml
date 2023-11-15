@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1228.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutY="10.4" prefHeight="893.0" prefWidth="1155.0" style="-fx-background-color: white;" AnchorPane.topAnchor="10.0">
+         <children>
+            <HBox layoutX="48.0" layoutY="29.0" prefHeight="66.0" prefWidth="344.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo,">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuário!">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <FlowPane alignment="TOP_RIGHT" layoutX="902.0" layoutY="14.0" prefHeight="82.0" prefWidth="238.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sousa-PB, ">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="11/11/2023 ">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10h30">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </FlowPane>
+            <VBox layoutX="48.0" layoutY="156.0" prefHeight="498.0" prefWidth="703.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ultimas vendas:">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Text>
+                  <TreeTableView prefHeight="455.0" prefWidth="703.0">
+                    <columns>
+                      <TreeTableColumn prefWidth="75.0" text="C1" />
+                      <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                        <TreeTableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TreeTableView>
+               </children>
+            </VBox>
+            <VBox layoutX="778.0" layoutY="226.0" prefHeight="122.0" prefWidth="344.0">
+               <children>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="382.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total vendido:" wrappingWidth="169.17419385910034">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="RIGHT" wrappingWidth="82.77423095703125">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="3.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Text fill="#f27f05" strokeType="OUTSIDE" strokeWidth="0.0" text="150,00" textAlignment="RIGHT" wrappingWidth="84.3743292093277">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="382.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lucro do dia:" wrappingWidth="169.17419385910034">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="RIGHT" wrappingWidth="82.77423095703125">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="3.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Text fill="#04a94b" strokeType="OUTSIDE" strokeWidth="0.0" text="10,00" textAlignment="RIGHT" wrappingWidth="82.77423095703125">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="49.0" prefWidth="307.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vendas hoje:" wrappingWidth="240.37426805496216">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" 10" textAlignment="CENTER" wrappingWidth="94.77429246902466">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Pane layoutX="778.0" layoutY="399.0" prefHeight="254.0" prefWidth="344.0" style="-fx-background-color: blue;" />
+         </children>
+      </AnchorPane>
+   </children>
+   <effect>
+      <DropShadow height="10.0" radius="4.5" width="10.0">
+         <color>
+            <Color red="0.6000000238418579" green="0.6000000238418579" blue="0.6000000238418579" />
+         </color>
+      </DropShadow>
+   </effect>
+</AnchorPane>
