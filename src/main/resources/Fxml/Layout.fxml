@@ -12,7 +12,7 @@
    </top>
 
    <center>
-      <fx:include source="Estoque.fxml" BorderPane.alignment="TOP_LEFT" />
+      <fx:include source="EditarLoja.fxml" BorderPane.alignment="TOP_LEFT" />
    </center>
 
 </BorderPane>

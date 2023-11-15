@@ -14,11 +14,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1228.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="1.0" layoutY="70.4" prefHeight="620.0" prefWidth="1216.0" style="-fx-background-color: white;" AnchorPane.topAnchor="70.4">
+      <AnchorPane layoutX="1.0" layoutY="70.4" prefHeight="600.0" prefWidth="1216.0" style="-fx-background-color: white;" AnchorPane.topAnchor="70.0">
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0">
                <color>
-                  <Color red="0.410526305437088" green="0.410526305437088" blue="0.410526305437088" />
+                  <Color red="0.4117647111415863" green="0.4117647111415863" blue="0.4117647111415863" />
                </color>
             </DropShadow>
          </effect>
@@ -54,14 +54,14 @@
                      </HBox.margin>
                   </Text>
                   <ChoiceBox prefHeight="50.0" prefWidth="216.0" />
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="121.0" text="Limpar">
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="126.0" text="Limpar">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
-            <ScrollPane layoutX="21.0" layoutY="85.0" prefHeight="517.0" prefWidth="1154.0">
+            <ScrollPane layoutX="31.0" layoutY="85.0" prefHeight="498.0" prefWidth="1152.0">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
               </content>
@@ -72,7 +72,7 @@
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0">
                <color>
-                  <Color red="0.6000000238418579" green="0.6000000238418579" blue="0.6000000238418579" />
+                  <Color red="0.4117647111415863" green="0.4117647111415863" blue="0.4117647111415863" />
                </color>
             </DropShadow>
          </effect>
