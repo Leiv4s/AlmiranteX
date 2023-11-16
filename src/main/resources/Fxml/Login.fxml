@@ -41,12 +41,12 @@
       </AnchorPane>
       <VBox layoutX="415.0" layoutY="280.0" prefHeight="258.0" prefWidth="300.0">
          <children>
-            <Label id="loginLabel" text="Login:" textFill="#e74f18">
+            <Label id="loginLabel" text="Usuário:" textFill="#e74f18">
                <font>
                   <Font name="Liberation Mono" size="18.0" />
                </font>
             </Label>
-            <TextField prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: BDD0FB;">
+            <TextField fx:id="usernameField" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: BDD0FB;" text="Leivas">
                <VBox.margin>
                   <Insets top="8.0" />
                </VBox.margin>
@@ -69,7 +69,7 @@
                   <Font name="Liberation Mono" size="18.0" />
                </font>
             </Label>
-            <PasswordField prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: BDD0FB;">
+            <PasswordField fx:id="passwordField" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: BDD0FB;">
                <VBox.margin>
                   <Insets top="8.0" />
                </VBox.margin>
@@ -84,7 +84,7 @@
                   <Font size="14.0" />
                </font>
             </PasswordField>
-            <Button id="loginButton" fx:id="loginButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="322.0" stylesheets="@Styles/Login.css" text="Entrar" textAlignment="CENTER" textFill="WHITE">
+            <Button id="loginButton" fx:id="loginButton" mnemonicParsing="false" onAction="#tentativaLogin" prefHeight="34.0" prefWidth="322.0" stylesheets="@Styles/Login.css" text="Entrar" textAlignment="CENTER" textFill="WHITE">
                <VBox.margin>
                   <Insets top="70.0" />
                </VBox.margin>
@@ -102,6 +102,14 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Label fx:id="labelMessage" alignment="CENTER" contentDisplay="CENTER" prefHeight="61.0" prefWidth="300.0" textAlignment="CENTER" textFill="#cc0000">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
          </children>
       </VBox>
       <Label layoutX="400.0" layoutY="136.0" prefHeight="110.0" prefWidth="391.0" text="Faça o login para começar." textFill="#002253" wrapText="true">

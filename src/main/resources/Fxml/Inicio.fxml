@@ -58,7 +58,8 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ultimas vendas:">
                      <font>
                         <Font size="24.0" />
-                     </font></Text>
+                     </font>
+                  </Text>
                   <TreeTableView prefHeight="455.0" prefWidth="703.0">
                     <columns>
                       <TreeTableColumn prefWidth="75.0" text="C1" />

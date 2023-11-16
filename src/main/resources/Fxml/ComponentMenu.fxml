@@ -55,7 +55,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Text>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Início">
+            <Button fx:id="InicioBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Início">
                <graphic>
                   <FontAwesomeIconView glyphName="HOME" styleClass="iconMenu">
                      <font>
@@ -63,22 +63,22 @@
                      </font></FontAwesomeIconView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Vendas">
+            <Button fx:id="VendasBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Vendas">
                <graphic>
                   <FontAwesomeIconView glyphName="MONEY" styleClass="iconMenu" />
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Estoque">
+            <Button fx:id="estoqueBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Estoque">
                <graphic>
                   <FontAwesomeIconView glyphName="ARCHIVE" styleClass="iconMenu" />
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Relatórios">
+            <Button fx:id="relatoriosBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Relatórios">
                <graphic>
                   <FontAwesomeIconView glyphName="BOOK" styleClass="iconMenu" />
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Editar Loja">
+            <Button fx:id="editarLojaBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Editar Loja">
                <graphic>
                   <FontAwesomeIconView glyphName="GEAR" styleClass="iconMenu" />
                </graphic>
