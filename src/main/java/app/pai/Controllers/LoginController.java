@@ -35,9 +35,10 @@ public class LoginController implements Initializable {
         String usernameDB = validateUser.getUsername();
 
         if (usernameDB.equals(usernameField.getText()) && passwordDB.equals(passwordField.getText())) {
-            /*JavaFX doesn't have a way to references a Stage, so this is a way of doing this:
+            /*JavaFX doesn't have a properly way to references an opened Stage, so this is a way
+            of doing this:
             First you create a Stage variable that takes any controllers of the Stage that you
-            wanna close, at the selected controller, apply getScene and getWindow methods. After
+            wanna close. At the selected controller, apply getScene and getWindow methods. After
             that you need to cast the return of the methods called as Stage (lines 44/45)
             * */
             Stage stage = (Stage)labelMessage.getScene().getWindow();
