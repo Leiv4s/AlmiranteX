@@ -24,7 +24,7 @@ public class ViewFactory  {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/User.fxml"));
         UserController userController = new UserController();
         loader.setController(userController);
-
+        createStage(loader);
     }
 
 //this function recives a FXMLLoader object and create a stage and scene with it
@@ -39,4 +39,10 @@ public class ViewFactory  {
         stage.setScene(scene);
         stage.show();
     }
+
+//This function takes the Stage that you wanna close as a parameter
+    public void closeStage(Stage stage){
+        stage.close();
+    }
+
 }
