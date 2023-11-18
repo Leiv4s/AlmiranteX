@@ -46,7 +46,7 @@
                   <Font name="Liberation Mono" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="usernameField" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: BDD0FB;" text="Leivas">
+            <TextField fx:id="usernameField" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: BDD0FB;" text="ProfessorTomaz1998">
                <VBox.margin>
                   <Insets top="8.0" />
                </VBox.margin>
@@ -69,7 +69,7 @@
                   <Font name="Liberation Mono" size="18.0" />
                </font>
             </Label>
-            <PasswordField fx:id="passwordField" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: BDD0FB;">
+            <PasswordField fx:id="passwordField" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: BDD0FB;" text="senha123">
                <VBox.margin>
                   <Insets top="8.0" />
                </VBox.margin>

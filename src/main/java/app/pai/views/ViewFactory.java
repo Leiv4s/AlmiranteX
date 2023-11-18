@@ -1,21 +1,45 @@
 package app.pai.views;
 
-import app.pai.Controllers.EditarLojaController;
-import app.pai.Controllers.EstoqueController;
-import app.pai.Controllers.InicioController;
-import app.pai.Controllers.UserController;
+import app.pai.Controllers.*;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class ViewFactory  {
 
-// FUNCTION FOR BUILDING SCENES, STAGES AND CLOSE WINDOWS;
+    /*Essa StringProperty funciona como uma bandeira na construção do Menu:
+        Ela é uma constante, então seu conteudo não pode ser modificado. A mesma
+        inicia com o valor de String: "".
+        Para funcionar, o Controller do Menu altera a propriedade através do método set.
+        O valor de menuSelected é lido pelo UserController, que aplica um switch para
+        alterar a scene exibida;
+
+     */
+    private final StringProperty menuSelected;
+    private AnchorPane inicioView;
+    private AnchorPane estoqueView;
+    private AnchorPane vendasView;
+    private AnchorPane relatoriosView;
+    private AnchorPane editarLojaView;
+    public ViewFactory(){
+        this.menuSelected = new SimpleStringProperty("");
+    }
+
+
+    //Função que informa qual botão do menu está sendo acionado;
+    public StringProperty menuSelectedProperty() {
+        return menuSelected;
+    }
+
 
     //this function recives a FXMLLoader object and create a stage and scene with it
     public void createStage(FXMLLoader loader){
@@ -50,30 +74,63 @@ public class ViewFactory  {
         createStage(loader);
     }
 
-//this function loads the Estoque section screen
-    public void showEstoqueWindow(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Estoque.fxml"));
-        EstoqueController estoqueController = new EstoqueController();
-        loader.setController(estoqueController);
-        createStage(loader);
-    }
-
-//this function loads the EditarLoja section screen
-    public void showEditarLojaWindow(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/EditarLoja.fxml"));
-        EditarLojaController editarLojaController = new EditarLojaController();
-        loader.setController(editarLojaController);
-        createStage(loader);
-    }
-
-//this function loads the Inicio section screen
-    public void showInicioWindow(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/inicio.fxml"));
-        InicioController inicioController = new InicioController();
-        loader.setController(inicioController);
-        createStage(loader);
-    }
 
 
+    // SESSÃO DE FUNÇÕES QUE CARREGAM AS VIEWS DAS PAGINAS A SEREM CARREGADAS PELO USERCONTROLLER.
+        public AnchorPane getInicioView(){
+            if (inicioView == null) {
+                try {
+                    inicioView = new FXMLLoader(getClass().getResource("/FXML/Inicio.fxml")).load();
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+            return inicioView;
+        }
+
+        public AnchorPane getVendasView() {
+            if (vendasView == null) {
+                try {
+                    vendasView = new FXMLLoader(getClass().getResource("/FXML/Vendas.fxml")).load();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return vendasView;
+        }
+
+
+        public AnchorPane getEstoqueView(){
+            if (estoqueView == null) {
+                try {
+                    estoqueView = new FXMLLoader(getClass().getResource("/FXML/Estoque.fxml")).load();
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+            return estoqueView;
+        }
+
+        public AnchorPane getRelatoriosView() {
+            if (relatoriosView == null){
+                try {
+                    relatoriosView = new FXMLLoader(getClass().getResource("/FXML/Relatorios.fxml")).load();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return relatoriosView;
+        }
+
+        public AnchorPane getEditarLojaView() {
+            if (editarLojaView == null) {
+                try {
+                    editarLojaView = new FXMLLoader(getClass().getResource("/FXML/EditarLoja.fxml")).load();
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+            return editarLojaView;
+        }
 
 }
