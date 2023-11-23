@@ -11,5 +11,9 @@ module app.pai.paiquemmanda {
     exports app.pai.Controllers;
     exports app.pai.views;
     exports app.pai;
+    exports app.pai.Controllers.ComponentsControllers;
+    opens app.pai.Controllers.ComponentsControllers to javafx.fxml;
+    exports app.pai.Controllers.MenuSectionControllers;
+    opens app.pai.Controllers.MenuSectionControllers to javafx.fxml;
 
 }

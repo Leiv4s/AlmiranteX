@@ -1,4 +1,4 @@
-package app.pai.Controllers;
+package app.pai.Controllers.ComponentsControllers;
 
 import app.pai.models.Model;
 import javafx.fxml.FXML;

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="264.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.EstoqueController">
+<AnchorPane prefHeight="385.0" prefWidth="1157.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.MenuSectionControllers.EstoqueController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1150.0" spacing="30.0">
          <children>
@@ -111,6 +111,65 @@
                </font>
             </Label>
             <Label text="- GG">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" text="editar">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" style="-fx-background-color: red;" text="x">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutY="271.0" prefHeight="100.0" prefWidth="1150.0" spacing="30.0">
+         <children>
+            <Label prefHeight="27.0" prefWidth="100.0" text="Categoria">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Público Alvo">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Preço de Custo">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Preço Unitario">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="134.0" text="Quant. Total">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label text="P">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label text="M">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label text="G">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label text="GG">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

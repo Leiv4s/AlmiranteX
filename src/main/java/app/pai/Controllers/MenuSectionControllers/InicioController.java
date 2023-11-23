@@ -1,11 +1,11 @@
-package app.pai.Controllers;
+package app.pai.Controllers.MenuSectionControllers;
 
 import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ComponentTopBarController implements Initializable {
+public class InicioController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

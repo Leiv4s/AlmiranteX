@@ -1,4 +1,4 @@
-package app.pai.Controllers;
+package app.pai.Controllers.ComponentsControllers;
 
 public class ComponentProductContainerController {
 }
