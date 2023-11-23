@@ -1,5 +1,6 @@
 package app.pai.Controllers.MenuSectionControllers;
 
+import app.pai.Controllers.PersistanceController;
 import app.pai.models.Categoria;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,10 +11,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class EditarLojaController implements Initializable, Serializable {
+public class EditarLojaController extends PersistanceController implements Initializable, Serializable {
 
     @FXML
     private TableView<Categoria> tableView;
@@ -27,38 +30,33 @@ public class EditarLojaController implements Initializable, Serializable {
     public TextField textFieldPublicoAlvo;
     public Button cadastrarBtn;
 
+    //Lista com listener >> aqui contém a lista de categorias;
+    ObservableList<Categoria> categoriaObservable = FXCollections.observableArrayList();
 
+
+    //adiciona nova categoria
     public void novaCategoria() throws IOException {
         String novaCategoria = textFieldCategoria.getText();
         String novoPublicoAlvo = textFieldPublicoAlvo.getText();
-        observableList.add(new Categoria(novaCategoria,novoPublicoAlvo));
+        categoriaObservable.add(new Categoria(novaCategoria,novoPublicoAlvo));
         try {
-            saveData();
+            saveData(categoriaObservable);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    ObservableList<Categoria> observableList = FXCollections.observableArrayList(
-        new Categoria("calça jeans", "masculino"),
-        new Categoria("vestido", "feminino"),
-        new Categoria("camiseta", "todos")
-    );
-
-
-    private void saveData() throws IOException {
-        FileOutputStream fileOut = new FileOutputStream("Data.ser");
-        ObjectOutputStream out = new ObjectOutputStream(fileOut);
-        out.writeObject(observableList);
-        out.close();
-        fileOut.close();
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         categoriaColumn.setCellValueFactory(new PropertyValueFactory<Categoria, String>("nomeCategoria"));
         publicoColumn.setCellValueFactory(new PropertyValueFactory<Categoria, String>("publicoAlvoCategoria"));
-        tableView.setItems(observableList);
+        try {
+           categoriaObservable = loadData();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        tableView.setItems(categoriaObservable);
     }
 
 

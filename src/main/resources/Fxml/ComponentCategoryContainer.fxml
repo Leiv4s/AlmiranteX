@@ -8,12 +8,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane id="categoria" prefHeight="40.0" prefWidth="700.0" style="-fx-background-color: #d0d0d0;" stylesheets="@Styles/ComponentCategoryContainer.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.ComponentCategoryContainer">
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="3.0" prefHeight="34.0" prefWidth="677.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID" wrappingWidth="50.0">
+            <Text fx:id="idCategory" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" wrappingWidth="50.0">
                <font>
                   <Font size="22.0" />
                </font>
@@ -21,12 +20,12 @@
                   <Insets />
                </HBox.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="variavelCategoria" wrappingWidth="250.0">
+            <Text fx:id="nameCategory" strokeType="OUTSIDE" strokeWidth="0.0" text="variavelCategoria" wrappingWidth="250.0">
                <font>
                   <Font size="22.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="variavelPublicoAlvo" wrappingWidth="200.0">
+            <Text fx:id="targetPublicCategory" strokeType="OUTSIDE" strokeWidth="0.0" text="variavelPublicoAlvo" wrappingWidth="200.0">
                <font>
                   <Font size="22.0" />
                </font>
@@ -36,12 +35,12 @@
             </Text>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="149.0" spacing="15.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Editar">
+                  <Button fx:id="editarBtn" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Editar">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="excluir">
+                  <Button fx:id="deleteBtn" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="excluir">
                      <font>
                         <Font size="14.0" />
                      </font>
