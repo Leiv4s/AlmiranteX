@@ -24,11 +24,16 @@ public class ComponentCategoryContainerController {
     private Button editarBtn;
 
 
-
-    public void setData(Categoria categoria) {
+    //atribui os valores de categoria aos FXMLComponents que serão exibidos
+    public void setCategoryInfoIntoContainer(Categoria categoria) {
         idCategory.setText("0");
         nameCategory.setText(categoria.getNomeCategoria());
         targetPublicCategory.setText(categoria.getPublicoAlvoCategoria());
+    }
+
+
+    public void deleteCategoria(Categoria categoria) {
 
     }
+
 }

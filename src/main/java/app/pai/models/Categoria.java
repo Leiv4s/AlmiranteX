@@ -1,6 +1,7 @@
 package app.pai.models;
 
 
+import app.pai.Controllers.PersistanceController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -12,7 +13,7 @@ public class Categoria implements Serializable {
     private static ObservableList<String> hallCategorias = FXCollections.observableArrayList();
     private String nomeCategoria;
     private String publicoAlvoCategoria;
-
+    ObservableList<Categoria> observableList;
 
     //constructor
     public Categoria(String nomeCategoria, String publicoAlvoCategoria) {
@@ -23,9 +24,6 @@ public class Categoria implements Serializable {
 
 
     //getters section
-    public static ObservableList<String> getHallCategorias() {
-        return hallCategorias;
-    }
 
     public String getNomeCategoria() {
         return nomeCategoria;
@@ -34,4 +32,10 @@ public class Categoria implements Serializable {
     public String getPublicoAlvoCategoria() {
         return publicoAlvoCategoria;
     }
+
+    PersistanceController persistanceController = new PersistanceController();
+
+
+
+
 }
