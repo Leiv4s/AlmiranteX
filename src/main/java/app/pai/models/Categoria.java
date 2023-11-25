@@ -6,14 +6,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 
 public class Categoria implements Serializable {
-
-    private static ObservableList<String> hallCategorias = FXCollections.observableArrayList();
     private String nomeCategoria;
     private String publicoAlvoCategoria;
-    ObservableList<Categoria> observableList;
+
 
     //constructor
     public Categoria(String nomeCategoria, String publicoAlvoCategoria) {
@@ -33,9 +32,16 @@ public class Categoria implements Serializable {
         return publicoAlvoCategoria;
     }
 
-    PersistanceController persistanceController = new PersistanceController();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Categoria categoria = (Categoria) o;
+        return Objects.equals(nomeCategoria, categoria.nomeCategoria);
+    }
 
-
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(nomeCategoria);
+    }
 }

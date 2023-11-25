@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class EditarLojaController extends PersistanceController implements Initializable, Serializable {
@@ -29,6 +30,7 @@ public class EditarLojaController extends PersistanceController implements Initi
     @FXML
     public VBox categoriasContainer;
 
+    private int quantidadeCategorias;
     ObservableList<Categoria> categoriaObservable = FXCollections.observableArrayList();//carrega lista de categorias
 
     Categoria categoriaAdicionada; //recebe o objeto categoria criado, para ser passado como parametro pro listener
@@ -38,19 +40,32 @@ public class EditarLojaController extends PersistanceController implements Initi
 
             try {
                 addCategoriaGraphicInstance(getClass().getResource("/FXML/ComponentCategoryContainer.fxml"), categoriaAdicionada);
-            } catch (IOException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
 
         }
     }; //Listener do container Categorias
 
+    public ObservableList<Categoria> getCategoriaObservable() {
+        return categoriaObservable;
+    }
 
+    public int getQuantidadeCategorias() {
+        return quantidadeCategorias;
+    }
 
     //adiciona nova categoria
-    public void novaCategoria() throws IOException {
+    public void createCategoria() throws IOException, ClassNotFoundException {
         String novaCategoria = textFieldCategoria.getText();
         String novoPublicoAlvo = textFieldPublicoAlvo.getText();
+
+        if (categoriaObservable==null){
+            quantidadeCategorias = 0;}
+        else {
+            quantidadeCategorias = categoriaObservable.size();
+        }
+
         Categoria objetoNovaCategoria = new Categoria(novaCategoria,novoPublicoAlvo);
         categoriaAdicionada = objetoNovaCategoria;
         categoriaObservable.add(objetoNovaCategoria);
@@ -59,13 +74,23 @@ public class EditarLojaController extends PersistanceController implements Initi
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+    }
+
+    public void deleteCategoria(){
+        for (Categoria categoria:categoriaObservable) {
+            if (categoria.equals(categoriaAdicionada)){
+
+            }
+
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         try { //carrega o ObservableArrayList<categoria> com as instancias salvas pela serialização;
-            categoriaObservable = loadData();
+            categoriaObservable = FXCollections.observableArrayList(loadData());
         } catch (IOException | ClassNotFoundException e) {
             //
             //
@@ -91,7 +116,7 @@ public class EditarLojaController extends PersistanceController implements Initi
                 addCategoriaGraphicInstance(resource, categoria);
             }
 
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
@@ -100,7 +125,7 @@ public class EditarLojaController extends PersistanceController implements Initi
     Adiciona a tela o FXMLLoader de uma instancia da classe Categoria.
     Deve receber como parametro o arquivo fxml que será utilizado e um objeto categoria a ser adicionado;
      */
-    private void addCategoriaGraphicInstance(URL resource, Categoria categoria) throws IOException {
+    private void addCategoriaGraphicInstance(URL resource, Categoria categoria) throws IOException, ClassNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(resource);
         AnchorPane anchorPane = loader.load();

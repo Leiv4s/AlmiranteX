@@ -22,13 +22,10 @@ public class PersistanceController implements Serializable {
     }
 
     //recupera um objeto com base em um binary code criado na function saveData()
-    public ObservableList<Categoria> loadData() throws IOException, ClassNotFoundException {
+    public List<Categoria> loadData() throws IOException, ClassNotFoundException {
         FileInputStream fileInput = new FileInputStream("Data.ser");
-
         ObjectInputStream objectInput = new ObjectInputStream(fileInput);
-        List<Categoria> list = (List<Categoria>) objectInput.readObject();
-        ObservableList<Categoria> categoriaObservable;
-        return  categoriaObservable = FXCollections.observableArrayList(list);
+        return (List<Categoria>) objectInput.readObject();
         
     }
 }
