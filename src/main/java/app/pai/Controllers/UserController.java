@@ -12,9 +12,6 @@ import java.util.ResourceBundle;
 public class UserController implements Initializable {
     @FXML BorderPane userPane;
 
-
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

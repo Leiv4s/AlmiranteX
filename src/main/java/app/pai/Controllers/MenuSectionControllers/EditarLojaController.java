@@ -1,21 +1,22 @@
 package app.pai.Controllers.MenuSectionControllers;
 
-import app.pai.Controllers.ComponentsControllers.ComponentCategoryContainerController;
 import app.pai.Controllers.PersistanceController;
-import app.pai.models.Categoria;
+import app.pai.models.Model;
+import app.pai.models.ModelCategoria;
+import app.pai.models.ModelPublicoAlvo;
+import javafx.beans.InvalidationListener;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class EditarLojaController extends PersistanceController implements Initializable, Serializable {
@@ -28,110 +29,77 @@ public class EditarLojaController extends PersistanceController implements Initi
     @FXML
     public Button cadastrarBtn;
     @FXML
-    public VBox categoriasContainer;
+    public VBox categoriaInstanceContainer = new VBox();
+    @FXML
+    public VBox publicoAlvoContainer = new VBox();
 
-    private int quantidadeCategorias;
-    ObservableList<Categoria> categoriaObservable = FXCollections.observableArrayList();//carrega lista de categorias
 
-    Categoria categoriaAdicionada; //recebe o objeto categoria criado, para ser passado como parametro pro listener
-    ListChangeListener<Categoria> listener = new ListChangeListener<Categoria>() {
+    public static ObservableList<StringProperty> listaPublicoAlvoObservable = FXCollections.observableArrayList(ModelPublicoAlvo.getListaModelPublicoAlvo());
+
+    public static ObservableList<ModelCategoria> listaCategoriaObservable = FXCollections.observableArrayList(ModelCategoria.getListaModelCategorias());//carrega lista de categorias
+
+
+
+
+
+
+
+    URL categoriaFXML = getClass().getResource("/FXML/ComponentCategoryInstance.fxml");
+    URL publicoAlvoFXML = getClass().getResource("/FXML/ComponentPublicoAlvoInstance.fxml");
+
+    ModelCategoria modelCategoriaAdicionada; //recebe o objeto categoria criado, para ser passado como parametro pro listener
+
+    ListChangeListener<ModelCategoria> listenerCategoria = new ListChangeListener<>() {
         @Override
-        public void onChanged(Change<? extends Categoria> c) {
+        public void onChanged(Change<? extends ModelCategoria> c) {
 
             try {
-                addCategoriaGraphicInstance(getClass().getResource("/FXML/ComponentCategoryContainer.fxml"), categoriaAdicionada);
+                Model.getInstance().getViewFactory().addCategoriaView(publicoAlvoFXML, modelCategoriaAdicionada, categoriaInstanceContainer);
             } catch (IOException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
 
         }
-    }; //Listener do container Categorias
+    };
 
-    public ObservableList<Categoria> getCategoriaObservable() {
-        return categoriaObservable;
+    ListChangeListener<ModelPublicoAlvo> listenerPublicoAlvo = new ListChangeListener<>() {
+        @Override
+        public void onChanged(Change<? extends ModelPublicoAlvo> c) {
+
+            try {
+                Model.getInstance().getViewFactory().publicoAlvoViewInitializer(publicoAlvoFXML,publicoAlvoContainer);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+    };
+
+
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ModelCategoria.createCategoria(new ModelCategoria("asdasd", "alá"));
+        ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("alá"));
+        //carrega as categorias salvas
+        Model.getInstance().getViewFactory().categorysViewInitializer(categoriaFXML, categoriaInstanceContainer);
+        Model.getInstance().getViewFactory().publicoAlvoViewInitializer(publicoAlvoFXML, publicoAlvoContainer);
+        //adiciona o Listener a ObservableArrayList instanciado com as informações das categorias
+        listaPublicoAlvoObservable.addListener ((InvalidationListener) listenerPublicoAlvo);
     }
 
-    public int getQuantidadeCategorias() {
-        return quantidadeCategorias;
-    }
+
+
 
     //adiciona nova categoria
     public void createCategoria() throws IOException, ClassNotFoundException {
         String novaCategoria = textFieldCategoria.getText();
         String novoPublicoAlvo = textFieldPublicoAlvo.getText();
+        modelCategoriaAdicionada = new ModelCategoria(novaCategoria,novoPublicoAlvo);
+        Model.getInstance().getViewFactory().addCategoriaView(getClass().getResource("/FXML/ComponentCategoryInstance.fxml"), modelCategoriaAdicionada, categoriaInstanceContainer);
 
-        if (categoriaObservable==null){
-            quantidadeCategorias = 0;}
-        else {
-            quantidadeCategorias = categoriaObservable.size();
-        }
 
-        Categoria objetoNovaCategoria = new Categoria(novaCategoria,novoPublicoAlvo);
-        categoriaAdicionada = objetoNovaCategoria;
-        categoriaObservable.add(objetoNovaCategoria);
-        try {
-            saveData(categoriaObservable);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    public void deleteCategoria(){
-        for (Categoria categoria:categoriaObservable) {
-            if (categoria.equals(categoriaAdicionada)){
-
-            }
-
-        }
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-        try { //carrega o ObservableArrayList<categoria> com as instancias salvas pela serialização;
-            categoriaObservable = FXCollections.observableArrayList(loadData());
-        } catch (IOException | ClassNotFoundException e) {
-            //
-            //
-            //  ----- perguntar ao prof pq isso funciona
-            //
-            //
-        }
-
-        //carrega as categorias salvas
-        initializeCategory(getClass().getResource("/FXML/ComponentCategoryContainer.fxml"));
-
-        //adiciona o Listener a ObservableArrayList instanciado com as informações das categorias
-        categoriaObservable.addListener(listener);
-    }
-
-    /*
-    Povoa o container com as Classes recuperadas usando os métodos do PersistanceController;
-    deve receber como parametro a URL do arquivo FXML utilizado -> getClass().getResource("path do fxml");
-     */
-    private void initializeCategory(URL resource) {
-        try {
-            for (Categoria categoria : categoriaObservable) {
-                addCategoriaGraphicInstance(resource, categoria);
-            }
-
-        } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    /*
-    Adiciona a tela o FXMLLoader de uma instancia da classe Categoria.
-    Deve receber como parametro o arquivo fxml que será utilizado e um objeto categoria a ser adicionado;
-     */
-    private void addCategoriaGraphicInstance(URL resource, Categoria categoria) throws IOException, ClassNotFoundException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(resource);
-        AnchorPane anchorPane = loader.load();
-        ComponentCategoryContainerController categoryContainerController = loader.getController();
-        categoryContainerController.setCategoryInfoIntoContainer(categoria);
-        categoriasContainer.getChildren().add(anchorPane);
     }
 
 

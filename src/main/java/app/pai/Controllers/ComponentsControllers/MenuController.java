@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ComponentMenuController implements Initializable {
+public class MenuController implements Initializable {
 
     @FXML
     Button inicioBtn;
