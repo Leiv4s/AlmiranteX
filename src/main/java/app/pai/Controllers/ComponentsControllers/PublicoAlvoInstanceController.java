@@ -27,5 +27,6 @@ public class PublicoAlvoInstanceController {
     public void deleteBtnOnClick(){
         StringProperty publicoAlvoRemovido = new SimpleStringProperty(targetPublicTextfield.getText());
         ModelPublicoAlvo.deletePublicoAlvo(publicoAlvoRemovido);
+        
     }
 }

@@ -153,6 +153,7 @@ public class ViewFactory  {
         try {
             for (ModelCategoria modelCategoria : ModelCategoria.getListaModelCategorias()) {
                 Model.getInstance().getViewFactory().addCategoriaView(resource, modelCategoria, categoriaContainer);
+
             }
         }
         catch (IOException | ClassNotFoundException e) {
