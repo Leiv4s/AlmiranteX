@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.ComponentWindow">
+<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.WindowController">
 
     <top>
         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" styleClass="topBarContainer" stylesheets="@Styles/ComponentTopBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
@@ -33,7 +33,7 @@
          <children>
               <VBox layoutX="39.0" layoutY="21.0" prefHeight="306.0" prefWidth="422.0" spacing="20.0">
                   <children>
-                      <Label id="loginLabel" prefHeight="99.0" prefWidth="426.0" text="Você tem certeza que quer excluir a categoria Abaixo?" textAlignment="CENTER" textFill="#e74f18" wrapText="true">
+                      <Label id="loginLabel" prefHeight="99.0" prefWidth="426.0" text="Você tem certeza que quer excluir a modelCategoria Abaixo?" textAlignment="CENTER" textFill="#e74f18" wrapText="true">
                           <font>
                               <Font name="Liberation Mono" size="24.0" />
                           </font>

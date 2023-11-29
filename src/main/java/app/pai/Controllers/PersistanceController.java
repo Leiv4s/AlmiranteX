@@ -1,7 +1,6 @@
 package app.pai.Controllers;
 
-import app.pai.models.Categoria;
-import javafx.collections.FXCollections;
+import app.pai.models.ModelCategoria;
 import javafx.collections.ObservableList;
 
 import java.io.*;
@@ -12,20 +11,22 @@ import java.util.List;
 // a lógica de persistencia dos dados manipulados pelo usuário.
 public class PersistanceController implements Serializable {
 
+
+
     //cria um binário de um objeto, salvando seu atual estado;
-    public void saveData(ObservableList<Categoria> observableList) throws IOException {
+    public void serialize(ObservableList<ModelCategoria> observableList) throws IOException {
         FileOutputStream fileOut = new FileOutputStream("Data.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
-        out.writeObject(new ArrayList<Categoria>(observableList));
+        out.writeObject(new ArrayList<ModelCategoria>(observableList));
         out.close();
         fileOut.close();
     }
 
     //recupera um objeto com base em um binary code criado na function saveData()
-    public List<Categoria> loadData() throws IOException, ClassNotFoundException {
+    public List<ModelCategoria> desserialize() throws IOException, ClassNotFoundException {
         FileInputStream fileInput = new FileInputStream("Data.ser");
         ObjectInputStream objectInput = new ObjectInputStream(fileInput);
-        return (List<Categoria>) objectInput.readObject();
+        return (List<ModelCategoria>) objectInput.readObject();
         
     }
 }

@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.ComponentWindow">
+<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.WindowController">
 
     <top>
         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" styleClass="topBarContainer" stylesheets="@Styles/ComponentTopBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
@@ -35,7 +35,7 @@
          <children>
               <VBox layoutX="100.0" layoutY="37.0" prefHeight="262.0" prefWidth="300.0">
                   <children>
-                      <Label id="loginLabel" prefHeight="38.0" prefWidth="300.0" text="Digite o nome da categoria:" textFill="#e74f18">
+                      <Label id="loginLabel" prefHeight="38.0" prefWidth="300.0" text="Digite o nome da modelCategoria:" textFill="#e74f18">
                           <font>
                               <Font name="Liberation Mono" size="18.0" />
                           </font>

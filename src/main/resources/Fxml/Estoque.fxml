@@ -47,7 +47,7 @@
                         <Font size="20.0" />
                      </font>
                   </TextField>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Por categoria:" wrappingWidth="133.9873046875">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Por modelCategoria:" wrappingWidth="133.9873046875">
                      <font>
                         <Font size="22.0" />
                      </font>
