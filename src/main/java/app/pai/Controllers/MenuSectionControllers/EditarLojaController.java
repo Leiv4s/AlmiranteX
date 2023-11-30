@@ -1,7 +1,6 @@
 package app.pai.Controllers.MenuSectionControllers;
 
 import app.pai.Controllers.PersistanceController;
-import app.pai.Controllers.UserController;
 import app.pai.models.Model;
 import app.pai.models.ModelCategoria;
 import app.pai.models.ModelPublicoAlvo;
@@ -78,7 +77,7 @@ public class EditarLojaController extends PersistanceController implements Initi
 
     //abre a janela Criar Publico Alvo
     public void criarPublicoAlvoOnClick(ActionEvent event) throws IOException {
-        Model.getInstance().getViewFactory().getShadowPaneController().ableFogPane();
+        Model.getInstance().getViewFactory().getFogPaneController().ableFogPane();
         Model.getInstance().getViewFactory().loadDialogView(getCriarPublicoAlvoFXML());
     }
 

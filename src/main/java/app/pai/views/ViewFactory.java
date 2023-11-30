@@ -7,14 +7,8 @@ import app.pai.Controllers.UserController;
 import app.pai.models.Model;
 import app.pai.models.ModelCategoria;
 import app.pai.models.ModelPublicoAlvo;
-import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.collections.ArrayChangeListener;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
@@ -26,7 +20,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 
 public class ViewFactory  {
 
@@ -92,7 +85,7 @@ public class ViewFactory  {
     }
 
 
-    public UserController getShadowPaneController() {
+    public UserController getFogPaneController() {
         return shadowPaneController;
     }
 

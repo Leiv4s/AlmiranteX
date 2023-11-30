@@ -14,7 +14,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <DialogPane prefHeight="348.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.DialogViewsControllers.PublicoAlvoViews.CriarPublicoAlvoController">
    <content>
       <AnchorPane prefHeight="352.0" prefWidth="510.0">
@@ -49,7 +48,7 @@
                               <Insets top="20.0" />
                           </VBox.margin>
                       </Label>
-                      <Button id="loginButton" fx:id="criarBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="322.0" stylesheets="@../../Styles/Login.css" text="Criar" textAlignment="CENTER" textFill="WHITE">
+                      <Button id="loginButton" fx:id="criarBtn" mnemonicParsing="false" onAction="#criarBtnOnClick" prefHeight="34.0" prefWidth="322.0" stylesheets="@../../Styles/Login.css" text="Criar" textAlignment="CENTER" textFill="WHITE">
                           <VBox.margin>
                               <Insets top="20.0" />
                           </VBox.margin>
