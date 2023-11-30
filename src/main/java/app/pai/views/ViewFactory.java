@@ -2,20 +2,31 @@ package app.pai.views;
 
 import app.pai.Controllers.ComponentsControllers.CategoryInstanceController;
 import app.pai.Controllers.ComponentsControllers.PublicoAlvoInstanceController;
+import app.pai.Controllers.DialogViewsControllers.PublicoAlvoViews.CriarPublicoAlvoController;
 import app.pai.Controllers.UserController;
 import app.pai.models.Model;
 import app.pai.models.ModelCategoria;
 import app.pai.models.ModelPublicoAlvo;
+import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.collections.ArrayChangeListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class ViewFactory  {
 
@@ -32,6 +43,7 @@ public class ViewFactory  {
     private AnchorPane vendasView;
     private AnchorPane relatoriosView;
     private AnchorPane editarLojaView;
+    private static  UserController shadowPaneController;
     private final StringProperty menuSelected;
     public ViewFactory(){
         this.menuSelected = new SimpleStringProperty("");
@@ -74,10 +86,15 @@ public class ViewFactory  {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/User.fxml"));
         UserController userController = new UserController();
         loader.setController(userController);
+        shadowPaneController = loader.getController();
         createStage(loader);
+
     }
 
 
+    public UserController getShadowPaneController() {
+        return shadowPaneController;
+    }
 
     // SESSÃO DE FUNÇÕES QUE CARREGAM AS VIEWS DAS PAGINAS A SEREM CARREGADAS PELO USERCONTROLLER.
     public AnchorPane getInicioView(){
@@ -137,7 +154,8 @@ public class ViewFactory  {
         //                      FUNÇÕES DA PAGINA EDITARLOJA
         /*
         Adiciona a tela o FXMLLoader de uma instancia da classe ModelCategoria.
-        Deve receber como parametro o arquivo fxml que será utilizado e um objeto modelCategoria a ser adicionado;
+        Deve receber como parametro o arquivo fxml que será utilizado e um objeto
+        modelCategoria a ser adicionado;
         */
 
     public void addCategoriaView(URL resource, ModelCategoria modelCategoria, VBox categoriasContainer) throws IOException, ClassNotFoundException {
@@ -183,6 +201,19 @@ public class ViewFactory  {
     }
 
 
+
+    //                  FUNÇÕES DIALOG VIEWS
+
+    public void loadDialogView(URL linkArquivoFXML) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(linkArquivoFXML);
+        DialogPane dialogPane = loader.load();
+        CriarPublicoAlvoController publicoAlvoController = loader.getController();
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setDialogPane(dialogPane);
+        dialog.show();
+        System.out.println(dialog);
+    }
 }
 
 
