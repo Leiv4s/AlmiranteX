@@ -13,10 +13,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.WindowController">
+<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.DialogViewsControllers.CategoriaViews.RemoveCategoriaController">
 
     <top>
-        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" styleClass="topBarContainer" stylesheets="@Styles/ComponentTopBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" styleClass="topBarContainer" stylesheets="@../../Styles/ComponentTopBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
             <children>
                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Excluir Categoria" textAlignment="CENTER">
                     <font>
@@ -63,7 +63,7 @@
                       </Label>
                   <HBox spacing="20.0">
                      <children>
-                            <Button id="deleteBtn" fx:id="loginButton" mnemonicParsing="false" prefHeight="37.0" prefWidth="174.0" stylesheets="@Styles/DialogPane.css" text="Excluir" textAlignment="CENTER" textFill="WHITE">
+                            <Button id="deleteBtn" fx:id="loginButton" mnemonicParsing="false" prefHeight="37.0" prefWidth="174.0" stylesheets="@../../Styles/DialogPane.css" text="Excluir" textAlignment="CENTER" textFill="WHITE">
                                 <font>
                                     <Font name="Liberation Mono" size="18.0" />
                                 </font>
@@ -78,7 +78,7 @@
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                        <Button id="cancelBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="322.0" stylesheets="@Styles/DialogPane.css" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
+                        <Button id="cancelBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="322.0" stylesheets="@../../Styles/DialogPane.css" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Liberation Mono" size="18.0" />
                            </font>

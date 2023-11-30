@@ -11,16 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="modelCategoria" prefHeight="66.0" prefWidth="1000.0" style="-fx-background-color: #d8eaff;" stylesheets="@Styles/ComponentCategoryContainer.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.CategoryInstanceController">
+<AnchorPane id="modelCategoria" prefHeight="66.0" prefWidth="500.0" style="-fx-background-color: #d8eaff;" stylesheets="@../Styles/ComponentCategoryContainer.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.PublicoAlvoInstanceController">
    <children>
-      <HBox alignment="CENTER_LEFT" layoutX="44.0" prefHeight="66.0" prefWidth="629.0">
+      <HBox alignment="CENTER_LEFT" layoutX="19.0" prefHeight="66.0" prefWidth="236.0">
          <children>
-            <Text fx:id="nameCategory" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria" wrappingWidth="290.00001525878906">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text fx:id="targetPublicCategory" strokeType="OUTSIDE" strokeWidth="0.0" text="Publico" wrappingWidth="200.0">
+            <Text fx:id="targetPublicTextfield" strokeType="OUTSIDE" strokeWidth="0.0" text="Publico" wrappingWidth="221.5999755859375">
                <font>
                   <Font size="20.0" />
                </font>
@@ -28,16 +23,11 @@
                   <Insets />
                </HBox.margin>
             </Text>
-            <Text fx:id="targetPublicCategory1" strokeType="OUTSIDE" strokeWidth="0.0" text="Genero" wrappingWidth="156.0">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="760.0" layoutY="12.0" prefHeight="42.0" prefWidth="200.0" spacing="20.0">
+      <HBox alignment="CENTER_LEFT" layoutX="281.0" layoutY="12.0" prefHeight="42.0" prefWidth="200.0" spacing="20.0">
          <children>
-            <Button fx:id="editarBtn" mnemonicParsing="false" prefHeight="42.0" prefWidth="100.0" style="-fx-background-color: orange;" text="Editar " textFill="WHITE">
+            <Button fx:id="publicEditarBtn" mnemonicParsing="false" prefHeight="42.0" prefWidth="100.0" style="-fx-background-color: orange;" text="Editar " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -48,7 +38,7 @@
                   <DropShadow height="10.0" radius="3.25" width="5.0" />
                </effect>
             </Button>
-            <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deleteCategoria" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red;" text="Excluir" textFill="WHITE">
+            <Button fx:id="publicDeleteBtn" mnemonicParsing="false" onAction="#deleteBtnOnClick" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: red;" text="Excluir" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

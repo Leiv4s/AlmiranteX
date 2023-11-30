@@ -14,7 +14,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="292.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.MenuController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="611.0" prefWidth="242.0" style="-fx-background-color: white;" stylesheets="@Styles/ComponentMenu.css">
+      <VBox alignment="TOP_CENTER" prefHeight="611.0" prefWidth="242.0" style="-fx-background-color: white;" stylesheets="@../Styles/ComponentMenu.css">
          <VBox.margin>
             <Insets left="25.0" right="25.0" top="8.0" />
          </VBox.margin>
@@ -28,7 +28,7 @@
          <children>
             <ImageView fitHeight="171.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" styleClass="logoImage">
                <image>
-                  <Image url="@Images/loginIcon.png" />
+                  <Image url="@../Images/loginIcon.png" />
                </image>
                <effect>
                   <DropShadow>
@@ -55,7 +55,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Text>
-            <Button fx:id="inicioBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Início">
+            <Button fx:id="inicioBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@../Styles/ComponentMenu.css" text=" Início">
                <graphic>
                   <FontAwesomeIconView glyphName="HOME" styleClass="iconMenu">
                      <font>
@@ -63,22 +63,22 @@
                      </font></FontAwesomeIconView>
                </graphic>
             </Button>
-            <Button fx:id="vendasBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Vendas">
+            <Button fx:id="vendasBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@../Styles/ComponentMenu.css" text=" Vendas">
                <graphic>
                   <FontAwesomeIconView glyphName="MONEY" styleClass="iconMenu" />
                </graphic>
             </Button>
-            <Button fx:id="estoqueBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Estoque">
+            <Button fx:id="estoqueBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@../Styles/ComponentMenu.css" text=" Estoque">
                <graphic>
                   <FontAwesomeIconView glyphName="ARCHIVE" styleClass="iconMenu" />
                </graphic>
             </Button>
-            <Button fx:id="relatoriosBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Relatórios">
+            <Button fx:id="relatoriosBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@../Styles/ComponentMenu.css" text=" Relatórios">
                <graphic>
                   <FontAwesomeIconView glyphName="BOOK" styleClass="iconMenu" />
                </graphic>
             </Button>
-            <Button fx:id="editarLojaBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@Styles/ComponentMenu.css" text=" Editar Loja">
+            <Button fx:id="editarLojaBtn" mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" stylesheets="@../Styles/ComponentMenu.css" text=" Editar Loja">
                <graphic>
                   <FontAwesomeIconView glyphName="GEAR" styleClass="iconMenu" />
                </graphic>

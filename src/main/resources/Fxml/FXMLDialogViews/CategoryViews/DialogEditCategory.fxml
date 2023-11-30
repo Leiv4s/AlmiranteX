@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.DialogViewsControllers.CategoriaViews.EditarCategoriaController">
+
+    <top>
+        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" styleClass="topBarContainer" stylesheets="@../../Styles/ComponentTopBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+            <children>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Categoria" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Text>
+            </children>
+        </HBox>
+
+    </top>
+
+    <center>
+      <AnchorPane prefHeight="450.0" prefWidth="500.0">
+         <children>
+              <VBox layoutX="100.0" layoutY="37.0" prefHeight="262.0" prefWidth="300.0">
+                  <children>
+                      <Label id="loginLabel" prefHeight="52.0" prefWidth="300.0" text="Digite o nome da Categoria:" textFill="#e74f18">
+                          <font>
+                              <Font name="Liberation Mono" size="18.0" />
+                          </font>
+                      </Label>
+                      <TextField fx:id="usernameField" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: BDD0FB;">
+                          <VBox.margin>
+                              <Insets top="8.0" />
+                          </VBox.margin>
+                          <effect>
+                              <DropShadow height="5.0" offsetY="3.0" radius="0.75" width="0.0">
+                                  <color>
+                                      <Color red="0.7473683953285217" green="0.7473683953285217" blue="0.7473683953285217" />
+                                  </color>
+                              </DropShadow>
+                          </effect>
+                          <font>
+                              <Font name="Liberation Mono" size="14.0" />
+                          </font>
+                      </TextField>
+                      <Label prefHeight="64.0" prefWidth="300.0" text="Defina o Publico Alvo:" textFill="#e74f18">
+                          <padding>
+                              <Insets top="40.0" />
+                          </padding>
+                          <font>
+                              <Font name="Liberation Mono" size="18.0" />
+                          </font>
+                      </Label>
+                  <ChoiceBox prefHeight="30.0" prefWidth="300.0" />
+                  <Label prefHeight="64.0" prefWidth="300.0" text="Defina o Gênero:" textFill="#e74f18">
+                     <padding>
+                        <Insets top="40.0" />
+                     </padding>
+                     <font>
+                        <Font name="Liberation Mono" size="18.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox prefHeight="30.0" prefWidth="300.0" />
+                      <Button id="loginButton" fx:id="loginButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="322.0" stylesheets="@../../Styles/Login.css" text="Atualizar" textAlignment="CENTER" textFill="WHITE">
+                          <VBox.margin>
+                              <Insets top="40.0" />
+                          </VBox.margin>
+                          <font>
+                              <Font name="Liberation Mono" size="18.0" />
+                          </font>
+                          <effect>
+                              <DropShadow height="2.5" offsetY="3.0" radius="0.125" width="0.0">
+                                  <color>
+                                      <Color red="0.7490196228027344" green="0.7490196228027344" blue="0.7490196228027344" />
+                                  </color>
+                              </DropShadow>
+                          </effect>
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                      </Button>
+                      <Label fx:id="labelMessage" alignment="CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="300.0" textAlignment="CENTER" textFill="#cc0000">
+                          <font>
+                              <Font name="System Bold" size="14.0" />
+                          </font>
+                          <VBox.margin>
+                              <Insets top="20.0" />
+                          </VBox.margin>
+                      </Label>
+                  </children>
+              </VBox>
+         </children>
+      </AnchorPane>
+    </center>
+</BorderPane>

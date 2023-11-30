@@ -41,8 +41,8 @@ public class EditarLojaController extends PersistanceController implements Initi
 
 
 
-    URL categoriaFXML = getClass().getResource("/FXML/ComponentCategoryInstance.fxml");
-    URL publicoAlvoFXML = getClass().getResource("/FXML/ComponentPublicoAlvoInstance.fxml");
+    URL categoriaFXML = getClass().getResource("/FXML/FXMLComponents/ComponentCategoryInstance.fxml");
+    URL publicoAlvoFXML = getClass().getResource("/FXML/FXMLComponents/ComponentPublicoAlvoInstance.fxml");
 
     ListChangeListener<StringProperty> listenerPublicoAlvo = c -> {
 
@@ -70,6 +70,9 @@ public class EditarLojaController extends PersistanceController implements Initi
 
         ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("alá"));
         ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("blé"));
+        ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("dló"));
+        ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("dló"));
+        ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("dló"));
         ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("dló"));
         ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("dló"));
         System.out.println(listaPublicoAlvoObservable);

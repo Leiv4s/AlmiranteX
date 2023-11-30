@@ -83,7 +83,7 @@ public class ViewFactory  {
     public AnchorPane getInicioView(){
             if (inicioView == null) {
                 try {
-                    inicioView = new FXMLLoader(getClass().getResource("/FXML/Inicio.fxml")).load();
+                    inicioView = new FXMLLoader(getClass().getResource("/Fxml/FXMLSections/Inicio.fxml")).load();
                 } catch (Exception e){
                     e.printStackTrace();
                 }
@@ -93,7 +93,7 @@ public class ViewFactory  {
     public AnchorPane getVendasView() {
             if (vendasView == null) {
                 try {
-                    vendasView = new FXMLLoader(getClass().getResource("/FXML/Vendas.fxml")).load();
+                    vendasView = new FXMLLoader(getClass().getResource("/Fxml/FXMLSections/Vendas.fxml")).load();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -103,7 +103,7 @@ public class ViewFactory  {
     public AnchorPane getEstoqueView(){
             if (estoqueView == null) {
                 try {
-                    estoqueView = new FXMLLoader(getClass().getResource("/FXML/Estoque.fxml")).load();
+                    estoqueView = new FXMLLoader(getClass().getResource("/Fxml/FXMLSections/Estoque.fxml")).load();
                 } catch (Exception e){
                     e.printStackTrace();
                 }
@@ -113,7 +113,7 @@ public class ViewFactory  {
     public AnchorPane getRelatoriosView() {
             if (relatoriosView == null){
                 try {
-                    relatoriosView = new FXMLLoader(getClass().getResource("/FXML/Relatorios.fxml")).load();
+                    relatoriosView = new FXMLLoader(getClass().getResource("/Fxml/FXMLSections/Relatorios.fxml")).load();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -123,7 +123,7 @@ public class ViewFactory  {
     public AnchorPane getEditarLojaView() {
             if (editarLojaView == null) {
                 try {
-                    editarLojaView = new FXMLLoader(getClass().getResource("/FXML/EditarLoja.fxml")).load();
+                    editarLojaView = new FXMLLoader(getClass().getResource("/Fxml/FXMLSections/EditarLoja.fxml")).load();
                 } catch (Exception e){
                     e.printStackTrace();
                 }
