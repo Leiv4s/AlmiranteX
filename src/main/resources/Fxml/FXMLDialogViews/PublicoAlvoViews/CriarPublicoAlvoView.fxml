@@ -48,24 +48,40 @@
                               <Insets top="20.0" />
                           </VBox.margin>
                       </Label>
-                      <Button id="loginButton" fx:id="criarBtn" mnemonicParsing="false" onAction="#criarBtnOnClick" prefHeight="34.0" prefWidth="322.0" stylesheets="@../../Styles/Login.css" text="Criar" textAlignment="CENTER" textFill="WHITE">
-                          <VBox.margin>
-                              <Insets top="20.0" />
-                          </VBox.margin>
-                          <font>
+                  <HBox spacing="30.0">
+                     <children>
+                            <Button id="loginButton" fx:id="criarBtn" mnemonicParsing="false" onAction="#criarBtnOnClick" prefHeight="34.0" prefWidth="322.0" stylesheets="@../../Styles/Login.css" text="Criar" textAlignment="CENTER" textFill="WHITE">
+                                <font>
+                                    <Font name="Liberation Mono" size="18.0" />
+                                </font>
+                                <effect>
+                                    <DropShadow height="2.5" offsetY="3.0" radius="0.125" width="0.0">
+                                        <color>
+                                            <Color red="0.7490196228027344" green="0.7490196228027344" blue="0.7490196228027344" />
+                                        </color>
+                                    </DropShadow>
+                                </effect>
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Button>
+                        <Button id="deleteBtn" fx:id="deleteBtn" mnemonicParsing="false" onAction="#cancelarBtnOnClick" prefHeight="34.0" prefWidth="322.0" stylesheets="@../../Styles/Login.css" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
+                           <font>
                               <Font name="Liberation Mono" size="18.0" />
-                          </font>
-                          <effect>
+                           </font>
+                           <effect>
                               <DropShadow height="2.5" offsetY="3.0" radius="0.125" width="0.0">
-                                  <color>
-                                      <Color red="0.7490196228027344" green="0.7490196228027344" blue="0.7490196228027344" />
-                                  </color>
+                                 <color>
+                                    <Color red="0.7490196228027344" green="0.7490196228027344" blue="0.7490196228027344" />
+                                 </color>
                               </DropShadow>
-                          </effect>
-                          <cursor>
+                           </effect>
+                           <cursor>
                               <Cursor fx:constant="HAND" />
-                          </cursor>
-                      </Button>
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
                   </children>
               </VBox>
          </children>

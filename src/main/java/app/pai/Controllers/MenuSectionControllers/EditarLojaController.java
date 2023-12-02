@@ -1,5 +1,6 @@
 package app.pai.Controllers.MenuSectionControllers;
 
+import app.pai.Controllers.DialogViewsControllers.PublicoAlvoViews.CriarPublicoAlvoController;
 import app.pai.Controllers.PersistanceController;
 import app.pai.models.Model;
 import app.pai.models.ModelCategoria;
@@ -18,6 +19,8 @@ import javafx.scene.layout.VBox;
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static app.pai.models.Model.getInstance;
 
 public class EditarLojaController extends PersistanceController implements Initializable, Serializable {
 
@@ -49,7 +52,7 @@ public class EditarLojaController extends PersistanceController implements Initi
     ListChangeListener<StringProperty> listenerPublicoAlvo = c -> {
         try {
             publicoAlvoContainer.getChildren().clear();
-            Model.getInstance().getViewFactory().publicoAlvoViewInitializer(publicoAlvoÏnstanceFXML,publicoAlvoContainer);
+            getInstance().getViewFactory().publicoAlvoViewInitializer(publicoAlvoÏnstanceFXML,publicoAlvoContainer);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -62,25 +65,29 @@ public class EditarLojaController extends PersistanceController implements Initi
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        listaPublicoAlvoObservable = null;
-        listaPublicoAlvoObservable = ModelPublicoAlvo.getListaModelPublicoAlvo();
-        listaPublicoAlvoObservable.addListener(listenerPublicoAlvo);
-        ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("alá"));
-        ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("blé"));
-        ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("dló"));
-        ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("dló"));
+        InitializeLoadedInstances(listaPublicoAlvoObservable, listenerPublicoAlvo);
+
+        ModelPublicoAlvo modelPublicoAlvo = new ModelPublicoAlvo();
+        modelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("alá"));
+        modelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("blé"));
+        modelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("dló"));
+        modelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("dló"));
         System.out.println(getCriarPublicoAlvoFXML());
     }
 
-
-
-
-    //abre a janela Criar Publico Alvo
-    public void criarPublicoAlvoOnClick(ActionEvent event) throws IOException {
-        Model.getInstance().getViewFactory().getFogPaneController().ableFogPane();
-        Model.getInstance().getViewFactory().loadDialogView(getCriarPublicoAlvoFXML());
+    //carrega as instancias recuperadas da memória ao iniciar o programa
+    private void InitializeLoadedInstances(ObservableList<StringProperty> ObservableList, ListChangeListener<StringProperty> listener) {
+        ObservableList = null;
+        ObservableList = ModelPublicoAlvo.getListaModelPublicoAlvo();
+        ObservableList.addListener(listener);
     }
 
+
+    public void criarPublicoAlvoBtnOnClick() throws IOException {
+        getInstance().getViewFactory().getFogPaneController().ableFogPane();
+        Model.getInstance().getViewFactory().loadDialogView(getCriarPublicoAlvoFXML());
+
+    }
 
 }
 

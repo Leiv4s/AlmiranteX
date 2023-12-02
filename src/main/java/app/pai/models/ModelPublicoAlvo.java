@@ -5,7 +5,6 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
 
 public class ModelPublicoAlvo {
 
@@ -14,13 +13,11 @@ public class ModelPublicoAlvo {
 
 
     // Constructor
+
     public ModelPublicoAlvo(String nomePublicoAlvo) {
         this.nomePublicoAlvo = new SimpleStringProperty(nomePublicoAlvo);
-
     }
-
-
-
+    public ModelPublicoAlvo(){}
 
     //getters
     public static ObservableList<StringProperty> getListaModelPublicoAlvo(){
@@ -28,32 +25,46 @@ public class ModelPublicoAlvo {
     }
 
 
+
+    //                                  OPERAÇÕES CRUD
+
+
+                                //Auxiliar operation variables
+                                    String parametroPassado;
+                                    String queSeraRemovido;
+
+
     //CRUD - CREATE
-    static public void createPublicoAlvo(StringProperty nomePublicoAlvo){
+    public void createPublicoAlvo(StringProperty nomePublicoAlvo){
         listaModelPublicoAlvo.add(nomePublicoAlvo);
     }
 
 
     //CRUD - DELETE
-    static public void deletePublicoAlvo(StringProperty publicoAlvoRemovido){
+    public void deletePublicoAlvo(StringProperty publicoAlvoRemovido){
 
         for(int i = 0 ; i<listaModelPublicoAlvo.size() ; i++){
-            queSeraRemovida = publicoAlvoRemovido.getValue();
-            contemNaLista = listaModelPublicoAlvo.get(i).getValue();
+            queSeraRemovido = publicoAlvoRemovido.getValue();
+            parametroPassado = listaModelPublicoAlvo.get(i).getValue();
 
-            if (queSeraRemovida == contemNaLista){
+            if (queSeraRemovido == parametroPassado){
                 listaModelPublicoAlvo.remove(i);
             }
         }
-        System.out.println(listaModelPublicoAlvo);
     }
 
 
-        //delete function variables
-        static String contemNaLista;
-        static String queSeraRemovida;
-        static int count;
+    //CRUD - UPDATE
+    public void updatePublicoAlvo (StringProperty oldPublicoAlvo, StringProperty updatedPublicoAlvo){
+        for(int i = 0 ; i<listaModelPublicoAlvo.size() ; i++){
+            queSeraRemovido = oldPublicoAlvo.getValue();
+            parametroPassado = listaModelPublicoAlvo.get(i).getValue();
+            if (queSeraRemovido == parametroPassado){
+                listaModelPublicoAlvo.set(i, updatedPublicoAlvo);
+            }
+        }
 
+    }
 }
 
 

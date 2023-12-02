@@ -36,7 +36,6 @@ public class ViewFactory  {
     private AnchorPane vendasView;
     private AnchorPane relatoriosView;
     private AnchorPane editarLojaView;
-    private static  UserController shadowPaneController;
     private final StringProperty menuSelected;
     public ViewFactory(){
         this.menuSelected = new SimpleStringProperty("");
@@ -74,6 +73,7 @@ public class ViewFactory  {
         createStage(loader);
     }
 
+
     //this function loads the User initial screen.
     public void showUserWindow(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/User.fxml"));
@@ -85,6 +85,8 @@ public class ViewFactory  {
     }
 
 
+    // Fog controlers
+    private UserController shadowPaneController;
     public UserController getFogPaneController() {
         return shadowPaneController;
     }
@@ -197,16 +199,24 @@ public class ViewFactory  {
 
     //                  FUNÇÕES DIALOG VIEWS
 
+    static private Dialog<ButtonType> dialogInstance = new Dialog<>();
+
+
+    public void openWindowView(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Fxml/FXMLDialogViews/PublicoAlvoViews/CriarPublicoAlvoView.fxml"));
+        createStage(loader);
+    }
+
     public void loadDialogView(URL linkArquivoFXML) throws IOException {
         FXMLLoader loader = new FXMLLoader();
+        System.out.println(linkArquivoFXML);
         loader.setLocation(linkArquivoFXML);
         DialogPane dialogPane = loader.load();
-        CriarPublicoAlvoController publicoAlvoController = loader.getController();
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setDialogPane(dialogPane);
-        dialog.show();
-        System.out.println(dialog);
+        dialogInstance.setDialogPane(dialogPane);
+        dialogInstance.show();
     }
+
+
 }
 
 

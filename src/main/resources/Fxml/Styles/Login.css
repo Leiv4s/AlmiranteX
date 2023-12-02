@@ -10,3 +10,10 @@
 .logo:hover {
     -fx-effect: dropshadow(three-pass-box, #fff, 3, 0.0, 0, 0);
 }
+
+#deleteBtn {
+    -fx-background-color: #ad0000;
+}
+#deleteBtn:hover {
+    -fx-background-color: rgb(255, 0, 0);
+}

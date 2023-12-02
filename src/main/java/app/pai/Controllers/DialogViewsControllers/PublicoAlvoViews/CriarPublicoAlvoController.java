@@ -4,9 +4,8 @@ import app.pai.models.Model;
 import app.pai.models.ModelPublicoAlvo;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 public class CriarPublicoAlvoController {
 
@@ -18,17 +17,39 @@ public class CriarPublicoAlvoController {
 
     @FXML
     private TextField publicoAlvoTextfield;
+    @FXML
+    private Button cancelarBtn;
+
 
     public CriarPublicoAlvoController() {
     }
 
+
+
+
+
+
+    public void criarBtnOnClick(){
+        ModelPublicoAlvo modelPublicoAlvo = new ModelPublicoAlvo();
+        modelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty(getPublicoAlvoInserido()));
+    }
     public String getPublicoAlvoInserido() {
         return publicoAlvoTextfield.getText();
     }
 
-    public void criarBtnOnClick(){
-        ModelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty(getPublicoAlvoInserido()));
+
+    public void cancelarBtnOnClick() {
+        Stage stage = (Stage)labelMessage.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().getFogPaneController().disableFogPane();
     }
+
+    public void editarBtnOnClick(){
+        Stage stage = (Stage)labelMessage.getScene().getWindow();
+
+    }
+
+
 
 
 }
