@@ -5,6 +5,7 @@ import app.pai.Controllers.DialogViewsControllers.PublicoAlvoViews.EditarPublico
 import app.pai.Controllers.DialogViewsControllers.PublicoAlvoViews.ExcluirPublicoAlvoController;
 import app.pai.models.Model;
 import app.pai.models.ModelPublicoAlvo;
+import app.pai.models.ModelURL;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
@@ -22,21 +23,12 @@ public class PublicoAlvoInstanceController implements Initializable {
     private Button DeleteBtn;
     @FXML
     private Text targetPublicTextfield;
+    private ModelURL modelURL = new ModelURL();
 
-
-    private final URL updateWindowFXML = getClass().getResource("/Fxml/FXMLDialogViews/PublicoAlvoViews/UpdatePublicoAlvoView.fxml");
-    private final URL removeWindowFXML = getClass().getResource("/Fxml/FXMLDialogViews/PublicoAlvoViews/RemovePublicoAlvoView.fxml");
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    }
-
-    public URL getUpdateWindowFXML() {
-        return updateWindowFXML;
-    }
-    public URL getRemoveWindowFXML() {
-        return removeWindowFXML;
     }
 
     public void setPublicoAlvoInfoIntoContainer(StringProperty publicoAlvo){
@@ -50,7 +42,7 @@ public class PublicoAlvoInstanceController implements Initializable {
 
     public void deleteBtnOnClick() throws IOException {
         Model.getInstance().getViewFactory().getFogPaneController().ableFogPane();
-        FXMLLoader loader = Model.getInstance().getViewFactory().loadDialogView(getRemoveWindowFXML());
+        FXMLLoader loader = Model.getInstance().getViewFactory().loadDialogView(modelURL.getExcluirPublicoAlvoFXML());
         ExcluirPublicoAlvoController excluirPublicoAlvoController = loader.getController();
         excluirPublicoAlvoController.setPublicoAlvoParaRemocao(targetPublicTextfield.getText());
         excluirPublicoAlvoController.setPublicoAlvoTextfield(targetPublicTextfield.getText());
@@ -61,7 +53,7 @@ public class PublicoAlvoInstanceController implements Initializable {
     public void editarBtnOnClick() throws IOException {
         String oldPublicoAlvo = targetPublicTextfield.getText();
         Model.getInstance().getViewFactory().getFogPaneController().ableFogPane();
-        FXMLLoader loader = Model.getInstance().getViewFactory().loadDialogView(getUpdateWindowFXML());
+        FXMLLoader loader = Model.getInstance().getViewFactory().loadDialogView(modelURL.getEditarPublicoAlvoFXML());
         EditarPublicoAlvoController editarPublicoAlvoController =  loader.getController();
         editarPublicoAlvoController.setOldPublicoAlvo(oldPublicoAlvo);
     }

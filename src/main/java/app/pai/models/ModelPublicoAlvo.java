@@ -35,7 +35,7 @@ public class ModelPublicoAlvo {
 
 
     //CRUD - CREATE
-    public void createPublicoAlvo(StringProperty nomePublicoAlvo){
+    public void createNewPublicoAlvoInstance(StringProperty nomePublicoAlvo){
         listaModelPublicoAlvo.add(nomePublicoAlvo);
     }
 

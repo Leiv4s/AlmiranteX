@@ -31,7 +31,8 @@ public class CriarPublicoAlvoController {
 
     public void criarBtnOnClick(){
         ModelPublicoAlvo modelPublicoAlvo = new ModelPublicoAlvo();
-        modelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty(getPublicoAlvoInserido()));
+        modelPublicoAlvo.createNewPublicoAlvoInstance(new SimpleStringProperty(getPublicoAlvoInserido()));
+        cancelarBtnOnClick();
     }
     public String getPublicoAlvoInserido() {
         return publicoAlvoTextfield.getText();
