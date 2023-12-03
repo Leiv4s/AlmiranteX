@@ -2,6 +2,7 @@ package app.pai.Controllers.ComponentsControllers;
 
 
 import app.pai.Controllers.DialogViewsControllers.PublicoAlvoViews.EditarPublicoAlvoController;
+import app.pai.Controllers.DialogViewsControllers.PublicoAlvoViews.ExcluirPublicoAlvoController;
 import app.pai.models.Model;
 import app.pai.models.ModelPublicoAlvo;
 import javafx.beans.property.SimpleStringProperty;
@@ -24,7 +25,7 @@ public class PublicoAlvoInstanceController implements Initializable {
 
 
     private final URL updateWindowFXML = getClass().getResource("/Fxml/FXMLDialogViews/PublicoAlvoViews/UpdatePublicoAlvoView.fxml");
-    private final URL removeWindowFXML = getClass().getResource("Fxml/FXMLDialogViews/PublicoAlvoViews/RemovePublicoAlvoView.fxml");
+    private final URL removeWindowFXML = getClass().getResource("/Fxml/FXMLDialogViews/PublicoAlvoViews/RemovePublicoAlvoView.fxml");
 
 
     @Override
@@ -47,11 +48,15 @@ public class PublicoAlvoInstanceController implements Initializable {
     // o resto do codigo esta funcionando
 
 
-    public void deleteBtnOnClick(){
-        StringProperty publicoAlvoRemovido = new SimpleStringProperty(targetPublicTextfield.getText());
-        ModelPublicoAlvo modelPublicoAlvo = new ModelPublicoAlvo();
-        modelPublicoAlvo.deletePublicoAlvo(publicoAlvoRemovido);
+    public void deleteBtnOnClick() throws IOException {
+        Model.getInstance().getViewFactory().getFogPaneController().ableFogPane();
+        FXMLLoader loader = Model.getInstance().getViewFactory().loadDialogView(getRemoveWindowFXML());
+        ExcluirPublicoAlvoController excluirPublicoAlvoController = loader.getController();
+        excluirPublicoAlvoController.setPublicoAlvoParaRemocao(targetPublicTextfield.getText());
+        excluirPublicoAlvoController.setPublicoAlvoTextfield(targetPublicTextfield.getText());
     }
+
+
 
     public void editarBtnOnClick() throws IOException {
         String oldPublicoAlvo = targetPublicTextfield.getText();

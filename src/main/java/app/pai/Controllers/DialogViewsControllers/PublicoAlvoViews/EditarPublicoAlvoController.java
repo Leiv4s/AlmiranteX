@@ -41,5 +41,6 @@ public class EditarPublicoAlvoController {
         StringProperty newData = new SimpleStringProperty(this.publicoAlvoTextfield.getText());
         StringProperty oldData = new SimpleStringProperty(oldPublicoAlvo);
         modelPublicoAlvo.updatePublicoAlvo(oldData, newData);
+        cancelarBtnOnClick();
     }
 }

@@ -13,7 +13,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <DialogPane prefHeight="385.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.DialogViewsControllers.PublicoAlvoViews.ExcluirPublicoAlvoController">
    <content>
       <AnchorPane prefHeight="450.0" prefWidth="500.0">
@@ -25,7 +24,7 @@
                               <Font name="Liberation Mono Bold" size="24.0" />
                           </font>
                       </Label>
-                  <Label fx:id="PublicoAlvoTextfield" alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="424.0" style="-fx-background-color: BDD0FB;" text="Adulto" textAlignment="CENTER">
+                  <Label fx:id="publicoAlvoTextfield" alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="424.0" style="-fx-background-color: BDD0FB;" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -50,7 +49,7 @@
                       </Label>
                   <HBox spacing="20.0">
                      <children>
-                            <Button id="deleteBtn" fx:id="excluirBtn" mnemonicParsing="false" prefHeight="37.0" prefWidth="174.0" stylesheets="@../../Styles/DialogPane.css" text="Excluir" textAlignment="CENTER" textFill="WHITE">
+                            <Button id="deleteBtn" fx:id="excluirBtn" mnemonicParsing="false" onAction="#excluirBtnOnClick" prefHeight="37.0" prefWidth="174.0" stylesheets="@../../Styles/DialogPane.css" text="Excluir" textAlignment="CENTER" textFill="WHITE">
                                 <font>
                                     <Font name="Liberation Mono" size="18.0" />
                                 </font>
@@ -65,7 +64,7 @@
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                        <Button id="cancelBtn" fx:id="cancelarBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="322.0" stylesheets="@../../Styles/DialogPane.css" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
+                        <Button id="cancelBtn" fx:id="cancelarBtn" mnemonicParsing="false" onAction="#cancelarBtnOnClick" prefHeight="34.0" prefWidth="322.0" stylesheets="@../../Styles/DialogPane.css" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Liberation Mono" size="18.0" />
                            </font>
