@@ -49,7 +49,13 @@ public class EditarLojaController extends PersistanceController implements Initi
     URL categoriaFXML = getClass().getResource("/FXML/FXMLComponents/ComponentCategoryInstance.fxml");
     URL publicoAlvoÏnstanceFXML = getClass().getResource("/FXML/FXMLComponents/ComponentPublicoAlvoInstance.fxml");
     URL criarPublicoAlvoFXML = getClass().getResource("/FXML/FXMLDialogViews/PublicoAlvoViews/CriarPublicoAlvoView.fxml");
+    public URL getCriarPublicoAlvoFXML() {
+        return this.criarPublicoAlvoFXML;
+    };
+
+
     ListChangeListener<StringProperty> listenerPublicoAlvo = c -> {
+        System.out.println("percebi");
         try {
             publicoAlvoContainer.getChildren().clear();
             getInstance().getViewFactory().publicoAlvoViewInitializer(publicoAlvoÏnstanceFXML,publicoAlvoContainer);
@@ -58,9 +64,6 @@ public class EditarLojaController extends PersistanceController implements Initi
         }
     };
 
-    public URL getCriarPublicoAlvoFXML() {
-        return this.criarPublicoAlvoFXML;
-    };
 
 
     @Override
@@ -71,7 +74,6 @@ public class EditarLojaController extends PersistanceController implements Initi
         modelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("alá"));
         modelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("blé"));
         modelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("dló"));
-        modelPublicoAlvo.createPublicoAlvo(new SimpleStringProperty("dló"));
         System.out.println(getCriarPublicoAlvoFXML());
     }
 
@@ -80,6 +82,7 @@ public class EditarLojaController extends PersistanceController implements Initi
         ObservableList = null;
         ObservableList = ModelPublicoAlvo.getListaModelPublicoAlvo();
         ObservableList.addListener(listener);
+
     }
 
 

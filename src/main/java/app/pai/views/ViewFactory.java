@@ -17,6 +17,7 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.net.URL;
@@ -175,11 +176,11 @@ public class ViewFactory  {
     }
 
 
-    public void addPublicoAlvoView(URL resource, StringProperty modelPublicoAlvo, VBox publicoAlvoContainer) throws IOException, ClassNotFoundException {
+    public void addPublicoAlvoView(URL resource, StringProperty modelPublicoAlvo, @NotNull VBox publicoAlvoContainer) throws IOException, ClassNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(resource);
         AnchorPane anchorPane = loader.load();
-        PublicoAlvoInstanceController publicoAlvoInstanceController = loader.getController();
+        PublicoAlvoInstanceController publicoAlvoInstanceController= loader.getController();
         publicoAlvoInstanceController.setPublicoAlvoInfoIntoContainer(modelPublicoAlvo);
         publicoAlvoContainer.getChildren().add(anchorPane);
     }
@@ -199,21 +200,15 @@ public class ViewFactory  {
 
     //                  FUNÇÕES DIALOG VIEWS
 
+
     static private Dialog<ButtonType> dialogInstance = new Dialog<>();
-
-
-    public void openWindowView(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Fxml/FXMLDialogViews/PublicoAlvoViews/CriarPublicoAlvoView.fxml"));
-        createStage(loader);
-    }
-
-    public void loadDialogView(URL linkArquivoFXML) throws IOException {
+    public FXMLLoader loadDialogView(URL linkArquivoFXML) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        System.out.println(linkArquivoFXML);
         loader.setLocation(linkArquivoFXML);
         DialogPane dialogPane = loader.load();
         dialogInstance.setDialogPane(dialogPane);
         dialogInstance.show();
+        return loader;
     }
 
 

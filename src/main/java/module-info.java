@@ -3,6 +3,7 @@ module app.pai.paiquemmanda {
     requires javafx.fxml;
     requires de.jensd.fx.glyphs.fontawesome;
     requires de.jensd.fx.glyphs.commons;
+    requires annotations;
 
 
     opens app.pai.Controllers to javafx.fxml;

@@ -42,7 +42,6 @@ public class ModelPublicoAlvo {
 
     //CRUD - DELETE
     public void deletePublicoAlvo(StringProperty publicoAlvoRemovido){
-
         for(int i = 0 ; i<listaModelPublicoAlvo.size() ; i++){
             queSeraRemovido = publicoAlvoRemovido.getValue();
             parametroPassado = listaModelPublicoAlvo.get(i).getValue();
@@ -55,15 +54,20 @@ public class ModelPublicoAlvo {
 
 
     //CRUD - UPDATE
-    public void updatePublicoAlvo (StringProperty oldPublicoAlvo, StringProperty updatedPublicoAlvo){
+    public void updatePublicoAlvo (StringProperty oldData, StringProperty newData){
         for(int i = 0 ; i<listaModelPublicoAlvo.size() ; i++){
-            queSeraRemovido = oldPublicoAlvo.getValue();
-            parametroPassado = listaModelPublicoAlvo.get(i).getValue();
-            if (queSeraRemovido == parametroPassado){
-                listaModelPublicoAlvo.set(i, updatedPublicoAlvo);
+            String instanciasLista = listaModelPublicoAlvo.get(i).getValue();
+
+            if (oldData.getValue() == instanciasLista){
+                System.out.println("ocorreu");
+                System.out.println(listaModelPublicoAlvo.get(i));
+                listaModelPublicoAlvo.get(i).set(newData.getValue());
+                System.out.println(listaModelPublicoAlvo.get(i));
+                System.out.println(listaModelPublicoAlvo);
             }
         }
-
+        listaModelPublicoAlvo.add(new SimpleStringProperty("adicionado pro Listener Ouvir"));
+        listaModelPublicoAlvo.removeLast();
     }
 }
 
