@@ -1,29 +1,40 @@
 package app.pai.models;
 
+import app.pai.Controllers.PersistanceController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.fxml.Initializable;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 
 public class ModelPublicoAlvo {
 
-    private StringProperty nomePublicoAlvo;
+
     static private ObservableList<StringProperty> listaModelPublicoAlvo = FXCollections.observableArrayList();
 
 
     // Constructor
-
-    public ModelPublicoAlvo(String nomePublicoAlvo) {
-        this.nomePublicoAlvo = new SimpleStringProperty(nomePublicoAlvo);
-    }
     public ModelPublicoAlvo(){}
+
 
     //getters
     public static ObservableList<StringProperty> getListaModelPublicoAlvo(){
         return listaModelPublicoAlvo;
     }
 
+    public static void setListaModelPublicoAlvo(ArrayList<String> list){
+        for (String string : list) {
+
+            listaModelPublicoAlvo.add(new SimpleStringProperty(string));
+        }
+    }
 
 
     //                                  OPERAÇÕES CRUD

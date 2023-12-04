@@ -15,6 +15,8 @@ import javafx.scene.layout.VBox;
 
 import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static app.pai.models.Model.getInstance;
@@ -40,7 +42,7 @@ public class EditarLojaController extends PersistanceController implements Initi
     private ModelPublicoAlvo modelPublicoAlvo = new ModelPublicoAlvo();
     private ModelGenero modelGenero = new ModelGenero();
     private ModelURL modelURL = new ModelURL();
-    public static ObservableList<StringProperty> listaPublicoAlvoObservable;
+    public static ObservableList<StringProperty> listaPublicoAlvoObservable = ModelPublicoAlvo.getListaModelPublicoAlvo();
     public static ObservableList<StringProperty> listaGeneroObservable;
     public static ObservableList<ModelCategoria> listaCategoriaObservable = FXCollections.observableArrayList(ModelCategoria.getListaModelCategorias());//carrega lista de categorias
 
@@ -56,6 +58,15 @@ public class EditarLojaController extends PersistanceController implements Initi
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        // serialização abaixo:
+        PersistanceController persistanceController = new PersistanceController();
+        try {
+            persistanceController.serialize(listaPublicoAlvoObservable);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     };
 
     ListChangeListener<StringProperty> listenerGenero = c -> {
@@ -65,6 +76,8 @@ public class EditarLojaController extends PersistanceController implements Initi
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+
     };
 
 
@@ -73,18 +86,23 @@ public class EditarLojaController extends PersistanceController implements Initi
         initializePublicoAlvoLoadedInstances(listaPublicoAlvoObservable, listenerPublicoAlvo);
         initializeGeneroAlvoLoadedInstances(listaGeneroObservable, listenerGenero);
 
-        modelPublicoAlvo.createNewPublicoAlvoInstance(new SimpleStringProperty("alá"));
-        modelPublicoAlvo.createNewPublicoAlvoInstance(new SimpleStringProperty("blé"));
-        modelPublicoAlvo.createNewPublicoAlvoInstance(new SimpleStringProperty("dló"));
+
         modelGenero.createNewGeneroInstance("masculino");
         modelGenero.createNewGeneroInstance("feminino");
     }
 
     //carrega as instancias recuperadas da memória ao iniciar o programa
-    private void initializePublicoAlvoLoadedInstances(ObservableList<StringProperty> ObservableList, ListChangeListener<StringProperty> listener) {
-        ObservableList = null;
-        ObservableList = ModelPublicoAlvo.getListaModelPublicoAlvo();
+    private void initializePublicoAlvoLoadedInstances(ObservableList<StringProperty> ObservableList, ListChangeListener<StringProperty> listener)  {
+        PersistanceController persistanceController = new PersistanceController();
         ObservableList.addListener(listener);
+        try {
+            ModelPublicoAlvo.setListaModelPublicoAlvo(persistanceController.desserialize());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     private void initializeGeneroAlvoLoadedInstances(ObservableList<StringProperty> ObservableList, ListChangeListener<StringProperty> listener) {
