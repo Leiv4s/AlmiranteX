@@ -5,26 +5,39 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.ArrayList;
+
 public class ModelGenero {
 
     private StringProperty nomeGenero;
     private static ObservableList<StringProperty> listaGenero = FXCollections.observableArrayList();
 
-
+    //constructor
     public ModelGenero() {
     }
 
+    //getter & setters
     public static ObservableList<StringProperty> getListaGenero() {
         return listaGenero;
     }
+    public static void setListaGenero(ArrayList<String> list) {
+        for (String strings : list) {
+            listaGenero.add(new SimpleStringProperty(strings));
+        }
+    }
 
 
-    //CRUD OPERATIONS
 
+
+    //                                  OPERAÇÕES CRUD
+
+    // CRUD - CREATE
     public void createNewGeneroInstance(String nomeGenero){
         listaGenero.add(new SimpleStringProperty(nomeGenero));
     }
 
+
+    // CRUD - UPDATE
     public void updateGeneroInstance(String nomeAntigo, String novoNome){
             System.out.println(nomeAntigo);
             System.out.println(novoNome);
@@ -39,6 +52,8 @@ public class ModelGenero {
         }
     }
 
+
+    // CRUD - REMOVE
     public void RemoveGeneroInstance(String generoParaRemocao){
         for (int i = 0; i<listaGenero.size();i++){
             if (listaGenero.get(i).getValue() == generoParaRemocao){

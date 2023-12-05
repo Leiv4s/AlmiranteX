@@ -37,7 +37,7 @@
          <content>
             <AnchorPane prefHeight="999.0" prefWidth="1203.0" style="-fx-background-color: white;">
                <children>
-                  <VBox layoutX="101.0" layoutY="552.0" prefHeight="428.0" prefWidth="976.0">
+                  <VBox layoutX="101.0" layoutY="552.0" prefHeight="428.0" prefWidth="850.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Categorias:" wrappingWidth="247.878662109375">
                            <font>
@@ -47,7 +47,7 @@
                               <Insets bottom="30.0" />
                            </VBox.margin>
                         </Text>
-                        <ScrollPane prefHeight="330.0" prefWidth="976.0">
+                        <ScrollPane prefHeight="291.0" prefWidth="897.0">
                            <content>
                               <VBox fx:id="categoriaInstanceContainer" prefHeight="0.0" prefWidth="0.0" />
                            </content>
