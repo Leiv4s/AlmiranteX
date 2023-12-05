@@ -155,18 +155,10 @@ public class ViewFactory  {
         modelCategoria a ser adicionado;
         */
 
-    public void addNewCategoriaInstanceView(URL resource, ModelCategoria modelCategoria, VBox categoriasContainer) throws IOException, ClassNotFoundException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(resource);
-        AnchorPane anchorPane = loader.load();
-        CategoryInstanceController categoryInstanceController = loader.getController();
-        categoryInstanceController.setCategoryInfoIntoContainer(modelCategoria);
-        categoriasContainer.getChildren().add(anchorPane);
-    }
-    public void categorysViewInitializer(URL resource, VBox categoriaContainer) {
+    public void categoriaViewInitializer(URL resource, VBox categoriaContainer) {
 
         try {
-            for (ModelCategoria modelCategoria : ModelCategoria.getListaModelCategorias()) {
+            for (ModelCategoria modelCategoria : ModelCategoria.getListaCategoria()) {
                 Model.getInstance().getViewFactory().addNewCategoriaInstanceView(resource, modelCategoria, categoriaContainer);
 
             }
@@ -175,28 +167,16 @@ public class ViewFactory  {
             throw new RuntimeException(e);
         }
     }
-
-
-    public void addNewPublicoAlvoInstanceView(URL resource, StringProperty modelPublicoAlvo, @NotNull VBox publicoAlvoContainer) throws IOException, ClassNotFoundException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(resource);
-        AnchorPane anchorPane = loader.load();
-        PublicoAlvoInstanceController publicoAlvoInstanceController= loader.getController();
-        publicoAlvoInstanceController.setPublicoAlvoInfoIntoContainer(modelPublicoAlvo);
-        publicoAlvoContainer.getChildren().add(anchorPane);
+    public void publicoAlvoViewInitializer(URL resource, VBox publicoAlvoContainer) {
+        try {
+            for (StringProperty nomePublicoAlvo : ModelPublicoAlvo.getListaPublicoAlvo()) {
+                Model.getInstance().getViewFactory().addNewPublicoAlvoInstanceView(resource, nomePublicoAlvo, publicoAlvoContainer);
+            }
+        }
+        catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
-
-    public void addNewGeneroInstanceView(URL resource, StringProperty modelGenero, @NotNull VBox generosContainer) throws IOException, ClassNotFoundException{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(resource);
-        AnchorPane anchorPane = loader.load();
-        GeneroInstanceController generoInstanceController = loader.getController();
-        generoInstanceController.setGeneroInfoIntoContainer(modelGenero);
-        generosContainer.getChildren().add(anchorPane);
-
-
-    }
-
     public void generoViewInitializer(URL resource, VBox generoContainer){
         try {
             for (StringProperty nomeGenero: ModelGenero.getListaGenero()) {
@@ -208,16 +188,35 @@ public class ViewFactory  {
         }
 
     }
-    public void publicoAlvoViewInitializer(URL resource, VBox publicoAlvoContainer) {
-        try {
-            for (StringProperty nomePublicoAlvo : ModelPublicoAlvo.getListaModelPublicoAlvo()) {
-                Model.getInstance().getViewFactory().addNewPublicoAlvoInstanceView(resource, nomePublicoAlvo, publicoAlvoContainer);
-            }
-        }
-        catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
+
+    public void addNewCategoriaInstanceView(URL resource, ModelCategoria modelCategoria, VBox categoriasContainer) throws IOException, ClassNotFoundException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(resource);
+        AnchorPane anchorPane = loader.load();
+        CategoryInstanceController categoryInstanceController = loader.getController();
+        categoryInstanceController.setCategoryInfoIntoContainer(modelCategoria);
+        categoriasContainer.getChildren().add(anchorPane);
     }
+    public void addNewPublicoAlvoInstanceView(URL resource, StringProperty modelPublicoAlvo, @NotNull VBox publicoAlvoContainer) throws IOException, ClassNotFoundException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(resource);
+        AnchorPane anchorPane = loader.load();
+        PublicoAlvoInstanceController publicoAlvoInstanceController= loader.getController();
+        publicoAlvoInstanceController.setPublicoAlvoInfoIntoContainer(modelPublicoAlvo);
+        publicoAlvoContainer.getChildren().add(anchorPane);
+    }
+    public void addNewGeneroInstanceView(URL resource, StringProperty modelGenero, @NotNull VBox generosContainer) throws IOException, ClassNotFoundException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(resource);
+        AnchorPane anchorPane = loader.load();
+        GeneroInstanceController generoInstanceController = loader.getController();
+        generoInstanceController.setGeneroInfoIntoContainer(modelGenero);
+        generosContainer.getChildren().add(anchorPane);
+
+
+    }
+
 
 
 

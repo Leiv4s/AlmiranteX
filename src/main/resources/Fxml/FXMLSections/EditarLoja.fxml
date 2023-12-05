@@ -49,7 +49,7 @@
                         </Text>
                         <ScrollPane prefHeight="291.0" prefWidth="897.0">
                            <content>
-                              <VBox fx:id="categoriaInstanceContainer" prefHeight="0.0" prefWidth="0.0" />
+                              <VBox fx:id="categoriaContainer" prefHeight="0.0" prefWidth="0.0" />
                            </content>
                         </ScrollPane>
                         <VBox prefHeight="88.0" prefWidth="206.0" spacing="20.0">
@@ -119,7 +119,7 @@
                         </Text>
                         <ScrollPane pannable="true" prefHeight="291.0" prefWidth="429.0" vbarPolicy="ALWAYS">
                            <content>
-                              <VBox fx:id="generosContainer" prefHeight="0.0" prefWidth="0.0" />
+                              <VBox fx:id="generoContainer" prefHeight="0.0" prefWidth="0.0" />
                            </content>
                         </ScrollPane>
                         <VBox prefHeight="88.0" prefWidth="206.0" spacing="20.0">

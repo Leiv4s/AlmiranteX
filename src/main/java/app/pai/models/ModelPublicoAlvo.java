@@ -1,23 +1,17 @@
 package app.pai.models;
 
-import app.pai.Controllers.PersistanceController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.fxml.Initializable;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 
 public class ModelPublicoAlvo {
 
 
-    static private ObservableList<StringProperty> listaModelPublicoAlvo = FXCollections.observableArrayList();
+    static private ObservableList<StringProperty> listaPublicoAlvo = FXCollections.observableArrayList();
 
 
     // Constructor
@@ -25,19 +19,18 @@ public class ModelPublicoAlvo {
 
 
     //getters
-    public static ObservableList<StringProperty> getListaModelPublicoAlvo(){
-        return listaModelPublicoAlvo;
+    public static ObservableList<StringProperty> getListaPublicoAlvo(){
+        return listaPublicoAlvo;
     }
 
-    public static void setListaModelPublicoAlvo(ArrayList<String> list){
+    public static void setListaPublicoAlvo(ArrayList<String> list){
         for (String string : list) {
-
-            listaModelPublicoAlvo.add(new SimpleStringProperty(string));
+            listaPublicoAlvo.add(new SimpleStringProperty(string));
         }
     }
 
 
-    //                                  OPERAÇÕES CRUD
+    //                                  OPERAÇÕES CRUD                                //
 
 
                                 //Auxiliar operation variables
@@ -47,17 +40,17 @@ public class ModelPublicoAlvo {
 
     //CRUD - CREATE
     public void createNewPublicoAlvoInstance(StringProperty nomePublicoAlvo){
-        listaModelPublicoAlvo.add(nomePublicoAlvo);
+        listaPublicoAlvo.add(nomePublicoAlvo);
     }
 
 
     //CRUD - DELETE
     public void deletePublicoAlvo(StringProperty publicoAlvoRemovido){
-        for(int i = 0 ; i<listaModelPublicoAlvo.size() ; i++){
+        for(int i = 0; i< listaPublicoAlvo.size() ; i++){
             queSeraRemovido = publicoAlvoRemovido.getValue();
-            parametroPassado = listaModelPublicoAlvo.get(i).getValue();
+            parametroPassado = listaPublicoAlvo.get(i).getValue();
             if (queSeraRemovido == parametroPassado){
-                listaModelPublicoAlvo.remove(i);
+                listaPublicoAlvo.remove(i);
             }
         }
     }
@@ -65,14 +58,14 @@ public class ModelPublicoAlvo {
 
     //CRUD - UPDATE
     public void updatePublicoAlvo (StringProperty oldData, StringProperty newData){
-        for(int i = 0 ; i<listaModelPublicoAlvo.size() ; i++){
-            String instanciasLista = listaModelPublicoAlvo.get(i).getValue();
+        for(int i = 0; i< listaPublicoAlvo.size() ; i++){
+            String instanciasLista = listaPublicoAlvo.get(i).getValue();
             if (oldData.getValue() == instanciasLista){
-                listaModelPublicoAlvo.get(i).set(newData.getValue());
+                listaPublicoAlvo.get(i).set(newData.getValue());
             }
         }
-        listaModelPublicoAlvo.add(new SimpleStringProperty("adicionado pro Listener Ouvir"));
-        listaModelPublicoAlvo.removeLast();
+        listaPublicoAlvo.add(new SimpleStringProperty("adicionado pro Listener Ouvir"));
+        listaPublicoAlvo.removeLast();
     }
 }
 

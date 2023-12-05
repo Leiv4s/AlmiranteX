@@ -1,6 +1,8 @@
 package app.pai.Controllers;
 
+import app.pai.models.ModelCategoria;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.*;
@@ -10,9 +12,44 @@ import java.util.ArrayList;
 // a lógica de persistencia dos dados manipulados pelo usuário.
 public class PersistanceController implements Serializable {
 
+    class Aux implements Serializable{
+        String nome;
+        String publicoAlvo;
+        String genero;
+
+        public Aux(String nome, String publicoAlvo, String genero){
+            this.nome = nome;
+            this.publicoAlvo = publicoAlvo;
+            this.genero = genero;
+        }
+
+        public String getNome() {
+            return nome;
+        }
+        public String getPublicoAlvo() {
+            return publicoAlvo;
+        }
+        public String getGenero() {
+            return genero;
+        }
+
+    }
+
+    public void serializeCategoria(ObservableList<ModelCategoria> list) throws IOException {
+        FileOutputStream fileOut = new FileOutputStream("Categoria.ser");
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
 
-    //cria um binário de um objeto, salvando seu atual estado;
+        ArrayList<Aux> auxArrayList = new ArrayList<>();
+
+        for (ModelCategoria categoria: list) {
+            auxArrayList.add(new Aux(categoria.getNome(), categoria.getPublicoAlvo(), categoria.getGenero()));
+        }
+
+        out.writeObject(new ArrayList<>(auxArrayList));
+        out.close();
+        fileOut.close();
+    }
     public void serializePublicoAlvo(ObservableList<StringProperty> observableList) throws IOException {
         FileOutputStream fileOut = new FileOutputStream("PublicoAlvo.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -28,7 +65,54 @@ public class PersistanceController implements Serializable {
 
 
     }
-//    //recupera um objeto com base em um binary code criado na function saveData()
+    public void serializeGenero(ObservableList<StringProperty> observableList) throws IOException {
+        FileOutputStream fileOut = new FileOutputStream("Genero.ser");
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+
+        ArrayList<String> stringList = new ArrayList<>();
+        for (StringProperty stringProperty : observableList) {
+            stringList.add(stringProperty.get());
+        }
+
+        out.writeObject(new ArrayList<>(stringList));
+        out.close();
+        fileOut.close();
+
+    }
+
+    public ArrayList<ModelCategoria> desserializeCategoria() {
+        FileInputStream fileInput = null;
+        try {
+            fileInput = new FileInputStream("Categoria.ser");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        ObjectInputStream objectInput = null;
+        try {
+            objectInput = new ObjectInputStream(fileInput);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        ArrayList<Aux> arrayCarregado;
+        ArrayList<ModelCategoria> arrayCategoria = new ArrayList<>();
+
+        try {
+            arrayCarregado = (ArrayList<Aux>) objectInput.readObject();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        for (Aux array : arrayCarregado) {
+            arrayCategoria.add(new ModelCategoria(array.getNome(), array.getPublicoAlvo(), array.getGenero()));
+        }
+
+
+        return arrayCategoria;
+
+    }
     public ArrayList<String> desserializePublicoAlvo()  {
         FileInputStream fileInput = null;
         try {
@@ -53,22 +137,6 @@ public class PersistanceController implements Serializable {
         }
 
     }
-
-    public void serializeGenero(ObservableList<StringProperty> observableList) throws IOException {
-        FileOutputStream fileOut = new FileOutputStream("Genero.ser");
-        ObjectOutputStream out = new ObjectOutputStream(fileOut);
-
-        ArrayList<String> stringList = new ArrayList<>();
-        for (StringProperty stringProperty : observableList) {
-            stringList.add(stringProperty.get());
-        }
-
-        out.writeObject(new ArrayList<>(stringList));
-        out.close();
-        fileOut.close();
-
-    }
-
     public ArrayList<String> desserializeGenero()  {
         FileInputStream fileInput = null;
         try {
