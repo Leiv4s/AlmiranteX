@@ -3,42 +3,28 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.DialogViewsControllers.CategoriaViews.RemoveCategoriaController">
-
-    <top>
-        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" styleClass="topBarContainer" stylesheets="@../../Styles/ComponentTopBar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-            <children>
-                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Excluir Categoria" textAlignment="CENTER">
-                    <font>
-                        <Font name="System Bold" size="24.0" />
-                    </font>
-                </Text>
-            </children>
-        </HBox>
-
-    </top>
-
-    <center>
+<DialogPane prefHeight="385.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.DialogViewsControllers.CategoriaViews.ExcluirCategoriaController">
+   <content>
       <AnchorPane prefHeight="450.0" prefWidth="500.0">
          <children>
-              <VBox layoutX="39.0" layoutY="21.0" prefHeight="306.0" prefWidth="422.0" spacing="20.0">
+              <VBox layoutX="74.0" layoutY="21.0" prefHeight="302.0" prefWidth="361.0" spacing="20.0">
                   <children>
-                      <Label id="loginLabel" prefHeight="99.0" prefWidth="426.0" text="Você tem certeza que quer excluir a modelCategoria Abaixo?" textAlignment="CENTER" textFill="#e74f18" wrapText="true">
+                      <Label id="loginLabel" prefHeight="97.0" prefWidth="362.0" text="Tem certeza que quer excluir essa Categoria?" textAlignment="CENTER" textFill="#e51919" wrapText="true">
                           <font>
-                              <Font name="Liberation Mono" size="24.0" />
+                              <Font name="Liberation Mono Bold" size="24.0" />
                           </font>
                       </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="424.0" style="-fx-background-color: BDD0FB;" text="Calça Jeans" textAlignment="CENTER">
+                  <Label fx:id="categoriaTextfield" alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="383.0" style="-fx-background-color: BDD0FB;" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -63,7 +49,7 @@
                       </Label>
                   <HBox spacing="20.0">
                      <children>
-                            <Button id="deleteBtn" fx:id="loginButton" mnemonicParsing="false" prefHeight="37.0" prefWidth="174.0" stylesheets="@../../Styles/DialogPane.css" text="Excluir" textAlignment="CENTER" textFill="WHITE">
+                            <Button id="deleteBtn" fx:id="excluirBtn" mnemonicParsing="false" onAction="#excluirBtnOnClick" prefHeight="37.0" prefWidth="174.0" stylesheets="@../../Styles/DialogPane.css" text="Excluir" textAlignment="CENTER" textFill="WHITE">
                                 <font>
                                     <Font name="Liberation Mono" size="18.0" />
                                 </font>
@@ -78,7 +64,7 @@
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                        <Button id="cancelBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="322.0" stylesheets="@../../Styles/DialogPane.css" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
+                        <Button id="cancelBtn" fx:id="cancelarBtn" mnemonicParsing="false" onAction="#cancelarBtnOnClick" prefHeight="38.0" prefWidth="221.0" stylesheets="@../../Styles/DialogPane.css" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Liberation Mono" size="18.0" />
                            </font>
@@ -102,5 +88,16 @@
               </VBox>
          </children>
       </AnchorPane>
-    </center>
-</BorderPane>
+   </content>
+   <header>
+        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" styleClass="topBarContainer" stylesheets="@../../Styles/ComponentTopBar.css">
+            <children>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Excluir Categoria" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Text>
+            </children>
+        </HBox>
+   </header>
+</DialogPane>

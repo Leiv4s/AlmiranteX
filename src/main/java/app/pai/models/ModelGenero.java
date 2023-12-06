@@ -26,6 +26,13 @@ public class ModelGenero {
         }
     }
 
+    public ArrayList<String> getListaGeneroString() {
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < listaGenero.size();i++){
+            list.add(listaGenero.get(i).getValue());
+        }
+        return list;
+    }
 
 
 

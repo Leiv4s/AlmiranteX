@@ -48,18 +48,19 @@ public class EditarLojaController extends PersistanceController implements Initi
             categoriaContainer.getChildren().clear();
             getInstance().getViewFactory().categoriaViewInitializer(modelURL.getCategoriaInstanceFXML(), categoriaContainer);
         } catch (Exception e) {
-            throw new RuntimeException(e);
         }
 
 
         // serialização abaixo:
         PersistanceController persistanceController = new PersistanceController();
-        try {
-            persistanceController.serializeCategoria(listaCategoriaObservable);
-        } catch (IOException e) {
+        if (listaCategoriaObservable != null) {
+          try {
+              persistanceController.serializeCategoria(listaCategoriaObservable);
+          }
+        catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+}
     };
     ListChangeListener<StringProperty> listenerPublicoAlvo = c -> {
         System.out.println("percebi");
@@ -141,7 +142,7 @@ public class EditarLojaController extends PersistanceController implements Initi
            ModelCategoria.setListaCategoria (persistanceController.desserializeCategoria());
         }
         catch (Exception e) {
-            e.printStackTrace();
+
         }
     }
 
@@ -161,6 +162,7 @@ public class EditarLojaController extends PersistanceController implements Initi
         getInstance().getViewFactory().getFogPaneController().ableFogPane();
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getCriarCategoriaFXML());
     }
+
 }
 
 

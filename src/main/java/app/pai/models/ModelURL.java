@@ -63,4 +63,8 @@ public class ModelURL {
     public URL getExcluirGeneroFXML() {
         return excluirGeneroFXML;
     }
+
+    public URL getExcluirCategoriaFXML() { return removeCategoriaFXML;}
+
+    public URL getEditarCategoriaFXML() { return editarCategoriaFXML;}
 }

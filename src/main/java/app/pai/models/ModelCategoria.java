@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class ModelCategoria implements Serializable {
@@ -32,13 +33,13 @@ public class ModelCategoria implements Serializable {
 
     //getters section
     public String getNome() {
-        return nome.get();
+        return this.nome.get();
     }
     public String getPublicoAlvo() {
-        return publicoAlvo.get();
+        return this.publicoAlvo.get();
     }
     public String getGenero() {
-        return genero.get();
+        return this.genero.get();
     }
     public static ObservableList<ModelCategoria> getListaCategoria() { return listaCategoria;}
 
@@ -55,6 +56,7 @@ public class ModelCategoria implements Serializable {
         this.publicoAlvo.set(nome);
     }
 
+
     public static void setListaCategoria(ArrayList<ModelCategoria> list) {
         for (ModelCategoria categoria: list) {
             listaCategoria.add(new ModelCategoria(categoria.getNome(), categoria.getPublicoAlvo(), categoria.getGenero()));
@@ -68,17 +70,46 @@ public class ModelCategoria implements Serializable {
 
                                 //Auxiliar operation variables
     
-    public static void createCategoria(ModelCategoria newCategoria){
+    public static void createNewCategoriaInstance(ModelCategoria newCategoria){
         listaCategoria.add(newCategoria);
     }
-    
+
+    public static void updateCategoriaInstance(ModelCategoria oldCategoria,ModelCategoria newCategoria) {
+        for(int i = 0; i<listaCategoria.size();i++){
+            if (Objects.equals(oldCategoria.toString(), listaCategoria.get(i).toString())){
+                listaCategoria.set(i, newCategoria);
+                listaCategoria.addLast(new ModelCategoria());
+                listaCategoria.removeLast();
+            }
+        }
+    }
+
+    public static void removeCategoriaInstance(String newCategoria) {
+
+        System.out.println(newCategoria);
+
+        for (int i = 0; i <listaCategoria.size();i++){
+            System.out.println("começo do for");
+            System.out.println(newCategoria);
+            System.out.println(listaCategoria.get(i).toString());
+            if (Objects.equals(newCategoria, listaCategoria.get(i).toString())){
+                System.out.println("entrei");
+                listaCategoria.remove(i);
+            }
+        }
+        listaCategoria.addLast(new ModelCategoria());
+        listaCategoria.removeLast();
+    }
+
+
+
 
     
     @Override
     public String toString() {
         return "ModelCategoria{" +
                 "nome=" + nome +
-                ", publicoAlvo=" + publicoAlvo +
+                ", publicoAlvo=" + publicoAlvo + "genero=" + genero +
                 '}';
     }
 }

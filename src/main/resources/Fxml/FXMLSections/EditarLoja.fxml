@@ -47,7 +47,7 @@
                               <Insets bottom="30.0" />
                            </VBox.margin>
                         </Text>
-                        <ScrollPane prefHeight="291.0" prefWidth="897.0">
+                        <ScrollPane prefHeight="291.0" prefWidth="897.0" vbarPolicy="ALWAYS">
                            <content>
                               <VBox fx:id="categoriaContainer" prefHeight="0.0" prefWidth="0.0" />
                            </content>

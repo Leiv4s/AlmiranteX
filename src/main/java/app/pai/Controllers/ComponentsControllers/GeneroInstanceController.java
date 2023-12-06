@@ -9,7 +9,6 @@ import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.text.Text;
-
 import java.io.IOException;
 
 public class GeneroInstanceController {
