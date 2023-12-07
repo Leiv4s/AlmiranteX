@@ -4,7 +4,6 @@ import app.pai.Controllers.PersistanceController;
 import app.pai.models.Model;
 import app.pai.models.ModelCategoria;
 import app.pai.models.ModelPublicoAlvo;
-import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
