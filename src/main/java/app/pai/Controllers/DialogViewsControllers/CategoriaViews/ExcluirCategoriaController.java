@@ -2,6 +2,7 @@ package app.pai.Controllers.DialogViewsControllers.CategoriaViews;
 
 import app.pai.models.Model;
 import app.pai.models.ModelCategoria;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -29,10 +30,10 @@ public class ExcluirCategoriaController implements Initializable {
 
     }
 
-    private static ModelCategoria categoriaReceived;
-    public void setCategoriaReceiver(ModelCategoria categoriaReceived) {
+    private static StringProperty categoriaReceived;
+    public void setCategoriaReceiver(StringProperty categoriaReceived) {
         ExcluirCategoriaController.categoriaReceived = categoriaReceived;
-        categoriaTextfield.setText(categoriaReceived.getNome());
+        categoriaTextfield.setText(categoriaReceived.getValue());
     }
 
     @FXML

@@ -158,7 +158,7 @@ public class ViewFactory  {
     public void categoriaViewInitializer(URL resource, VBox categoriaContainer) {
 
         try {
-            for (ModelCategoria modelCategoria : ModelCategoria.getListaCategoria()) {
+            for (StringProperty modelCategoria : ModelCategoria.getListaCategoria()) {
                 Model.getInstance().getViewFactory().addNewCategoriaInstanceView(resource, modelCategoria, categoriaContainer);
 
             }
@@ -190,7 +190,7 @@ public class ViewFactory  {
     }
 
 
-    public void addNewCategoriaInstanceView(URL resource, ModelCategoria modelCategoria, VBox categoriasContainer) throws IOException, ClassNotFoundException {
+    public void addNewCategoriaInstanceView(URL resource, StringProperty modelCategoria, VBox categoriasContainer) throws IOException, ClassNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(resource);
         AnchorPane anchorPane = loader.load();

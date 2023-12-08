@@ -1,6 +1,7 @@
 package app.pai.Controllers;
 
 import app.pai.models.ModelCategoria;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,21 +36,19 @@ public class PersistanceController implements Serializable {
 
     }
 
-    public void serializeCategoria(ObservableList<ModelCategoria> list) throws IOException {
+    public void serializeCategoria(ObservableList<StringProperty> list) throws IOException {
         FileOutputStream fileOut = new FileOutputStream("Categoria.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
-
-        ArrayList<Aux> auxArrayList = new ArrayList<>();
+        ArrayList<String> auxArrayList = new ArrayList<>();
 
         try {
-            for (ModelCategoria categoria: list) {
-            auxArrayList.add(new Aux(categoria.getNome(), categoria.getPublicoAlvo(), categoria.getGenero()));
+            for (StringProperty categoria: list) {
+            auxArrayList.add(new String(categoria.getValue()));
             }
         } catch (Exception e) {
             System.out.println("buguei, mas foda-se tbm essa merda, to funcionando");
         }
-
 
         out.writeObject(new ArrayList<>(auxArrayList));
         out.close();
@@ -85,7 +84,7 @@ public class PersistanceController implements Serializable {
 
     }
 
-    public ArrayList<ModelCategoria> desserializeCategoria() {
+    public ArrayList<StringProperty> desserializeCategoria() {
         FileInputStream fileInput = null;
         try {
             fileInput = new FileInputStream("Categoria.ser");
@@ -99,21 +98,18 @@ public class PersistanceController implements Serializable {
             throw new RuntimeException(e);
         }
 
-        ArrayList<Aux> arrayCarregado;
-        ArrayList<ModelCategoria> arrayCategoria = new ArrayList<>();
+        ArrayList<String> arrayCarregado;
+        ArrayList<StringProperty> arrayCategoria = new ArrayList<>();
 
         try {
-            arrayCarregado = (ArrayList<Aux>) objectInput.readObject();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+            arrayCarregado = (ArrayList<String>) objectInput.readObject();
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
 
-        for (Aux array : arrayCarregado) {
-            arrayCategoria.add(new ModelCategoria(array.getNome(), array.getPublicoAlvo(), array.getGenero()));
+        for (String array : arrayCarregado) {
+            arrayCategoria.add(new SimpleStringProperty(array));
         }
-
 
         return arrayCategoria;
 

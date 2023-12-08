@@ -13,18 +13,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<DialogPane prefHeight="385.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.DialogViewsControllers.PublicoAlvoViews.ExcluirPublicoAlvoController">
+<DialogPane prefHeight="385.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.DialogViewsControllers.CategoriaViews.ExcluirCategoriaController">
    <content>
       <AnchorPane prefHeight="450.0" prefWidth="500.0">
          <children>
-              <VBox layoutX="39.0" layoutY="21.0" prefHeight="302.0" prefWidth="422.0" spacing="20.0">
+              <VBox layoutX="74.0" layoutY="21.0" prefHeight="302.0" prefWidth="361.0" spacing="20.0">
                   <children>
-                      <Label id="loginLabel" prefHeight="99.0" prefWidth="426.0" text="Você tem certeza que quer excluir o Público Alvo abaixo?" textAlignment="CENTER" textFill="#e51919" wrapText="true">
+                      <Label id="loginLabel" prefHeight="97.0" prefWidth="362.0" text="Tem certeza que quer excluir essa Categoria?" textAlignment="CENTER" textFill="#e51919" wrapText="true">
                           <font>
                               <Font name="Liberation Mono Bold" size="24.0" />
                           </font>
                       </Label>
-                  <Label fx:id="publicoAlvoTextfield" alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="424.0" style="-fx-background-color: BDD0FB;" textAlignment="CENTER">
+                  <Label fx:id="categoriaTextfield" alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="383.0" style="-fx-background-color: BDD0FB;" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -64,7 +64,7 @@
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                        <Button id="cancelBtn" fx:id="cancelarBtn" mnemonicParsing="false" onAction="#cancelarBtnOnClick" prefHeight="34.0" prefWidth="322.0" stylesheets="@../../Styles/DialogPane.css" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
+                        <Button id="cancelBtn" fx:id="cancelarBtn" mnemonicParsing="false" onAction="#cancelarBtnOnClick" prefHeight="38.0" prefWidth="221.0" stylesheets="@../../Styles/DialogPane.css" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Liberation Mono" size="18.0" />
                            </font>
@@ -92,7 +92,7 @@
    <header>
         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" styleClass="topBarContainer" stylesheets="@../../Styles/ComponentTopBar.css">
             <children>
-                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Excluir Público Alvo" textAlignment="CENTER">
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Excluir Categoria" textAlignment="CENTER">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>

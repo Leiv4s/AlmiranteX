@@ -40,10 +40,10 @@ public class EditarLojaController extends PersistanceController implements Initi
     private ModelURL modelURL = new ModelURL();
     public static ObservableList<StringProperty> listaPublicoAlvoObservable = ModelPublicoAlvo.getListaPublicoAlvo();
     public static ObservableList<StringProperty> listaGeneroObservable = ModelGenero.getListaGenero();
-    public static ObservableList<ModelCategoria> listaCategoriaObservable = ModelCategoria.getListaCategoria();//carrega lista de categorias
+    public static ObservableList<StringProperty> listaCategoriaObservable = ModelCategoria.getListaCategoria();//carrega lista de categorias
 
 
-    ListChangeListener<ModelCategoria> listenerCategoria = c -> {
+    ListChangeListener<StringProperty> listenerCategoria = c -> {
         try {
             categoriaContainer.getChildren().clear();
             getInstance().getViewFactory().categoriaViewInitializer(modelURL.getCategoriaInstanceFXML(), categoriaContainer);
@@ -135,7 +135,7 @@ public class EditarLojaController extends PersistanceController implements Initi
             e.printStackTrace();
         }
     }
-    private void initializeCategoriaLoadedInstances(ObservableList<ModelCategoria> ObservableList, ListChangeListener<ModelCategoria> listener) {
+    private void initializeCategoriaLoadedInstances(ObservableList<StringProperty> ObservableList, ListChangeListener<StringProperty> listener) {
         PersistanceController persistanceController = new PersistanceController();
         ObservableList.addListener(listener);
         try {

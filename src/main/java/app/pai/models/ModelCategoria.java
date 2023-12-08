@@ -11,19 +11,15 @@ import java.util.Objects;
 
 public class ModelCategoria implements Serializable {
     private StringProperty nome;
-    private StringProperty publicoAlvo;
-    private StringProperty genero;
-    static private ObservableList<ModelCategoria> listaCategoria = FXCollections.observableArrayList();
+    static private ObservableList<StringProperty> listaCategoria = FXCollections.observableArrayList();
 
 
     //constructor
 
 
 
-    public ModelCategoria(String nomeCategoria, String publicoAlvoCategoria, String genero) {
+    public ModelCategoria(String nomeCategoria) {
         this.nome = new SimpleStringProperty(nomeCategoria);
-        this.publicoAlvo = new SimpleStringProperty(publicoAlvoCategoria);
-        this.genero = new SimpleStringProperty(genero);
     }
 
     public ModelCategoria() {
@@ -35,31 +31,19 @@ public class ModelCategoria implements Serializable {
     public String getNome() {
         return this.nome.get();
     }
-    public String getPublicoAlvo() {
-        return this.publicoAlvo.get();
-    }
-    public String getGenero() {
-        return this.genero.get();
-    }
-    public static ObservableList<ModelCategoria> getListaCategoria() { return listaCategoria;}
+    public static ObservableList<StringProperty> getListaCategoria() { return listaCategoria;}
 
 
 
     //setters section
-    public void setGenero(String genero) {
-        this.genero.set(genero);
-    }
     public void setNome(String nome){
         this.nome.set(nome);
     }
-    public void setPublicoAlvo(String nome){
-        this.publicoAlvo.set(nome);
-    }
 
 
-    public static void setListaCategoria(ArrayList<ModelCategoria> list) {
-        for (ModelCategoria categoria: list) {
-            listaCategoria.add(new ModelCategoria(categoria.getNome(), categoria.getPublicoAlvo(), categoria.getGenero()));
+    public static void setListaCategoria(ArrayList<StringProperty> list) {
+        for (StringProperty categoria: list) {
+            listaCategoria.add(new SimpleStringProperty(categoria.getValue()));
         }
 
     }
@@ -70,15 +54,15 @@ public class ModelCategoria implements Serializable {
 
                                 //Auxiliar operation variables
     
-    public static void createNewCategoriaInstance(ModelCategoria newCategoria){
+    public static void createNewCategoriaInstance(StringProperty newCategoria){
         listaCategoria.add(newCategoria);
     }
 
-    public static void updateCategoriaInstance(ModelCategoria oldCategoria,ModelCategoria newCategoria) {
+    public static void updateCategoriaInstance(StringProperty oldCategoria,StringProperty newCategoria) {
         for(int i = 0; i<listaCategoria.size();i++){
             if (Objects.equals(oldCategoria.toString(), listaCategoria.get(i).toString())){
                 listaCategoria.set(i, newCategoria);
-                listaCategoria.addLast(new ModelCategoria());
+                listaCategoria.addLast(new SimpleStringProperty());
                 listaCategoria.removeLast();
             }
         }
@@ -97,7 +81,7 @@ public class ModelCategoria implements Serializable {
                 listaCategoria.remove(i);
             }
         }
-        listaCategoria.addLast(new ModelCategoria());
+        listaCategoria.addLast(new SimpleStringProperty());
         listaCategoria.removeLast();
     }
 
@@ -107,10 +91,7 @@ public class ModelCategoria implements Serializable {
     
     @Override
     public String toString() {
-        return "ModelCategoria{" +
-                "nome=" + nome +
-                ", publicoAlvo=" + publicoAlvo + "genero=" + genero +
-                '}';
+        return "ModelCategoria{" + "nome=" + nome + '}';
     }
 }
 
