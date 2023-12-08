@@ -21,6 +21,14 @@ public class ModelURL {
     private final URL editarGeneroFXML = getClass().getResource("/FXML/FXMLDialogViews/GeneroViews/UpdateGeneroView.fxml");
     private final URL excluirGeneroFXML = getClass().getResource("/FXML/FXMLDialogViews/GeneroViews/RemoveGeneroView.fxml");
 
+
+    private final URL produtoInstanceFXML = getClass().getResource("/FXML/FXMLComponents/ComponentProdutoInstance.fxml");
+
+
+    private final URL EstoqueProdutoInstanceFXML = getClass().getResource("/FXML/FXMLComponents/ComponentEstoqueProdutoInstance.fxml");
+
+
+
     public ModelURL() {
     }
 
