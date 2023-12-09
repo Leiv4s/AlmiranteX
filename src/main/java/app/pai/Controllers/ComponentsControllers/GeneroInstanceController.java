@@ -4,7 +4,7 @@ package app.pai.Controllers.ComponentsControllers;
 import app.pai.Controllers.DialogViewsControllers.GeneroView.EditarGeneroController;
 import app.pai.Controllers.DialogViewsControllers.GeneroView.ExcluirGeneroController;
 import app.pai.models.Model;
-import app.pai.models.ModelURL;
+import app.pai.models.Utils.ModelURL;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

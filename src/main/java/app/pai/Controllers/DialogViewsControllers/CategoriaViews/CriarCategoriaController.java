@@ -1,17 +1,13 @@
 package app.pai.Controllers.DialogViewsControllers.CategoriaViews;
 
 import app.pai.models.*;
+import app.pai.models.Utils.ModelURL;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class CriarCategoriaController {
 

@@ -1,4 +1,4 @@
-package app.pai.models;
+package app.pai.models.Utils;
 
 import java.net.URL;
 
@@ -23,7 +23,9 @@ public class ModelURL {
 
 
     private final URL produtoInstanceFXML = getClass().getResource("/FXML/FXMLComponents/ComponentProdutoInstance.fxml");
-
+    private final URL criarProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoViews/CriarProdutoView.fxml");
+    private final URL editarProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoViews/EditarProdutoView.fxml");
+    private final URL excluirProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoViews/ExcluirProdutoView.fxml");
 
     private final URL EstoqueProdutoInstanceFXML = getClass().getResource("/FXML/FXMLComponents/ComponentEstoqueProdutoInstance.fxml");
 
@@ -32,38 +34,42 @@ public class ModelURL {
     public ModelURL() {
     }
 
-    public URL getCriarCategoriaFXML() {
-        return criarCategoriaFXML;
-    }
 
+    public URL getProdutoInstanceFXML() {
+        return produtoInstanceFXML;
+    }
     public URL getCategoriaInstanceFXML() {
         return categoriaInstanceFXML;
     }
-
     public URL getPublicoAlvoInstanceFXML() {
         return publicoAlvoÏnstanceFXML;
     }
-
-    public URL getCriarPublicoAlvoFXML() {
-        return criarPublicoAlvoFXML;
-    }
-
-    public URL getEditarPublicoAlvoFXML() {
-        return editarPublicoAlvoFXML;
-    }
-
-    public URL getExcluirPublicoAlvoFXML() {
-        return excluirPublicoAlvoFXML;
-    }
-
     public URL getGeneroInstanceFXML() {
         return generoInstanceFXML;
     }
 
+
+    public URL getCriarProdutoFXML() {
+        return criarProdutoFXML;
+    }
+    public URL getCriarCategoriaFXML() {
+        return criarCategoriaFXML;
+    }
+    public URL getCriarPublicoAlvoFXML() {
+        return criarPublicoAlvoFXML;
+    }
     public URL getCriarGeneroFXML() {
         return criarGeneroFXML;
     }
 
+
+    public URL getEditarProdutoFXML() {
+        return editarProdutoFXML;
+    }
+    public URL getEditarCategoriaFXML() { return editarCategoriaFXML;}
+    public URL getEditarPublicoAlvoFXML() {
+        return editarPublicoAlvoFXML;
+    }
     public URL getEditarGeneroFXML() {
         return editarGeneroFXML;
     }
@@ -71,8 +77,11 @@ public class ModelURL {
     public URL getExcluirGeneroFXML() {
         return excluirGeneroFXML;
     }
-
     public URL getExcluirCategoriaFXML() { return removeCategoriaFXML;}
-
-    public URL getEditarCategoriaFXML() { return editarCategoriaFXML;}
+    public URL getExcluirPublicoAlvoFXML() {
+        return excluirPublicoAlvoFXML;
+    }
+    public URL getExcluirProdutoFXML() {
+        return excluirProdutoFXML;
+    }
 }

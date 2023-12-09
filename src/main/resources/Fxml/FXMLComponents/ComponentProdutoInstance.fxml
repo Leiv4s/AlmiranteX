@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="100.0" prefWidth="1150.0" style="-fx-background-color: #d8eaff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.ProdutoInstanceController">
+<AnchorPane prefHeight="110.0" prefWidth="1105.0" style="-fx-background-color: #d8eaff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.ProdutoDefinicaoInstanceController">
    <children>
-      <HBox alignment="CENTER_LEFT" layoutX="1.0" prefHeight="110.0" prefWidth="1150.0" spacing="10.0">
+      <HBox alignment="CENTER_LEFT" layoutX="1.0" prefHeight="110.0" prefWidth="1101.0" spacing="10.0">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="338.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="250.0">
                <children>
                   <VBox prefHeight="59.0" prefWidth="298.0">
                      <children>
@@ -36,9 +36,9 @@
                   </VBox>
                </children>
             </VBox>
-            <HBox prefHeight="110.0" prefWidth="230.0">
+            <HBox prefHeight="110.0" prefWidth="235.0">
                <children>
-                  <VBox alignment="CENTER_RIGHT" prefHeight="110.0" prefWidth="106.0">
+                  <VBox alignment="CENTER_RIGHT" prefHeight="110.0" prefWidth="120.0">
                      <children>
                         <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="156.0" text="Categoria:" textAlignment="RIGHT" wrapText="true">
                            <font>
@@ -52,14 +52,14 @@
                         </Label>
                         <Label alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="156.0" text="Gênero:" textAlignment="RIGHT" wrapText="true">
                            <font>
-                              <Font name="System Bold" size="18.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER_RIGHT" prefHeight="110.0" prefWidth="73.0">
+                  <VBox alignment="CENTER_RIGHT" prefHeight="110.0" prefWidth="160.0">
                      <children>
-                        <Label fx:id="categoria" prefHeight="27.0" prefWidth="156.0" text="xxxxx" wrapText="true">
+                        <Label fx:id="categoria" prefHeight="27.0" prefWidth="158.0" text="xxxxx" wrapText="true">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -71,7 +71,7 @@
                         </Label>
                         <Label fx:id="genero" prefHeight="27.0" prefWidth="156.0" text="xxxxx" wrapText="true">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="16.0" />
                            </font>
                         </Label>
                      </children>
@@ -81,16 +81,16 @@
                   </VBox>
                </children>
             </HBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="142.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="94.0">
                <children>
                   <Label prefHeight="27.0" prefWidth="105.0" text="Tamanhos:" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
                   <Label fx:id="tipoTamanho" prefHeight="27.0" prefWidth="70.0" text="PMG" textAlignment="CENTER">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
@@ -99,12 +99,12 @@
                <children>
                   <Label prefHeight="27.0" prefWidth="156.0" text="preço custo:" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
                   <Label fx:id="precoCusto" prefHeight="27.0" prefWidth="70.0" text="29,00" textAlignment="CENTER">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
@@ -113,12 +113,12 @@
                <children>
                   <Label prefHeight="27.0" prefWidth="135.0" text="preço venda:" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                   <Label fx:id="precoVenda" prefHeight="14.0" prefWidth="76.0" text="40,00" textAlignment="CENTER">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -174,6 +174,6 @@
       </HBox>
    </children>
    <effect>
-      <DropShadow />
+      <DropShadow height="2.0" radius="0.5" width="2.0" />
    </effect>
 </AnchorPane>

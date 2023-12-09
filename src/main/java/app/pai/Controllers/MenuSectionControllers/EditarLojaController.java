@@ -2,6 +2,7 @@ package app.pai.Controllers.MenuSectionControllers;
 
 import app.pai.Controllers.PersistanceController;
 import app.pai.models.*;
+import app.pai.models.Utils.ModelURL;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -33,16 +34,43 @@ public class EditarLojaController extends PersistanceController implements Initi
     public VBox publicoAlvoContainer;
     @FXML
     public VBox generoContainer;
+    @FXML
+    public VBox produtoDefinicaoContainer;
+
+
 
     private ModelPublicoAlvo modelPublicoAlvo = new ModelPublicoAlvo();
     private ModelGenero modelGenero = new ModelGenero();
     private ModelCategoria modelCategoria = new ModelCategoria();
+    private ModelProdutoDefinicao modelProdutoDefinicao = new ModelProdutoDefinicao();
     private ModelURL modelURL = new ModelURL();
+
+    public static ObservableList<ModelProdutoDefinicao> listaProdutoDefinicaoObservable = ModelProdutoDefinicao.getListaProdutoDefinicao();
     public static ObservableList<StringProperty> listaPublicoAlvoObservable = ModelPublicoAlvo.getListaPublicoAlvo();
     public static ObservableList<StringProperty> listaGeneroObservable = ModelGenero.getListaGenero();
-    public static ObservableList<StringProperty> listaCategoriaObservable = ModelCategoria.getListaCategoria();//carrega lista de categorias
+    public static ObservableList<StringProperty> listaCategoriaObservable = ModelCategoria.getListaCategoria();
 
 
+    ListChangeListener<ModelProdutoDefinicao> listenerPublicoDefinicao = c -> {
+        System.out.println("percebi publico");
+        try {
+            produtoDefinicaoContainer.getChildren().clear();
+            getInstance().getViewFactory().produtoDefinicaoViewInitializer(modelURL.getProdutoInstanceFXML(), produtoDefinicaoContainer);
+        } catch (Exception e) {
+        }
+
+        // serialização abaixo:
+        PersistanceController persistanceController = new PersistanceController();
+        if (listaProdutoDefinicaoObservable != null){
+            try {
+                persistanceController.serializeProdutoDefinicao(listaProdutoDefinicaoObservable);
+                System.out.println("serializei");
+            }
+            catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    };
     ListChangeListener<StringProperty> listenerCategoria = c -> {
         try {
             categoriaContainer.getChildren().clear();
@@ -63,7 +91,7 @@ public class EditarLojaController extends PersistanceController implements Initi
 }
     };
     ListChangeListener<StringProperty> listenerPublicoAlvo = c -> {
-        System.out.println("percebi");
+
         try {
             publicoAlvoContainer.getChildren().clear();
             getInstance().getViewFactory().publicoAlvoViewInitializer(modelURL.getPublicoAlvoInstanceFXML(),publicoAlvoContainer);
@@ -100,19 +128,28 @@ public class EditarLojaController extends PersistanceController implements Initi
     };
 
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        initializeProdutoDefinicaoLoadedInstances(listaProdutoDefinicaoObservable,listenerPublicoDefinicao);
         initializeCategoriaLoadedInstances(listaCategoriaObservable, listenerCategoria);
         initializePublicoAlvoLoadedInstances(listaPublicoAlvoObservable, listenerPublicoAlvo);
         initializeGeneroAlvoLoadedInstances(listaGeneroObservable, listenerGenero);
-
     }
 
 
 
-
-
     //carrega as instancias recuperadas da memória ao iniciar o programa
+    private void initializeProdutoDefinicaoLoadedInstances(ObservableList<ModelProdutoDefinicao> ObservableList, ListChangeListener<ModelProdutoDefinicao> listener) {
+        PersistanceController persistanceController = new PersistanceController();
+        ObservableList.addListener(listener);
+        try {
+            ModelProdutoDefinicao.setListaProdutoDefinicao (persistanceController.desserializeProdutoDefinicao());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     private void initializePublicoAlvoLoadedInstances(ObservableList<StringProperty> ObservableList, ListChangeListener<StringProperty> listener)  {
         PersistanceController persistanceController = new PersistanceController();
         ObservableList.addListener(listener);
@@ -149,6 +186,10 @@ public class EditarLojaController extends PersistanceController implements Initi
 
 
     // Botões de criação de listas da pagina
+    public void criarProdutoBtnOnClick() throws IOException {
+        getInstance().getViewFactory().getFogPaneController().ableFogPane();
+        Model.getInstance().getViewFactory().loadDialogView(modelURL.getCriarProdutoFXML());
+    }
     public void criarPublicoAlvoBtnOnClick() throws IOException {
         getInstance().getViewFactory().getFogPaneController().ableFogPane();
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getCriarPublicoAlvoFXML());
@@ -162,7 +203,6 @@ public class EditarLojaController extends PersistanceController implements Initi
         getInstance().getViewFactory().getFogPaneController().ableFogPane();
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getCriarCategoriaFXML());
     }
-
 }
 
 

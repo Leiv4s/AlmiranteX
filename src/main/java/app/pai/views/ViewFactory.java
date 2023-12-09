@@ -2,12 +2,10 @@ package app.pai.views;
 
 import app.pai.Controllers.ComponentsControllers.CategoryInstanceController;
 import app.pai.Controllers.ComponentsControllers.GeneroInstanceController;
+import app.pai.Controllers.ComponentsControllers.ProdutoDefinicaoInstanceController;
 import app.pai.Controllers.ComponentsControllers.PublicoAlvoInstanceController;
 import app.pai.Controllers.UserController;
-import app.pai.models.Model;
-import app.pai.models.ModelCategoria;
-import app.pai.models.ModelGenero;
-import app.pai.models.ModelPublicoAlvo;
+import app.pai.models.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -155,6 +153,18 @@ public class ViewFactory  {
         modelCategoria a ser adicionado;
         */
 
+    public void produtoDefinicaoViewInitializer(URL resource, VBox produtoDefinicaoContainer) {
+
+        try {
+            for (ModelProdutoDefinicao produtoDefinicao : ModelProdutoDefinicao.getListaProdutoDefinicao()) {
+                Model.getInstance().getViewFactory().addNewProdutoDefinicaoInstanceView(resource, produtoDefinicao, produtoDefinicaoContainer);
+
+            }
+        }
+        catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public void categoriaViewInitializer(URL resource, VBox categoriaContainer) {
 
         try {
@@ -190,6 +200,14 @@ public class ViewFactory  {
     }
 
 
+    public void addNewProdutoDefinicaoInstanceView(URL resource, ModelProdutoDefinicao produtoDefinicao, VBox produtoDefinicaoContainer) throws IOException, ClassNotFoundException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(resource);
+        AnchorPane anchorPane = loader.load();
+        ProdutoDefinicaoInstanceController produtoDefinicaoInstanceController = loader.getController();
+        produtoDefinicaoInstanceController.setProdutoDefinicaoInfoIntoContainer(produtoDefinicao);
+        produtoDefinicaoContainer.getChildren().add(anchorPane);
+    }
     public void addNewCategoriaInstanceView(URL resource, StringProperty modelCategoria, VBox categoriasContainer) throws IOException, ClassNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(resource);
