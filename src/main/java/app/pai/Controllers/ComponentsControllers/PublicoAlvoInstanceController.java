@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 public class PublicoAlvoInstanceController implements Initializable {
 
     @FXML
-    private Button DeleteBtn;
+    public Button publicDeleteBtn;
     @FXML
     private Text targetPublicTextfield;
     private ModelURL modelURL = new ModelURL();

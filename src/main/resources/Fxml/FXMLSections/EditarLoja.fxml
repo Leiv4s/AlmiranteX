@@ -33,48 +33,125 @@
             </Text>
          </children>
       </HBox>
-      <ScrollPane layoutY="72.0" prefHeight="602.0" prefWidth="1218.0">
+      <ScrollPane layoutY="72.0" prefHeight="619.0" prefWidth="1218.0">
          <content>
             <AnchorPane prefHeight="999.0" prefWidth="1203.0" style="-fx-background-color: white;">
                <children>
-                  <VBox layoutX="101.0" layoutY="552.0" prefHeight="428.0" prefWidth="850.0">
+                  <HBox layoutX="52.0" layoutY="642.0" spacing="50.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Categorias:" wrappingWidth="247.878662109375">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="30.0" />
-                           </VBox.margin>
-                        </Text>
-                        <ScrollPane prefHeight="291.0" prefWidth="897.0" vbarPolicy="ALWAYS">
-                           <content>
-                              <VBox fx:id="categoriaContainer" prefHeight="0.0" prefWidth="0.0" />
-                           </content>
-                        </ScrollPane>
-                        <VBox prefHeight="88.0" prefWidth="206.0" spacing="20.0">
+                        <VBox prefHeight="428.0" prefWidth="325.0">
                            <children>
-                              <Button fx:id="criarCategoriaBtn" mnemonicParsing="false" onAction="#criarCategoriaBtnOnClick" prefHeight="50.0" prefWidth="268.0" style="-fx-background-color: green;" text="Criar nova Categoria" textFill="WHITE">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Categorias:" wrappingWidth="247.878662109375">
                                  <font>
-                                    <Font name="System Bold" size="18.0" />
+                                    <Font name="System Bold" size="24.0" />
                                  </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <effect>
-                                    <DropShadow height="10.0" radius="3.25" width="5.0" />
-                                 </effect>
                                  <VBox.margin>
-                                    <Insets top="20.0" />
+                                    <Insets bottom="30.0" />
                                  </VBox.margin>
-                              </Button>
+                              </Text>
+                              <ScrollPane prefHeight="291.0" prefWidth="347.0" vbarPolicy="ALWAYS">
+                                 <content>
+                                    <VBox fx:id="categoriaContainer" prefHeight="0.0" prefWidth="0.0" />
+                                 </content>
+                              </ScrollPane>
+                              <VBox prefHeight="88.0" prefWidth="206.0" spacing="20.0">
+                                 <children>
+                                    <Button fx:id="criarCategoriaBtn" mnemonicParsing="false" onAction="#criarCategoriaBtnOnClick" prefHeight="50.0" prefWidth="200.0" stylesheets="@../Styles/Login.css" text="Criar nova Categoria" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <DropShadow height="10.0" radius="3.25" width="5.0" />
+                                       </effect>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="428.0" prefWidth="325.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Publico Alvos:" wrappingWidth="247.878662109375">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <ScrollPane prefHeight="285.0" prefWidth="347.0" vbarPolicy="ALWAYS">
+                                 <content>
+                                    <VBox fx:id="publicoAlvoContainer" prefHeight="0.0" prefWidth="0.0" />
+                                 </content>
+                              </ScrollPane>
+                              <VBox prefHeight="88.0" prefWidth="206.0" spacing="20.0">
+                                 <children>
+                                    <Button fx:id="criarPublicoAlvoBtn" mnemonicParsing="false" onAction="#criarPublicoAlvoBtnOnClick" prefHeight="50.0" prefWidth="200.0" stylesheets="@../Styles/Login.css" text="Criar novo Público" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <DropShadow height="10.0" radius="3.25" width="5.0" />
+                                       </effect>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="428.0" prefWidth="325.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gêneros:" wrappingWidth="247.878662109375">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <ScrollPane pannable="true" prefHeight="285.0" prefWidth="347.0" vbarPolicy="ALWAYS">
+                                 <content>
+                                    <VBox fx:id="generoContainer" prefHeight="0.0" prefWidth="0.0" />
+                                 </content>
+                              </ScrollPane>
+                              <VBox prefHeight="88.0" prefWidth="206.0" spacing="20.0">
+                                 <children>
+                                    <Button fx:id="criarGeneroBtn" mnemonicParsing="false" onAction="#criarGeneroBtnOnClick" prefHeight="50.0" prefWidth="200.0" stylesheets="@../Styles/Login.css" text="Criar novo Gênero" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <DropShadow height="10.0" radius="3.25" width="5.0" />
+                                       </effect>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
                            </children>
                         </VBox>
                      </children>
-                  </VBox>
-                  <VBox layoutX="54.0" layoutY="49.0" prefHeight="428.0" prefWidth="500.0">
+                     <padding>
+                        <Insets bottom="100.0" />
+                     </padding>
+                  </HBox>
+                  <VBox layoutX="110.0" layoutY="39.0" prefHeight="504.0" prefWidth="994.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Publico Alvos da loja:" wrappingWidth="247.878662109375">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Produtos:" wrappingWidth="247.878662109375">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -82,49 +159,14 @@
                               <Insets bottom="30.0" />
                            </VBox.margin>
                         </Text>
-                        <ScrollPane prefHeight="304.0" prefWidth="795.0" vbarPolicy="ALWAYS">
+                        <ScrollPane pannable="true" prefHeight="375.0" prefWidth="1002.0" vbarPolicy="ALWAYS">
                            <content>
-                              <VBox fx:id="publicoAlvoContainer" prefHeight="0.0" prefWidth="0.0" />
+                              <VBox fx:id="produtoContainer" prefHeight="0.0" prefWidth="0.0" />
                            </content>
                         </ScrollPane>
                         <VBox prefHeight="88.0" prefWidth="206.0" spacing="20.0">
                            <children>
-                              <Button fx:id="criarPublicoAlvoBtn" mnemonicParsing="false" onAction="#criarPublicoAlvoBtnOnClick" prefHeight="50.0" prefWidth="268.0" stylesheets="@../Styles/Login.css" text="Adicionar novo Público" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <effect>
-                                    <DropShadow height="10.0" radius="3.25" width="5.0" />
-                                 </effect>
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                              </Button>
-                           </children>
-                        </VBox>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="645.0" layoutY="49.0" prefHeight="428.0" prefWidth="500.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gêneros Atendidos:" wrappingWidth="247.878662109375">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="30.0" />
-                           </VBox.margin>
-                        </Text>
-                        <ScrollPane pannable="true" prefHeight="291.0" prefWidth="429.0" vbarPolicy="ALWAYS">
-                           <content>
-                              <VBox fx:id="generoContainer" prefHeight="0.0" prefWidth="0.0" />
-                           </content>
-                        </ScrollPane>
-                        <VBox prefHeight="88.0" prefWidth="206.0" spacing="20.0">
-                           <children>
-                              <Button fx:id="criarGeneroBtn" mnemonicParsing="false" onAction="#criarGeneroBtnOnClick" prefHeight="50.0" prefWidth="268.0" stylesheets="@../Styles/Login.css" text="Adicionar novo gênero" textFill="WHITE">
+                              <Button fx:id="criarProdutoBtn" mnemonicParsing="false" onAction="#criarProdutoBtnOnClick" prefHeight="50.0" prefWidth="235.0" stylesheets="@../Styles/Login.css" text="Cadastrar novo Produto" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>

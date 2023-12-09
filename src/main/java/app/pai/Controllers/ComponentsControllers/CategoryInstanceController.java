@@ -8,6 +8,7 @@ import app.pai.models.ModelCategoria;
 import app.pai.models.ModelURL;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -54,4 +55,5 @@ public class CategoryInstanceController {
         ExcluirCategoriaController excluirCategoriaController = loader.getController();
         excluirCategoriaController.setCategoriaReceiver(auxiliar);
     }
+
 }
