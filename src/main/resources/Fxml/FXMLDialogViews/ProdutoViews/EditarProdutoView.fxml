@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,104 +15,164 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<DialogPane prefHeight="378.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.DialogViewsControllers.CategoriaViews.EditarCategoriaController">
+<DialogPane prefHeight="557.0" prefWidth="899.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.EditarProdutoDefinicaoController">
    <content>
-      <AnchorPane prefHeight="450.0" prefWidth="500.0">
+      <AnchorPane prefHeight="511.0" prefWidth="861.0">
          <children>
-             <VBox layoutX="105.0" layoutY="48.0" prefHeight="262.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+             <VBox alignment="CENTER" layoutX="92.0" layoutY="48.0" prefHeight="307.0" prefWidth="279.0" spacing="25.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
                  <children>
-                     <Label id="loginLabel" prefHeight="52.0" prefWidth="300.0" text="Digite o nome da Categoria:" textFill="#e74f18">
-                         <font>
-                             <Font name="Liberation Mono" size="18.0" />
-                         </font>
-                     </Label>
-                     <TextField fx:id="categoriaTextfield" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: BDD0FB;">
-                         <VBox.margin>
-                             <Insets top="8.0" />
-                         </VBox.margin>
-                         <effect>
-                             <DropShadow height="5.0" offsetY="3.0" radius="0.75" width="0.0">
+                  <VBox spacing="10.0">
+                     <children>
+                           <Label id="loginLabel" prefHeight="53.0" prefWidth="279.0" text="Digite o novo nome do produto:" textFill="#e74f18" wrapText="true">
+                               <font>
+                                   <Font name="Liberation Mono Bold" size="18.0" />
+                               </font>
+                           </Label>
+                           <TextField fx:id="nomeProduto" prefHeight="27.0" prefWidth="319.0" style="-fx-background-color: BDD0FB;">
+                               <effect>
+                                   <DropShadow height="5.0" offsetY="3.0" radius="0.75" width="0.0">
+                                       <color>
+                                           <Color red="0.7473683953285217" green="0.7473683953285217" blue="0.7473683953285217" />
+                                       </color>
+                                   </DropShadow>
+                               </effect>
+                               <font>
+                                   <Font name="Liberation Mono" size="14.0" />
+                               </font>
+                           </TextField>
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label id="loginLabel" prefHeight="2.0" prefWidth="279.0" text="Novo preço de custo:" textFill="#e74f18" wrapText="true">
+                           <font>
+                              <Font name="Liberation Mono Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="precoCusto" prefHeight="27.0" prefWidth="319.0" style="-fx-background-color: BDD0FB;">
+                           <effect>
+                              <DropShadow height="5.0" offsetY="3.0" radius="0.75" width="0.0">
                                  <color>
-                                     <Color red="0.7473683953285217" green="0.7473683953285217" blue="0.7473683953285217" />
+                                    <Color red="0.7473683953285217" green="0.7473683953285217" blue="0.7473683953285217" />
                                  </color>
-                             </DropShadow>
-                         </effect>
-                         <font>
-                             <Font name="Liberation Mono" size="14.0" />
-                         </font>
-                     </TextField>
-                     <Label prefHeight="64.0" prefWidth="300.0" text="Defina o Publico Alvo:" textFill="#e74f18">
-                         <padding>
-                             <Insets top="40.0" />
-                         </padding>
-                         <font>
-                             <Font name="Liberation Mono" size="18.0" />
-                         </font>
-                     </Label>
-                     <ChoiceBox fx:id="publicoAlvoComboBox" prefHeight="30.0" prefWidth="300.0" />
-                     <Label prefHeight="64.0" prefWidth="300.0" text="Defina o Gênero:" textFill="#e74f18">
-                         <padding>
-                             <Insets top="40.0" />
-                         </padding>
-                         <font>
-                             <Font name="Liberation Mono" size="18.0" />
-                         </font>
-                     </Label>
-                     <ChoiceBox fx:id="generoComboBox" prefHeight="30.0" prefWidth="300.0" />
-                     <Label fx:id="labelMessage" alignment="CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="300.0" textAlignment="CENTER" textFill="#cc0000">
-                         <font>
-                             <Font name="System Bold" size="14.0" />
-                         </font>
-                         <VBox.margin>
-                             <Insets top="20.0" />
-                         </VBox.margin>
-                     </Label>
-                     <HBox spacing="30.0">
-                         <children>
-                             <Button id="loginButton" fx:id="editarBtn" mnemonicParsing="false" onAction="#editarBtnOnClick" prefHeight="34.0" prefWidth="322.0" stylesheets="@../../Styles/Login.css" text="Editar" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                     <Font name="Liberation Mono" size="18.0" />
-                                 </font>
-                                 <effect>
-                                     <DropShadow height="2.5" offsetY="3.0" radius="0.125" width="0.0">
-                                         <color>
-                                             <Color red="0.7490196228027344" green="0.7490196228027344" blue="0.7490196228027344" />
-                                         </color>
-                                     </DropShadow>
-                                 </effect>
-                                 <cursor>
-                                     <Cursor fx:constant="HAND" />
-                                 </cursor>
-                             </Button>
-                             <Button id="deleteBtn" fx:id="cancelarBtn" mnemonicParsing="false" onAction="#cancelarBtnOnClick" prefHeight="37.0" prefWidth="350.0" stylesheets="@../../Styles/Login.css" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                     <Font name="Liberation Mono" size="18.0" />
-                                 </font>
-                                 <effect>
-                                     <DropShadow height="2.5" offsetY="3.0" radius="0.125" width="0.0">
-                                         <color>
-                                             <Color red="0.7490196228027344" green="0.7490196228027344" blue="0.7490196228027344" />
-                                         </color>
-                                     </DropShadow>
-                                 </effect>
-                                 <cursor>
-                                     <Cursor fx:constant="HAND" />
-                                 </cursor>
-                             </Button>
-                         </children>
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                     </HBox>
+                              </DropShadow>
+                           </effect>
+                           <font>
+                              <Font name="Liberation Mono" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label id="loginLabel" prefHeight="2.0" prefWidth="279.0" text="Novo preço de venda:" textFill="#e74f18" wrapText="true">
+                           <font>
+                              <Font name="Liberation Mono Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="precoVenda" prefHeight="27.0" prefWidth="319.0" style="-fx-background-color: BDD0FB;">
+                           <effect>
+                              <DropShadow height="5.0" offsetY="3.0" radius="0.75" width="0.0">
+                                 <color>
+                                    <Color red="0.7473683953285217" green="0.7473683953285217" blue="0.7473683953285217" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <font>
+                              <Font name="Liberation Mono" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
                  </children>
              </VBox>
+            <VBox alignment="TOP_CENTER" layoutX="521.0" layoutY="61.0" prefHeight="174.0" prefWidth="279.0" spacing="20.0">
+               <children>
+                  <VBox spacing="10.0">
+                     <children>
+                           <Label prefHeight="24.0" prefWidth="279.0" text="Defina metodo de Medida:" textFill="#e74f18">
+                               <font>
+                                   <Font name="Liberation Mono Bold" size="18.0" />
+                               </font>
+                           </Label>
+                           <ChoiceBox fx:id="tamanhosChoiceBox" prefHeight="30.0" prefWidth="300.0" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="279.0" text="Defina a Categoria:" textFill="#e74f18">
+                           <font>
+                              <Font name="Liberation Mono Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="categoriaChoiceBox" prefHeight="30.0" prefWidth="300.0" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="279.0" text="Defina o Publico Alvo:" textFill="#e74f18">
+                           <font>
+                              <Font name="Liberation Mono Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="publicoAlvoChoiceBox" prefHeight="30.0" prefWidth="300.0" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label prefHeight="24.0" prefWidth="279.0" text="Defina o Gênero:" textFill="#e74f18">
+                           <font>
+                              <Font name="Liberation Mono Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="generoChoiceBox" prefHeight="30.0" prefWidth="279.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+               <HBox layoutX="243.0" layoutY="451.0" prefHeight="38.0" prefWidth="415.0" spacing="30.0">
+                   <children>
+                       <Button id="loginButton" fx:id="criarBtn" mnemonicParsing="false" onAction="#editarBtnOnClick" prefHeight="38.0" prefWidth="191.0" stylesheets="@../../Styles/Login.css" text="Atualizar dados" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                               <Font name="Liberation Mono" size="18.0" />
+                           </font>
+                           <effect>
+                               <DropShadow height="2.5" offsetY="3.0" radius="0.125" width="0.0">
+                                   <color>
+                                       <Color red="0.7490196228027344" green="0.7490196228027344" blue="0.7490196228027344" />
+                                   </color>
+                               </DropShadow>
+                           </effect>
+                           <cursor>
+                               <Cursor fx:constant="HAND" />
+                           </cursor>
+                       </Button>
+                       <Button id="deleteBtn" fx:id="cancelarBtn" mnemonicParsing="false" onAction="#cancelarBtnOnClick" prefHeight="38.0" prefWidth="198.0" stylesheets="@../../Styles/Login.css" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                               <Font name="Liberation Mono" size="18.0" />
+                           </font>
+                           <effect>
+                               <DropShadow height="2.5" offsetY="3.0" radius="0.125" width="0.0">
+                                   <color>
+                                       <Color red="0.7490196228027344" green="0.7490196228027344" blue="0.7490196228027344" />
+                                   </color>
+                               </DropShadow>
+                           </effect>
+                           <cursor>
+                               <Cursor fx:constant="HAND" />
+                           </cursor>
+                       </Button>
+                   </children>
+               </HBox>
+            <Separator layoutX="448.0" layoutY="65.0" orientation="VERTICAL" prefHeight="300.0" />
+
          </children>
       </AnchorPane>
    </content>
    <header>
         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" styleClass="topBarContainer" stylesheets="@../../Styles/ComponentTopBar.css">
             <children>
-                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Gênero" textAlignment="CENTER">
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Nova Definição de Produto " textAlignment="CENTER">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
@@ -120,4 +180,5 @@
             </children>
         </HBox>
    </header>
+
 </DialogPane>

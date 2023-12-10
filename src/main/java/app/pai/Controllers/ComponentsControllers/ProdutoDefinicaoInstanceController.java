@@ -1,5 +1,6 @@
 package app.pai.Controllers.ComponentsControllers;
 
+import app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.EditarProdutoDefinicaoController;
 import app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.ExcluirProdutoDefinicaoController;
 import app.pai.models.Model;
 import app.pai.models.ModelProdutoDefinicao;
@@ -57,15 +58,7 @@ public class ProdutoDefinicaoInstanceController {
     @FXML
     void deleteBtnOnClick() throws IOException {
         Model.getInstance().getViewFactory().getFogPaneController().ableFogPane();
-        ModelProdutoDefinicao model = new ModelProdutoDefinicao(
-                produtoTextfield.getText(),
-                categoria.getText(),
-                genero.getText(),
-                publicoAlvo.getText(),
-                tipoTamanho.getText(),
-                Float.parseFloat(precoCusto.getText()),
-                Float.parseFloat(precoVenda.getText())
-        );
+
         ExcluirProdutoDefinicaoController.setReceiver(
                 new ModelProdutoDefinicao(
                         produtoTextfield.getText(),
@@ -77,15 +70,26 @@ public class ProdutoDefinicaoInstanceController {
                         Float.parseFloat(precoVenda.getText())
                 )
         );
-        System.out.println(model + "1");
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getExcluirProdutoFXML());
 
 
     }
 
     @FXML
-    void editarBtnOnClick() {
-
+    void editarBtnOnClick() throws IOException {
+        Model.getInstance().getViewFactory().getFogPaneController().ableFogPane();
+        EditarProdutoDefinicaoController.setReceiver(
+                new ModelProdutoDefinicao(
+                        produtoTextfield.getText(),
+                        categoria.getText(),
+                        genero.getText(),
+                        publicoAlvo.getText(),
+                        tipoTamanho.getText(),
+                        Float.parseFloat(precoCusto.getText()),
+                        Float.parseFloat(precoVenda.getText())
+                )
+        );
+        Model.getInstance().getViewFactory().loadDialogView(modelURL.getEditarProdutoFXML());
     }
 
 
