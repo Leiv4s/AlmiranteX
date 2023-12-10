@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ModelProdutoDefinicao implements Serializable {
     //atributes
@@ -29,7 +30,7 @@ public class ModelProdutoDefinicao implements Serializable {
     }
 
     public ModelProdutoDefinicao(String nomeProduto, String categoria, String genero, String publicoAlvo, String tipoTamanho, float precoCusto, float precoVenda) {
-        this.nomeProduto = new SimpleStringProperty (nomeProduto);
+        this.nomeProduto = new SimpleStringProperty(nomeProduto);
         this.categoria = new SimpleStringProperty(categoria);
         this.genero = new SimpleStringProperty(genero);
         this.publicoAlvo = new SimpleStringProperty(publicoAlvo);
@@ -131,6 +132,7 @@ public class ModelProdutoDefinicao implements Serializable {
         this.precoVenda.set(precoVenda);
     }
 
+
     public static ObservableList<ModelProdutoDefinicao> getListaProdutoDefinicao() {
         return listaProdutoDefinicao;
     }
@@ -140,9 +142,7 @@ public class ModelProdutoDefinicao implements Serializable {
     }
 
 
-
     //                              CRUD OPERATIONS
-
 
 
     public static void createNewDefinicaoProdutoInstance(ModelProdutoDefinicao newProduto) {
@@ -150,11 +150,23 @@ public class ModelProdutoDefinicao implements Serializable {
     }
 
     public static void updateDefinicaoProdutoInstance(ModelProdutoDefinicao oldProduto, ModelProdutoDefinicao newProduto) {
-
+        for (int i = 0; i < listaProdutoDefinicao.size(); i++) {
+            System.out.println("entrei no for");
+            if (Objects.equals(listaProdutoDefinicao.get(i).toString(), oldProduto.toString())) {
+                System.out.println("achei");
+                listaProdutoDefinicao.set(i, newProduto);
+            }
+        }
     }
 
     public static void removeDefinicaoProdutoInstance(ModelProdutoDefinicao produtoRemovido) {
-
+        for (int i = 0; i < listaProdutoDefinicao.size(); i++) {
+            System.out.println("entrei no for");
+            if (Objects.equals(listaProdutoDefinicao.get(i).toString(), produtoRemovido.toString())) {
+                System.out.println("achei");
+                listaProdutoDefinicao.remove(i);
+            }
+        }
     }
 
 

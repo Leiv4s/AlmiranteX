@@ -149,7 +149,7 @@
                         <Insets bottom="100.0" />
                      </padding>
                   </HBox>
-                  <VBox layoutX="27.0" layoutY="39.0" prefHeight="504.0" prefWidth="1143.0">
+                  <VBox layoutX="27.0" layoutY="12.0" prefHeight="636.0" prefWidth="1143.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Produtos:" wrappingWidth="247.878662109375">
                            <font>
@@ -159,12 +159,12 @@
                               <Insets bottom="30.0" />
                            </VBox.margin>
                         </Text>
-                        <ScrollPane pannable="true" prefHeight="375.0" prefWidth="1002.0" vbarPolicy="ALWAYS">
+                        <ScrollPane pannable="true" prefHeight="440.0" prefWidth="1143.0" vbarPolicy="ALWAYS">
                            <content>
                               <VBox fx:id="produtoDefinicaoContainer" prefHeight="0.0" prefWidth="0.0" />
                            </content>
                         </ScrollPane>
-                        <VBox prefHeight="88.0" prefWidth="206.0" spacing="20.0">
+                        <VBox prefHeight="88.0" prefWidth="1143.0" spacing="20.0">
                            <children>
                               <Button fx:id="criarProdutoBtn" mnemonicParsing="false" onAction="#criarProdutoBtnOnClick" prefHeight="50.0" prefWidth="235.0" stylesheets="@../Styles/Login.css" text="Cadastrar novo Produto" textFill="WHITE">
                                  <font>

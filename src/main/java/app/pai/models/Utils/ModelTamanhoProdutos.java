@@ -13,8 +13,8 @@ public class ModelTamanhoProdutos {
     }
 
     public ArrayList<StringProperty> getListaTamanhos() {
-        listaTamanhos.add(new SimpleStringProperty("Pequeno-Médio-Grande"));
-        listaTamanhos.add(new SimpleStringProperty("Sistema Numérico"));
+        listaTamanhos.add(new SimpleStringProperty("P-M-G"));
+        listaTamanhos.add(new SimpleStringProperty("Numérico"));
         return listaTamanhos;
     }
 

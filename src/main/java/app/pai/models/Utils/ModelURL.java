@@ -25,7 +25,7 @@ public class ModelURL {
     private final URL produtoInstanceFXML = getClass().getResource("/FXML/FXMLComponents/ComponentProdutoInstance.fxml");
     private final URL criarProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoViews/CriarProdutoView.fxml");
     private final URL editarProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoViews/EditarProdutoView.fxml");
-    private final URL excluirProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoViews/ExcluirProdutoView.fxml");
+    private final URL excluirProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoViews/RemoveProdutoView.fxml");
 
     private final URL EstoqueProdutoInstanceFXML = getClass().getResource("/FXML/FXMLComponents/ComponentEstoqueProdutoInstance.fxml");
 
