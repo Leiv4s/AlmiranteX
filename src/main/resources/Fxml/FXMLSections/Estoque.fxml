@@ -1,83 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1228.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1228.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.MenuSectionControllers.EstoqueController">
    <children>
       <AnchorPane layoutX="1.0" layoutY="70.4" prefHeight="600.0" prefWidth="1216.0" style="-fx-background-color: white;" AnchorPane.topAnchor="70.0">
          <effect>
-            <DropShadow height="10.0" radius="4.5" width="10.0">
+            <DropShadow height="5.0" radius="2.0" width="5.0">
                <color>
-                  <Color red="0.4117647111415863" green="0.4117647111415863" blue="0.4117647111415863" />
+                  <Color red="0.5789473652839661" green="0.5789473652839661" blue="0.5789473652839661" />
                </color>
             </DropShadow>
          </effect>
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="1216.0" spacing="20.0" style="-fx-background-color: #F2F7FD;">
-               <effect>
-                  <DropShadow height="10.0" radius="2.0" width="0.0">
-                     <color>
-                        <Color red="0.6000000238418579" green="0.6000000238418579" blue="0.6000000238418579" />
-                     </color>
-                  </DropShadow>
-               </effect>
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pesquisar por produto:">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </Text>
-                  <TextField prefHeight="50.0" prefWidth="399.0">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </TextField>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Por modelCategoria:" wrappingWidth="133.9873046875">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Text>
-                  <ChoiceBox prefHeight="50.0" prefWidth="216.0" />
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="126.0" text="Limpar">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-            <ScrollPane layoutX="31.0" layoutY="85.0" prefHeight="498.0" prefWidth="1152.0">
+            <ScrollPane layoutX="71.0" layoutY="105.0" pannable="true" prefHeight="396.0" prefWidth="1090.0" vbarPolicy="ALWAYS">
                <content>
-                  <TableView prefHeight="496.0" prefWidth="1150.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
+                  <VBox fx:id="produtoDefinicaoContainer" prefHeight="0.0" prefWidth="0.0" />
                </content>
             </ScrollPane>
+            <Button fx:id="criarProdutoBtn" layoutX="71.0" layoutY="523.0" mnemonicParsing="false" onAction="#criarProdutoBtnOnClick" prefHeight="50.0" prefWidth="235.0" stylesheets="@../Styles/Login.css" text="Cadastrar novo Produto" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow height="10.0" radius="3.25" width="5.0" />
+               </effect>
+            </Button>
+            <Text layoutX="34.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pesquisar no estoque:" wrappingWidth="185.336669921875">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <TextField layoutX="232.0" layoutY="18.0" prefHeight="26.0" prefWidth="559.0" style="-fx-border-color: none;" />
          </children>
       </AnchorPane>
       <HBox layoutX="1.0" layoutY="8.0" prefHeight="50.0" prefWidth="1216.0" style="-fx-background-color: #d8eaff;">
          <effect>
-            <DropShadow height="10.0" radius="4.5" width="10.0">
+            <DropShadow height="5.0" radius="2.0" width="5.0">
                <color>
                   <Color red="0.4117647111415863" green="0.4117647111415863" blue="0.4117647111415863" />
                </color>
