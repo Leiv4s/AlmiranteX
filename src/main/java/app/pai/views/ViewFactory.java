@@ -200,6 +200,8 @@ public class ViewFactory  {
     }
 
 
+
+
     public void addNewProdutoDefinicaoInstanceView(URL resource, ModelProdutoDefinicao produtoDefinicao, VBox produtoDefinicaoContainer) throws IOException, ClassNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(resource);
@@ -208,6 +210,7 @@ public class ViewFactory  {
         produtoDefinicaoInstanceController.setProdutoDefinicaoInfoIntoContainer(produtoDefinicao);
         produtoDefinicaoContainer.getChildren().add(anchorPane);
     }
+
     public void addNewCategoriaInstanceView(URL resource, StringProperty modelCategoria, VBox categoriasContainer) throws IOException, ClassNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(resource);

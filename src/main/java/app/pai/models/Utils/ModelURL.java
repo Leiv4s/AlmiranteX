@@ -23,18 +23,26 @@ public class ModelURL {
 
 
     private final URL produtoInstanceFXML = getClass().getResource("/FXML/FXMLComponents/ComponentProdutoInstance.fxml");
-    private final URL criarProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoViews/CriarProdutoView.fxml");
-    private final URL editarProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoViews/EditarProdutoView.fxml");
-    private final URL excluirProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoViews/RemoveProdutoView.fxml");
+    private final URL criarProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoDefinicaoViews/CriarProdutoView.fxml");
+    private final URL editarProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoDefinicaoViews/EditarProdutoView.fxml");
+    private final URL excluirProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoDefinicaoViews/RemoveProdutoView.fxml");
 
-    private final URL EstoqueProdutoInstanceFXML = getClass().getResource("/FXML/FXMLComponents/ComponentEstoqueProdutoInstance.fxml");
 
+    private final URL getConsultaEstoqueProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoEstoqueViews/ConsultaEstoqueProdutoView.fxml");
+    private final URL getDetalheProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoEstoqueViews/DetalheProdutoView.fxml");
 
 
     public ModelURL() {
     }
 
 
+    public URL getConsultaEstoqueProdutoFXML() {
+        return getConsultaEstoqueProdutoFXML;
+    }
+
+    public URL getDetalheProdutoFXML() {
+        return getDetalheProdutoFXML;
+    }
     public URL getProdutoInstanceFXML() {
         return produtoInstanceFXML;
     }

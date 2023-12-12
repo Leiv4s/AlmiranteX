@@ -15,6 +15,25 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1228.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.MenuSectionControllers.EstoqueController">
    <children>
+      <HBox layoutX="1.0" layoutY="8.0" prefHeight="50.0" prefWidth="1216.0" style="-fx-background-color: #d8eaff;">
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0">
+               <color>
+                  <Color red="0.4117647111415863" green="0.4117647111415863" blue="0.4117647111415863" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <Text fill="#361299" strokeType="OUTSIDE" strokeWidth="0.0" text="Estoque">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" top="8.0" />
+               </HBox.margin>
+            </Text>
+         </children>
+      </HBox>
       <AnchorPane layoutX="1.0" layoutY="70.4" prefHeight="600.0" prefWidth="1216.0" style="-fx-background-color: white;" AnchorPane.topAnchor="70.0">
          <effect>
             <DropShadow height="5.0" radius="2.0" width="5.0">
@@ -24,7 +43,7 @@
             </DropShadow>
          </effect>
          <children>
-            <ScrollPane layoutX="71.0" layoutY="105.0" pannable="true" prefHeight="396.0" prefWidth="1090.0" vbarPolicy="ALWAYS">
+            <ScrollPane layoutX="31.0" layoutY="65.0" pannable="true" prefHeight="440.0" prefWidth="1143.0" vbarPolicy="ALWAYS">
                <content>
                   <VBox fx:id="produtoDefinicaoContainer" prefHeight="0.0" prefWidth="0.0" />
                </content>
@@ -46,26 +65,18 @@
                </font>
             </Text>
             <TextField layoutX="232.0" layoutY="18.0" prefHeight="26.0" prefWidth="559.0" style="-fx-border-color: none;" />
+            <Button fx:id="adicionarProdutoBtn" layoutX="336.0" layoutY="523.0" mnemonicParsing="false" onAction="#adicionarProdutoBtnOnClick" prefHeight="50.0" prefWidth="306.0" stylesheets="@../Styles/Login.css" text="Adicionar Produtos ao Estoque" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow height="10.0" radius="3.25" width="5.0" />
+               </effect>
+            </Button>
          </children>
       </AnchorPane>
-      <HBox layoutX="1.0" layoutY="8.0" prefHeight="50.0" prefWidth="1216.0" style="-fx-background-color: #d8eaff;">
-         <effect>
-            <DropShadow height="5.0" radius="2.0" width="5.0">
-               <color>
-                  <Color red="0.4117647111415863" green="0.4117647111415863" blue="0.4117647111415863" />
-               </color>
-            </DropShadow>
-         </effect>
-         <children>
-            <Text fill="#361299" strokeType="OUTSIDE" strokeWidth="0.0" text="Estoque">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="10.0" top="8.0" />
-               </HBox.margin>
-            </Text>
-         </children>
-      </HBox>
    </children>
 </AnchorPane>

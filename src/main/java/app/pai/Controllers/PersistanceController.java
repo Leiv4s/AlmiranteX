@@ -96,9 +96,18 @@ public class PersistanceController implements Serializable {
         ArrayList<Aux> auxArrayList = new ArrayList<>();
 
         for (ModelProdutoDefinicao modelProdutoDefinicao : list) {
-            auxArrayList.add(new Aux(modelProdutoDefinicao.getNomeProduto(), modelProdutoDefinicao.getTipoTamanho(), modelProdutoDefinicao.getCategoria(), modelProdutoDefinicao.getPublicoAlvo(), modelProdutoDefinicao.getGenero(), modelProdutoDefinicao.getPrecoCusto(), modelProdutoDefinicao.getPrecoVenda()));
+            auxArrayList.add(
+                    new Aux(
+                    modelProdutoDefinicao.getNomeProduto(),
+                    modelProdutoDefinicao.getTipoTamanho(),
+                    modelProdutoDefinicao.getCategoria(),
+                    modelProdutoDefinicao.getPublicoAlvo(),
+                    modelProdutoDefinicao.getGenero(),
+                    modelProdutoDefinicao.getPrecoCusto(),
+                    modelProdutoDefinicao.getPrecoVenda()
+                    )
+            );
         }
-
         out.writeObject(new ArrayList<>(auxArrayList));
         out.close();
         fileOut.close();

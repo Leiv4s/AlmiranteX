@@ -51,7 +51,7 @@ public class EditarLojaController extends PersistanceController implements Initi
     public static ObservableList<StringProperty> listaCategoriaObservable = ModelCategoria.getListaCategoria();
 
 
-    ListChangeListener<ModelProdutoDefinicao> listenerPublicoDefinicao = c -> {
+    ListChangeListener<ModelProdutoDefinicao> listenerProdutoDefinicao = c -> {
         System.out.println("percebi publico");
         try {
             produtoDefinicaoContainer.getChildren().clear();
@@ -65,6 +65,7 @@ public class EditarLojaController extends PersistanceController implements Initi
             try {
                 persistanceController.serializeProdutoDefinicao(listaProdutoDefinicaoObservable);
                 System.out.println("serializei");
+                System.out.println(listaPublicoAlvoObservable);
             }
             catch (IOException e) {
                 throw new RuntimeException(e);
@@ -131,7 +132,7 @@ public class EditarLojaController extends PersistanceController implements Initi
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initializeProdutoDefinicaoLoadedInstances(listaProdutoDefinicaoObservable,listenerPublicoDefinicao);
+        initializeProdutoDefinicaoLoadedInstances(listaProdutoDefinicaoObservable, listenerProdutoDefinicao);
         initializeCategoriaLoadedInstances(listaCategoriaObservable, listenerCategoria);
         initializePublicoAlvoLoadedInstances(listaPublicoAlvoObservable, listenerPublicoAlvo);
         initializeGeneroAlvoLoadedInstances(listaGeneroObservable, listenerGenero);
