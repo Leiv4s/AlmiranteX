@@ -41,7 +41,7 @@
                   <DropShadow height="10.0" radius="3.25" width="5.0" />
                </effect>
             </Button>
-            <Button fx:id="adicionarProdutoBtn1" layoutX="355.0" layoutY="525.0" mnemonicParsing="false" onAction="#adicionarProdutoBtnOnClick" prefHeight="50.0" prefWidth="281.0" stylesheets="@../Styles/Login.css" text="Remover Produtos do Estoque" textFill="WHITE">
+            <Button fx:id="removerProdutoBtn" layoutX="355.0" layoutY="525.0" mnemonicParsing="false" onAction="#removerProdutoBtnOnClick" prefHeight="50.0" prefWidth="281.0" stylesheets="@../Styles/Login.css" text="Remover Produtos do Estoque" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -67,14 +67,14 @@
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Text>
-                              <TextField prefHeight="30.0" prefWidth="365.0" style="-fx-border-color: none;">
+                              <TextField fx:id="pesquisarTextfield" prefHeight="30.0" prefWidth="365.0" style="-fx-border-color: none;">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </TextField>
                            </children>
                         </HBox>
-                        <Button fx:id="criarProdutoBtn11" mnemonicParsing="false" onAction="#criarProdutoBtnOnClick" prefHeight="29.0" prefWidth="40.0" stylesheets="@../Styles/Login.css" textFill="WHITE" wrapText="true">
+                        <Button fx:id="limparFiltrosBtn" mnemonicParsing="false" onAction="#limparFiltrosBtnOnClick" prefHeight="29.0" prefWidth="40.0" stylesheets="@../Styles/Login.css" textFill="WHITE" wrapText="true">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -97,7 +97,7 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Text>
-                        <ChoiceBox prefHeight="30.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="produtoChoiceBox" prefHeight="30.0" prefWidth="150.0" />
                      </children>
                   </HBox>
                </children>
@@ -122,7 +122,7 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <ChoiceBox prefHeight="30.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="categoriaChoiceBox" prefHeight="30.0" prefWidth="150.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="300.0">
@@ -132,7 +132,7 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <ChoiceBox prefHeight="30.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="publicoAlvoChoiceBox" prefHeight="30.0" prefWidth="150.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="286.0">
@@ -142,7 +142,7 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <ChoiceBox prefHeight="30.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="generoChoiceBox" prefHeight="30.0" prefWidth="150.0" />
                      </children>
                   </HBox>
                </children>

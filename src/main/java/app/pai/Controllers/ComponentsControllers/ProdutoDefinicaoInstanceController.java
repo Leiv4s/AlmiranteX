@@ -1,6 +1,6 @@
 package app.pai.Controllers.ComponentsControllers;
 
-import app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.ConsultaEstoqueProdutoController;
+import app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.ConsultaEstoqueProdutoPmgController;
 import app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.DetalheProdutoController;
 import app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.EditarProdutoDefinicaoController;
 import app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.ExcluirProdutoDefinicaoController;
@@ -67,7 +67,7 @@ public class ProdutoDefinicaoInstanceController {
 
     public void consultarEstoqueBtnOnClick() throws IOException {
         Model.getInstance().getViewFactory().getFogPaneController().ableFogPane();
-        ConsultaEstoqueProdutoController.setReceiver(produtoData);
+        ConsultaEstoqueProdutoPmgController.setReceiver(produtoData);
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getConsultaEstoqueProdutoFXML());
     }
 

@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ConsultaEstoqueProdutoController implements Initializable {
+public class ConsultaEstoqueProdutoPmgController implements Initializable {
 
     @FXML
     private Label nomeProduto;
@@ -32,7 +32,7 @@ public class ConsultaEstoqueProdutoController implements Initializable {
 
     static private ModelProdutoDefinicao receiver = new ModelProdutoDefinicao();
     public static void setReceiver(ModelProdutoDefinicao receiver) {
-        ConsultaEstoqueProdutoController.receiver = receiver;
+        ConsultaEstoqueProdutoPmgController.receiver = receiver;
     }
 
     @FXML

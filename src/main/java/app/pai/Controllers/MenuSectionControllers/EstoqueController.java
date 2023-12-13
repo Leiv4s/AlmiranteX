@@ -6,9 +6,12 @@ import app.pai.models.*;
 import app.pai.models.Utils.ModelURL;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -20,12 +23,28 @@ import static app.pai.models.Model.getInstance;
 
 public class EstoqueController implements Initializable {
 
+
+    @FXML
+    private TextField pesquisarTextfield;
+    @FXML
+    private Button limparFiltrosBtn;
+    @FXML
+    private ChoiceBox<?> categoriaChoiceBox;
+    @FXML
+    private ChoiceBox<?> generoChoiceBox;
+    @FXML
+    private ChoiceBox<?> produtoChoiceBox;
+    @FXML
+    private ChoiceBox<?> publicoAlvoChoiceBox;
+    @FXML
+    private VBox produtoDefinicaoContainer;
     @FXML
     private Button adicionarProdutoBtn;
     @FXML
-    private Button criarProdutoBtn;
+    private Button removerProdutoBtn;
     @FXML
-    private VBox produtoDefinicaoContainer;
+    private Button criarProdutoBtn;
+
 
     //controllers declarations
 
@@ -36,8 +55,7 @@ public class EstoqueController implements Initializable {
     private ModelURL modelURL = new ModelURL();
 
     private static ObservableList<ModelProdutoDefinicao> listaProdutoObservable = ModelProdutoDefinicao.getListaProdutoDefinicao();
-
-    ListChangeListener<ModelProdutoDefinicao> listenerProdutoDefinicao = c -> {
+    private ListChangeListener<ModelProdutoDefinicao> listenerProdutoDefinicao = c -> {
         System.out.println("percebi publico");
         try {
             produtoDefinicaoContainer.getChildren().clear();
@@ -88,4 +106,9 @@ public class EstoqueController implements Initializable {
     }
 
 
+    public void removerProdutoBtnOnClick(ActionEvent event) {
+    }
+
+    public void limparFiltrosBtnOnClick(ActionEvent event) {
+    }
 }

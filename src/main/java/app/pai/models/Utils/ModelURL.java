@@ -28,7 +28,7 @@ public class ModelURL {
     private final URL excluirProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoDefinicaoViews/RemoveProdutoView.fxml");
 
 
-    private final URL getConsultaEstoqueProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoEstoqueViews/ConsultaEstoqueProdutoView.fxml");
+    private final URL getConsultaEstoqueProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoEstoqueViews/ConsultaEstoqueProdutoPMGView.fxml");
     private final URL getDetalheProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoEstoqueViews/DetalheProdutoView.fxml");
 
 
