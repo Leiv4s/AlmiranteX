@@ -65,12 +65,11 @@ public class EstoqueController implements Initializable {
 
         // serialização abaixo:
         PersistanceController persistanceController = new PersistanceController();
-        if (listaProdutoObservable != null){
+        if (listaProdutoObservable != null) {
             try {
                 persistanceController.serializeProdutoDefinicao(listaProdutoObservable);
                 System.out.println("serializei");
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
@@ -80,9 +79,8 @@ public class EstoqueController implements Initializable {
         PersistanceController persistanceController = new PersistanceController();
         ObservableList.addListener(listener);
         try {
-            ModelProdutoDefinicao.setListaProdutoDefinicao (persistanceController.desserializeProdutoDefinicao());
-        }
-        catch (Exception e) {
+            ModelProdutoDefinicao.setListaProdutoDefinicao(persistanceController.desserializeProdutoDefinicao());
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -90,23 +88,21 @@ public class EstoqueController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initializeProdutoDefinicaoLoadedInstances(listaProdutoObservable,listenerProdutoDefinicao);
+        initializeProdutoDefinicaoLoadedInstances(listaProdutoObservable, listenerProdutoDefinicao);
     }
-
-
 
 
     public void criarProdutoBtnOnClick() throws IOException {
         getInstance().getViewFactory().getFogPaneController().ableFogPane();
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getCriarProdutoFXML());
     }
-
-
-    public void adicionarProdutoBtnOnClick() {
+    public void adicionarProdutoBtnOnClick() throws IOException {
+        getInstance().getViewFactory().getFogPaneController().ableFogPane();
+        Model.getInstance().getViewFactory().loadDialogView(modelURL.getAdicionarNoEstoqueFXML());
     }
-
-
-    public void removerProdutoBtnOnClick(ActionEvent event) {
+    public void removerProdutoBtnOnClick(ActionEvent event) throws IOException {
+        getInstance().getViewFactory().getFogPaneController().ableFogPane();
+        Model.getInstance().getViewFactory().loadDialogView(modelURL.getRemoverDoEstoqueFXML());
     }
 
     public void limparFiltrosBtnOnClick(ActionEvent event) {

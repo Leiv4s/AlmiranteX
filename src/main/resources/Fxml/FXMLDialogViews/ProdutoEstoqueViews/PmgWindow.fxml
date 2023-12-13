@@ -6,10 +6,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <HBox prefHeight="281.0" prefWidth="127.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.DialogViewsControllers.ProdutoEstoqueViews.PmgWindowController">
    <children>
-      <VBox prefHeight="386.0" prefWidth="45.0" spacing="57.5">
+      <VBox prefHeight="386.0" prefWidth="45.0" spacing="30.0">
          <children>
                  <Label prefHeight="26.0" prefWidth="40.0" text="PP:">
                      <font>
@@ -38,7 +37,7 @@
                  </Label>
          </children>
       </VBox>
-      <VBox prefHeight="152.0" prefWidth="87.0" spacing="50.0">
+      <VBox prefHeight="152.0" prefWidth="87.0" spacing="23.0">
          <children>
             <TextField fx:id="pp">
                <font>

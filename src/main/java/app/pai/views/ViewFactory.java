@@ -14,6 +14,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
@@ -243,6 +244,15 @@ public class ViewFactory  {
 
 
     //                  FUNÇÕES DIALOG VIEWS
+
+
+    public FXMLLoader loadTamanhosTextfieldView(URL linkArquivoFXML, HBox container) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(linkArquivoFXML);
+        HBox telaTamanhosFXML = loader.load();
+        container.getChildren().add(telaTamanhosFXML);
+        return loader;
+    }
 
 
     static private Dialog<ButtonType> dialogInstance = new Dialog<>();

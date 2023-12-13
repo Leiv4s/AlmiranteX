@@ -24,6 +24,8 @@ module app.pai.paiquemmanda {
     opens app.pai.Controllers.DialogViewsControllers.GeneroView to javafx.fxml;
     exports app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews;
     opens app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews to javafx.fxml;
+    exports app.pai.Controllers.DialogViewsControllers.ProdutoEstoqueViews;
+    opens app.pai.Controllers.DialogViewsControllers.ProdutoEstoqueViews to javafx.fxml;
     exports app.pai.models.Utils;
     opens app.pai.models.Utils to javafx.fxml;
 

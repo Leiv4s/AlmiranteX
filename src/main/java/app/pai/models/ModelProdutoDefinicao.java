@@ -169,9 +169,12 @@ public class ModelProdutoDefinicao implements Serializable {
         }
     }
 
-
     @Override
     public String toString() {
+        return nomeProduto.get();
+    }
+
+    public String toStringCompleto() {
         return "ModelProdutoDefinicao{" +
                 "nomeProduto=" + nomeProduto +
                 ", categoria=" + categoria +
