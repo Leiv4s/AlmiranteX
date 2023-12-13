@@ -65,9 +65,10 @@ public class CriarProdutoDefinicaoController implements Initializable {
         System.out.println("olá");
         tamanhosChoiceBox.getItems().addAll(modelTamanhoProdutos.getListaTamanhos());
         categoriaChoiceBox.getItems().addAll(ModelCategoria.getListaCategoria());
-        System.out.println(ModelCategoria.getListaCategoria());
         publicoAlvoChoiceBox.getItems().addAll(ModelPublicoAlvo.getListaPublicoAlvo());
         generoChoiceBox.getItems().addAll(ModelGenero.getListaGenero());
         System.out.println("olá fim");
     }
+
+
 }
