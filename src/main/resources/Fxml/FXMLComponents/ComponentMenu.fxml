@@ -12,11 +12,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="292.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.MenuController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.MenuController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="611.0" prefWidth="242.0" style="-fx-background-color: white;" stylesheets="@../Styles/ComponentMenu.css">
          <VBox.margin>
-            <Insets left="25.0" right="25.0" top="8.0" />
+            <Insets left="25.0" right="10.0" top="8.0" />
          </VBox.margin>
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0">

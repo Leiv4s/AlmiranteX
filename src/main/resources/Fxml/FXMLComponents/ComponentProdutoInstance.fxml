@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="110.0" prefWidth="1105.0" style="-fx-background-color: #d8eaff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.ProdutoDefinicaoInstanceController">
+<AnchorPane prefHeight="90.0" prefWidth="1105.0" style="-fx-background-color: #d8eaff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.ComponentsControllers.ProdutoDefinicaoInstanceController">
    <children>
-      <HBox alignment="CENTER_LEFT" layoutX="1.0" prefHeight="110.0" prefWidth="1125.0" spacing="10.0">
+      <HBox alignment="CENTER_LEFT" layoutX="1.0" prefHeight="90.0" prefWidth="1125.0" spacing="10.0">
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="294.0">
                <children>
@@ -81,7 +81,6 @@
                   </Button>
                </children>
             </HBox>
-            <VBox alignment="CENTER_RIGHT" />
             <HBox alignment="CENTER" layoutX="201.0" layoutY="2.0" prefHeight="0.0" prefWidth="98.0">
                <children>
                   <Button fx:id="publicEditarBtn" mnemonicParsing="false" onAction="#editarBtnOnClick" prefHeight="40.0" prefWidth="0.0" style="-fx-background-color: orange;" textFill="WHITE">

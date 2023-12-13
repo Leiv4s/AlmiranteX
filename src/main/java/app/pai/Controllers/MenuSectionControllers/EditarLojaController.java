@@ -45,33 +45,11 @@ public class EditarLojaController extends PersistanceController implements Initi
     private ModelProdutoDefinicao modelProdutoDefinicao = new ModelProdutoDefinicao();
     private ModelURL modelURL = new ModelURL();
 
-    public static ObservableList<ModelProdutoDefinicao> listaProdutoDefinicaoObservable = ModelProdutoDefinicao.getListaProdutoDefinicao();
     public static ObservableList<StringProperty> listaPublicoAlvoObservable = ModelPublicoAlvo.getListaPublicoAlvo();
     public static ObservableList<StringProperty> listaGeneroObservable = ModelGenero.getListaGenero();
     public static ObservableList<StringProperty> listaCategoriaObservable = ModelCategoria.getListaCategoria();
 
 
-    ListChangeListener<ModelProdutoDefinicao> listenerProdutoDefinicao = c -> {
-        System.out.println("percebi publico");
-        try {
-            produtoDefinicaoContainer.getChildren().clear();
-            getInstance().getViewFactory().produtoDefinicaoViewInitializer(modelURL.getProdutoInstanceFXML(), produtoDefinicaoContainer);
-        } catch (Exception e) {
-        }
-
-        // serialização abaixo:
-        PersistanceController persistanceController = new PersistanceController();
-        if (listaProdutoDefinicaoObservable != null){
-            try {
-                persistanceController.serializeProdutoDefinicao(listaProdutoDefinicaoObservable);
-                System.out.println("serializei");
-                System.out.println(listaPublicoAlvoObservable);
-            }
-            catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    };
     ListChangeListener<StringProperty> listenerCategoria = c -> {
         try {
             categoriaContainer.getChildren().clear();
@@ -132,7 +110,6 @@ public class EditarLojaController extends PersistanceController implements Initi
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initializeProdutoDefinicaoLoadedInstances(listaProdutoDefinicaoObservable, listenerProdutoDefinicao);
         initializeCategoriaLoadedInstances(listaCategoriaObservable, listenerCategoria);
         initializePublicoAlvoLoadedInstances(listaPublicoAlvoObservable, listenerPublicoAlvo);
         initializeGeneroAlvoLoadedInstances(listaGeneroObservable, listenerGenero);
@@ -141,16 +118,6 @@ public class EditarLojaController extends PersistanceController implements Initi
 
 
     //carrega as instancias recuperadas da memória ao iniciar o programa
-    private void initializeProdutoDefinicaoLoadedInstances(ObservableList<ModelProdutoDefinicao> ObservableList, ListChangeListener<ModelProdutoDefinicao> listener) {
-        PersistanceController persistanceController = new PersistanceController();
-        ObservableList.addListener(listener);
-        try {
-            ModelProdutoDefinicao.setListaProdutoDefinicao (persistanceController.desserializeProdutoDefinicao());
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     private void initializePublicoAlvoLoadedInstances(ObservableList<StringProperty> ObservableList, ListChangeListener<StringProperty> listener)  {
         PersistanceController persistanceController = new PersistanceController();
         ObservableList.addListener(listener);
@@ -187,10 +154,7 @@ public class EditarLojaController extends PersistanceController implements Initi
 
 
     // Botões de criação de listas da pagina
-    public void criarProdutoBtnOnClick() throws IOException {
-        getInstance().getViewFactory().getFogPaneController().ableFogPane();
-        Model.getInstance().getViewFactory().loadDialogView(modelURL.getCriarProdutoFXML());
-    }
+
     public void criarPublicoAlvoBtnOnClick() throws IOException {
         getInstance().getViewFactory().getFogPaneController().ableFogPane();
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getCriarPublicoAlvoFXML());

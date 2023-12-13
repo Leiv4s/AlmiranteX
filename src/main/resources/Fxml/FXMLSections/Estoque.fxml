@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -13,9 +14,140 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1228.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.MenuSectionControllers.EstoqueController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1228.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.pai.Controllers.MenuSectionControllers.EstoqueController">
    <children>
-      <HBox layoutX="1.0" layoutY="8.0" prefHeight="50.0" prefWidth="1216.0" style="-fx-background-color: #d8eaff;">
+      <AnchorPane layoutX="1.0" layoutY="94.4" prefHeight="595.0" prefWidth="1216.0" style="-fx-background-color: white;" AnchorPane.topAnchor="94.0">
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0">
+               <color>
+                  <Color red="0.5803921818733215" green="0.5803921818733215" blue="0.5803921818733215" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ScrollPane layoutX="36.0" layoutY="78.0" pannable="true" prefHeight="427.0" prefWidth="1143.0" vbarPolicy="ALWAYS">
+               <content>
+                  <VBox fx:id="produtoDefinicaoContainer" prefHeight="0.0" prefWidth="0.0" />
+               </content>
+            </ScrollPane>
+            <Button fx:id="adicionarProdutoBtn" layoutX="36.0" layoutY="525.0" mnemonicParsing="false" onAction="#adicionarProdutoBtnOnClick" prefHeight="50.0" prefWidth="290.0" stylesheets="@../Styles/Login.css" text="Adicionar Produtos ao Estoque" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow height="10.0" radius="3.25" width="5.0" />
+               </effect>
+            </Button>
+            <Button fx:id="adicionarProdutoBtn1" layoutX="355.0" layoutY="525.0" mnemonicParsing="false" onAction="#adicionarProdutoBtnOnClick" prefHeight="50.0" prefWidth="281.0" stylesheets="@../Styles/Login.css" text="Remover Produtos do Estoque" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow height="10.0" radius="3.25" width="5.0" />
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="1.0" layoutY="15.0" prefHeight="128.0" prefWidth="1216.0" style="-fx-background-color: #d8eaff;">
+         <children>
+            <HBox layoutX="21.0" layoutY="18.0" prefHeight="40.0" prefWidth="1018.0" spacing="70.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="617.0" spacing="20.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="557.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pesquisar no estoque:" wrappingWidth="192.80340576171875">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <TextField prefHeight="30.0" prefWidth="365.0" style="-fx-border-color: none;">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <Button fx:id="criarProdutoBtn11" mnemonicParsing="false" onAction="#criarProdutoBtnOnClick" prefHeight="29.0" prefWidth="40.0" stylesheets="@../Styles/Login.css" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <DropShadow height="10.0" radius="3.25" width="5.0" />
+                           </effect>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="BAN" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="287.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Por Produto:" wrappingWidth="116.800001525879">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <ChoiceBox prefHeight="30.0" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <Button fx:id="criarProdutoBtn" layoutX="1085.0" layoutY="29.0" mnemonicParsing="false" onAction="#criarProdutoBtnOnClick" prefHeight="68.0" prefWidth="108.0" stylesheets="@../Styles/Login.css" text="Cadastrar Produto" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow height="10.0" radius="3.25" width="5.0" />
+               </effect>
+            </Button>
+            <HBox layoutX="21.0" layoutY="83.0" prefHeight="30.0" prefWidth="1018.0" spacing="62.0">
+               <children>
+                  <HBox>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Por categoria:" wrappingWidth="114.1333526611329">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <ChoiceBox prefHeight="30.0" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="30.0" prefWidth="300.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Por Público Alvo:" wrappingWidth="144.53336181640634">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <ChoiceBox prefHeight="30.0" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="30.0" prefWidth="286.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Por Gênero:" wrappingWidth="116.53322448730478">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <ChoiceBox prefHeight="30.0" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
          <effect>
             <DropShadow height="5.0" radius="2.0" width="5.0">
                <color>
@@ -23,60 +155,6 @@
                </color>
             </DropShadow>
          </effect>
-         <children>
-            <Text fill="#361299" strokeType="OUTSIDE" strokeWidth="0.0" text="Estoque">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="10.0" top="8.0" />
-               </HBox.margin>
-            </Text>
-         </children>
-      </HBox>
-      <AnchorPane layoutX="1.0" layoutY="70.4" prefHeight="600.0" prefWidth="1216.0" style="-fx-background-color: white;" AnchorPane.topAnchor="70.0">
-         <effect>
-            <DropShadow height="5.0" radius="2.0" width="5.0">
-               <color>
-                  <Color red="0.5789473652839661" green="0.5789473652839661" blue="0.5789473652839661" />
-               </color>
-            </DropShadow>
-         </effect>
-         <children>
-            <ScrollPane layoutX="31.0" layoutY="65.0" pannable="true" prefHeight="440.0" prefWidth="1143.0" vbarPolicy="ALWAYS">
-               <content>
-                  <VBox fx:id="produtoDefinicaoContainer" prefHeight="0.0" prefWidth="0.0" />
-               </content>
-            </ScrollPane>
-            <Button fx:id="criarProdutoBtn" layoutX="71.0" layoutY="523.0" mnemonicParsing="false" onAction="#criarProdutoBtnOnClick" prefHeight="50.0" prefWidth="235.0" stylesheets="@../Styles/Login.css" text="Cadastrar novo Produto" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow height="10.0" radius="3.25" width="5.0" />
-               </effect>
-            </Button>
-            <Text layoutX="34.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pesquisar no estoque:" wrappingWidth="185.336669921875">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Text>
-            <TextField layoutX="232.0" layoutY="18.0" prefHeight="26.0" prefWidth="559.0" style="-fx-border-color: none;" />
-            <Button fx:id="adicionarProdutoBtn" layoutX="336.0" layoutY="523.0" mnemonicParsing="false" onAction="#adicionarProdutoBtnOnClick" prefHeight="50.0" prefWidth="306.0" stylesheets="@../Styles/Login.css" text="Adicionar Produtos ao Estoque" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow height="10.0" radius="3.25" width="5.0" />
-               </effect>
-            </Button>
-         </children>
       </AnchorPane>
    </children>
 </AnchorPane>
