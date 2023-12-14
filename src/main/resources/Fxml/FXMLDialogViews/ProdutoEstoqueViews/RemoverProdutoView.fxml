@@ -35,7 +35,7 @@
                </children>
             </VBox>
             <Separator layoutX="385.0" layoutY="71.0" orientation="VERTICAL" prefHeight="300.0" />
-            <VBox fx:id="definirTamanhoContainer" alignment="CENTER" layoutX="502.0" layoutY="129.0" prefHeight="0.0" prefWidth="0.0" />
+            <HBox fx:id="definirTamanhoContainer" layoutX="502.0" layoutY="129.0" />
                <HBox layoutX="163.0" layoutY="424.0" prefHeight="38.0" prefWidth="418.0" spacing="30.0">
                    <children>
                        <Button id="deleteBtn" fx:id="removerBtn" mnemonicParsing="false" onAction="#removerBtnOnClick" prefHeight="38.0" prefWidth="203.0" stylesheets="@../../Styles/Login.css" text="Remover Produtos" textAlignment="CENTER" textFill="WHITE">

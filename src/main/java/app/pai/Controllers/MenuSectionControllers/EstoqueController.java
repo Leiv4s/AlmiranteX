@@ -47,14 +47,31 @@ public class EstoqueController implements Initializable {
 
 
     //controllers declarations
-
     private ModelPublicoAlvo modelPublicoAlvo = new ModelPublicoAlvo();
     private ModelGenero modelGenero = new ModelGenero();
     private ModelCategoria modelCategoria = new ModelCategoria();
     private ModelProdutoDefinicao modelProdutoDefinicao = new ModelProdutoDefinicao();
+    private ModelEstoque modelEstoque = new ModelEstoque();
     private ModelURL modelURL = new ModelURL();
 
-    private static ObservableList<ModelProdutoDefinicao> listaProdutoObservable = ModelProdutoDefinicao.getListaProdutoDefinicao();
+    private static ObservableList<ModelProduto> listaProdutoEstoqueObservable = ModelEstoque.getListaEstoqueProdutos();
+
+    //estou fazendo o serialize desde, vou parar para jantar e ja volto
+    private ListChangeListener<ModelProduto> listenerProdutoEstoque = c -> {
+        // serialização abaixo:
+        PersistanceController persistanceController = new PersistanceController();
+        if (listaProdutoEstoqueObservable != null) {
+            try {
+                persistanceController.serializeProdutoEstoque(listaProdutoEstoqueObservable);
+                System.out.println("serializei estoque");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    };
+
+
+    private static ObservableList<ModelProdutoDefinicao> listaProdutoDefinicaoObservable = ModelProdutoDefinicao.getListaProdutoDefinicao();
     private ListChangeListener<ModelProdutoDefinicao> listenerProdutoDefinicao = c -> {
         System.out.println("percebi publico");
         try {
@@ -65,15 +82,20 @@ public class EstoqueController implements Initializable {
 
         // serialização abaixo:
         PersistanceController persistanceController = new PersistanceController();
-        if (listaProdutoObservable != null) {
+        if (listaProdutoDefinicaoObservable != null) {
             try {
-                persistanceController.serializeProdutoDefinicao(listaProdutoObservable);
-                System.out.println("serializei");
+                persistanceController.serializeProdutoDefinicao(listaProdutoDefinicaoObservable);
+                System.out.println("serializei listaProdutoDefinicao");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
     };
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        initializeProdutoDefinicaoLoadedInstances(listaProdutoDefinicaoObservable, listenerProdutoDefinicao);
+        initializeEstoque(listaProdutoEstoqueObservable, listenerProdutoEstoque);
+    }
 
     private void initializeProdutoDefinicaoLoadedInstances(ObservableList<ModelProdutoDefinicao> ObservableList, ListChangeListener<ModelProdutoDefinicao> listener) {
         PersistanceController persistanceController = new PersistanceController();
@@ -85,11 +107,18 @@ public class EstoqueController implements Initializable {
         }
     }
 
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        initializeProdutoDefinicaoLoadedInstances(listaProdutoObservable, listenerProdutoDefinicao);
+    //aquiiiiiiiiiiiiiiiiiiiiiiiii
+    private void initializeEstoque(ObservableList<ModelProduto> ObservableList, ListChangeListener<ModelProduto> listener){
+        PersistanceController persistanceController = new PersistanceController();
+        ObservableList.addListener(listener);
+        try {
+            ModelEstoque.setListaEstoqueProdutos(persistanceController.desserializeProdutoEstoque());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+
 
 
     public void criarProdutoBtnOnClick() throws IOException {
@@ -100,11 +129,10 @@ public class EstoqueController implements Initializable {
         getInstance().getViewFactory().getFogPaneController().ableFogPane();
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getAdicionarNoEstoqueFXML());
     }
-    public void removerProdutoBtnOnClick(ActionEvent event) throws IOException {
+    public void removerProdutoBtnOnClick() throws IOException {
         getInstance().getViewFactory().getFogPaneController().ableFogPane();
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getRemoverDoEstoqueFXML());
     }
-
     public void limparFiltrosBtnOnClick(ActionEvent event) {
     }
 }

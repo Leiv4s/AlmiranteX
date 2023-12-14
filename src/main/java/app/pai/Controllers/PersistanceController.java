@@ -1,5 +1,6 @@
 package app.pai.Controllers;
 
+import app.pai.models.ModelProduto;
 import app.pai.models.ModelProdutoDefinicao;
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,9 +14,13 @@ import java.util.ArrayList;
 // a lógica de persistencia dos dados manipulados pelo usuário.
 public class PersistanceController implements Serializable {
 
+
+
+
     class Aux implements Serializable {
         private String nomeProduto;
         private String tipoTamanho;
+        private String unidadeTamanho;
         private String categoria;
         private String publicoAlvo;
         private String genero;
@@ -30,6 +35,24 @@ public class PersistanceController implements Serializable {
             this.genero = genero;
             this.precoCusto = precoCusto;
             this.precoVenda = precoVenda;
+        }
+
+        public Aux(String nomeProduto, String tipoTamanho, String unidadeTamanho, String categoria, String publicoAlvo, String genero, float precoCusto, float precoVenda) {
+            this.nomeProduto = nomeProduto;
+            this.tipoTamanho = tipoTamanho;
+            this.categoria = categoria;
+            this.publicoAlvo = publicoAlvo;
+            this.genero = genero;
+            this.precoCusto = precoCusto;
+            this.precoVenda = precoVenda;
+        }
+
+        public String getUnidadeTamanho() {
+            return unidadeTamanho;
+        }
+
+        public void setUnidadeTamanho(String unidadeTamanho) {
+            this.unidadeTamanho = unidadeTamanho;
         }
 
         public String getNomeProduto() {
@@ -89,7 +112,66 @@ public class PersistanceController implements Serializable {
         }
     }
 
+    public ArrayList<ModelProduto> desserializeProdutoEstoque() {
+        FileInputStream fileInput = null;
+        try {
+            fileInput = new FileInputStream("ProdutoEstoque.ser");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        ObjectInputStream objectInput = null;
+        try {
+            objectInput = new ObjectInputStream(fileInput);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        ArrayList<Aux> arrayCarregado;
+        try {
+            arrayCarregado = (ArrayList<Aux>) objectInput.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        ArrayList<ModelProduto> arrayProdutoEstoque = new ArrayList<>();
+        ModelProdutoDefinicao produtoDefinicaoCarregado = new ModelProdutoDefinicao();
+        for (Aux aux: arrayCarregado) {
+            produtoDefinicaoCarregado.setNomeProduto(aux.nomeProduto);
+            produtoDefinicaoCarregado.setTipoTamanho(aux.tipoTamanho);
+            produtoDefinicaoCarregado.setCategoria(aux.categoria);
+            produtoDefinicaoCarregado.setPublicoAlvo(aux.publicoAlvo);
+            produtoDefinicaoCarregado.setGenero(aux.genero);
+            produtoDefinicaoCarregado.setPrecoCusto(aux.precoCusto);
+            produtoDefinicaoCarregado.setPrecoVenda(aux.precoVenda);
 
+            arrayProdutoEstoque.add(new ModelProduto(produtoDefinicaoCarregado, new SimpleStringProperty(aux.unidadeTamanho)));
+        }
+        System.out.println("cheguei aq");
+        return arrayProdutoEstoque;
+
+    }
+    public void serializeProdutoEstoque(ObservableList<ModelProduto> list) throws IOException {
+        FileOutputStream fileOut = new FileOutputStream("ProdutoEstoque.ser");
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        ArrayList<Aux> auxArrayList = new ArrayList<>();
+
+        for (ModelProduto produto : list) {
+            auxArrayList.add(
+                    new Aux(
+                            produto.getProdutoDefinicao().getNomeProduto(),
+                            produto.getProdutoDefinicao().getTipoTamanho(),
+                            produto.getTamanho(),
+                            produto.getProdutoDefinicao().getCategoria(),
+                            produto.getProdutoDefinicao().getPublicoAlvo(),
+                            produto.getProdutoDefinicao().getGenero(),
+                            produto.getProdutoDefinicao().getPrecoCusto(),
+                            produto.getProdutoDefinicao().getPrecoVenda()
+                    )
+            );
+        }
+        out.writeObject(new ArrayList<>(auxArrayList));
+        out.close();
+        fileOut.close();
+
+    }
     public void serializeProdutoDefinicao(ObservableList<ModelProdutoDefinicao> list) throws IOException {
         FileOutputStream fileOut = new FileOutputStream("ProdutoDefinicao.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -113,7 +195,6 @@ public class PersistanceController implements Serializable {
         fileOut.close();
 
     }
-
     public void serializeCategoria(ObservableList<StringProperty> list) throws IOException {
         FileOutputStream fileOut = new FileOutputStream("Categoria.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -132,7 +213,6 @@ public class PersistanceController implements Serializable {
         out.close();
         fileOut.close();
     }
-
     public void serializePublicoAlvo(ObservableList<StringProperty> observableList) throws IOException {
         FileOutputStream fileOut = new FileOutputStream("PublicoAlvo.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -148,7 +228,6 @@ public class PersistanceController implements Serializable {
 
 
     }
-
     public void serializeGenero(ObservableList<StringProperty> observableList) throws IOException {
         FileOutputStream fileOut = new FileOutputStream("Genero.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
