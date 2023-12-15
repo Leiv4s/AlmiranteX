@@ -26,7 +26,8 @@ public class ModelURL {
     private final URL criarProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoDefinicaoViews/CriarProdutoView.fxml");
     private final URL editarProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoDefinicaoViews/EditarProdutoView.fxml");
     private final URL excluirProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoDefinicaoViews/RemoveProdutoView.fxml");
-    private final URL consultaEstoqueProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoDefinicaoViews/ConsultaEstoqueProdutoPMGView.fxml");
+    private final URL consultaEstoqueProdutoPMGFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoDefinicaoViews/ConsultaEstoqueProdutoPMGView.fxml");
+    private final URL consultaEstoqueProdutoNumericoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoDefinicaoViews/ConsultaEstoqueProdutoNumericoView.fxml");
     private final URL detalheProdutoFXML = getClass().getResource("/FXML/FXMLDialogViews/ProdutoDefinicaoViews/DetalheProdutoView.fxml");
 
 
@@ -38,9 +39,9 @@ public class ModelURL {
     public ModelURL() {
     }
 
-
-    public URL getConsultaEstoqueProdutoFXML() {
-        return consultaEstoqueProdutoFXML;
+    public URL getConsultaEstoqueProdutoNumericoFXML() { return consultaEstoqueProdutoNumericoFXML;}
+    public URL getConsultaEstoqueProdutoPMGFXML() {
+        return consultaEstoqueProdutoPMGFXML;
     }
 
     public URL getDetalheProdutoFXML() {

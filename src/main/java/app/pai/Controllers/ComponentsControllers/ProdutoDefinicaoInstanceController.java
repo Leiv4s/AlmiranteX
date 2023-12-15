@@ -1,9 +1,6 @@
 package app.pai.Controllers.ComponentsControllers;
 
-import app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.ConsultaEstoqueProdutoPmgController;
-import app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.DetalheProdutoController;
-import app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.EditarProdutoDefinicaoController;
-import app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.ExcluirProdutoDefinicaoController;
+import app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews.*;
 import app.pai.models.Model;
 import app.pai.models.ModelProdutoDefinicao;
 import app.pai.models.Utils.ModelURL;
@@ -12,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class ProdutoDefinicaoInstanceController {
@@ -49,7 +47,6 @@ public class ProdutoDefinicaoInstanceController {
     //parei criando esse receiver de sono, só criar uma instancia de produto definição, preencher e passar setar ela no receiver de ExcluirProdutoDefinicao
 
 
-
     @FXML
     void deleteBtnOnClick() throws IOException {
         Model.getInstance().getViewFactory().getFogPaneController().ableFogPane();
@@ -67,8 +64,13 @@ public class ProdutoDefinicaoInstanceController {
 
     public void consultarEstoqueBtnOnClick() throws IOException {
         Model.getInstance().getViewFactory().getFogPaneController().ableFogPane();
-        ConsultaEstoqueProdutoPmgController.setReceiver(produtoData);
-        Model.getInstance().getViewFactory().loadDialogView(modelURL.getConsultaEstoqueProdutoFXML());
+        if (Objects.equals(produtoData.getTipoTamanho(), "P-M-G")) {
+            ConsultaEstoqueProdutoPmgController.setReceiver(produtoData);
+            Model.getInstance().getViewFactory().loadDialogView(modelURL.getConsultaEstoqueProdutoPMGFXML());
+        } else {
+            ConsultaEstoqueProdutoNumericoController.setReceiver(produtoData);
+            Model.getInstance().getViewFactory().loadDialogView(modelURL.getConsultaEstoqueProdutoNumericoFXML());
+        }
     }
 
     public void detalheProdutoBtnOnClick() throws IOException {
