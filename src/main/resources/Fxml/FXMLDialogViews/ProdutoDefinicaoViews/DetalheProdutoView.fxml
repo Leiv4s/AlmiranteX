@@ -90,7 +90,7 @@
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="unidadesVendidas" text="50" underline="true" wrapText="true">
+                                          <Label fx:id="unidadesVendidas" text="xxx" underline="true" wrapText="true">
                                              <font>
                                                 <Font name="System Bold" size="22.0" />
                                              </font>

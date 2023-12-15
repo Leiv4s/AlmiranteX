@@ -172,7 +172,7 @@
    <header>
         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" styleClass="topBarContainer" stylesheets="@../../Styles/ComponentTopBar.css">
             <children>
-                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Nova Definição de Produto " textAlignment="CENTER">
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Definição de Produto " textAlignment="CENTER">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>

@@ -1,6 +1,7 @@
 package app.pai.Controllers.DialogViewsControllers.ProdutoDefinicaoViews;
 
 import app.pai.models.Model;
+import app.pai.models.ModelProduto;
 import app.pai.models.ModelProdutoDefinicao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,6 +48,20 @@ public class DetalheProdutoController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        initializer(receiver);
     }
+
+
+    public void initializer(ModelProdutoDefinicao produto){
+        categoria.setText(produto.getCategoria());
+        genero.setText(produto.getGenero());
+        medidas.setText(produto.getTipoTamanho());
+        nomeProduto.setText(produto.getNomeProduto());
+        precoCusto.setText(String.valueOf(produto.getPrecoCusto()));
+        precoVenda.setText(String.valueOf(produto.getPrecoVenda()));
+        publicoAlvo.setText(produto.getPublicoAlvo());
+    }
+
+
+
 }
