@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static app.pai.models.Model.getInstance;
@@ -105,12 +106,32 @@ public class EstoqueController implements Initializable {
     }
 
     private void localizarProdutos(ActionEvent event) {
+        produtoDefinicaoContainer.getChildren().clear();
+        try {
+            for (ModelProdutoDefinicao produtoDefinicao : ModelProdutoDefinicao.getListaProdutoDefinicao()) {
+                if (Objects.equals(produtoChoiceBox.getValue(), produtoDefinicao.getNomeProduto())) {
+                    Model.getInstance().getViewFactory().addNewProdutoDefinicaoInstanceView(modelURL.getProdutoInstanceFXML(), produtoDefinicao, produtoDefinicaoContainer);
+                }
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void localizarCategorias(ActionEvent event) {
+        produtoDefinicaoContainer.getChildren().clear();
+        try {
+            for (ModelProdutoDefinicao produtoDefinicao : ModelProdutoDefinicao.getListaProdutoDefinicao()) {
+                    Model.getInstance().getViewFactory().addNewProdutoDefinicaoInstanceView(modelURL.getProdutoInstanceFXML(), produtoDefinicao, produtoDefinicaoContainer);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
+
     private void localizarPublicoAlvo(ActionEvent event) {
     }
+
     private void localizarGenero(ActionEvent event) {
     }
 
@@ -124,6 +145,7 @@ public class EstoqueController implements Initializable {
             e.printStackTrace();
         }
     }
+
     private void initializeEstoque(ObservableList<ModelProduto> ObservableList, ListChangeListener<ModelProduto> listener) {
         PersistanceController persistanceController = new PersistanceController();
         ObservableList.addListener(listener);
@@ -139,19 +161,20 @@ public class EstoqueController implements Initializable {
         getInstance().getViewFactory().getFogPaneController().ableFogPane();
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getCriarProdutoFXML());
     }
+
     public void adicionarProdutoBtnOnClick() throws IOException {
         getInstance().getViewFactory().getFogPaneController().ableFogPane();
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getAdicionarNoEstoqueFXML());
     }
+
     public void removerProdutoBtnOnClick() throws IOException {
         getInstance().getViewFactory().getFogPaneController().ableFogPane();
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getRemoverDoEstoqueFXML());
     }
+
     public void limparFiltrosBtnOnClick(ActionEvent event) {
         produtoDefinicaoContainer.getChildren().clear();
     }
-
-
 
 
 }
