@@ -57,8 +57,8 @@ public class DetalheProdutoController implements Initializable {
         genero.setText(produto.getGenero());
         medidas.setText(produto.getTipoTamanho());
         nomeProduto.setText(produto.getNomeProduto());
-        precoCusto.setText(String.valueOf(produto.getPrecoCusto()));
-        precoVenda.setText(String.valueOf(produto.getPrecoVenda()));
+        precoCusto.setText(String.valueOf(produto.getPrecoCusto()).replace(".",","));
+        precoVenda.setText(String.valueOf(produto.getPrecoVenda()).replace(".",","));
         publicoAlvo.setText(produto.getPublicoAlvo());
     }
 

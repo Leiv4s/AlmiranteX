@@ -36,6 +36,7 @@ public class AdicionarProdutoController implements Initializable {
     private ModelURL modelURL = new ModelURL();
     private ModelEstoque modelEstoque = new ModelEstoque();
     private FXMLLoader loaderTamanho = null;
+
     // receivers de tamanhoNumeracao
     int t34 = 0;
     int t36 = 0;
@@ -109,7 +110,6 @@ public class AdicionarProdutoController implements Initializable {
         g = controller.getG();
         gg = controller.getGg();
     }
-
     private void adicionarProdutoPMG() {
 
         for (int i = 0; i < pp; i++) {
@@ -160,7 +160,6 @@ public class AdicionarProdutoController implements Initializable {
 
 
     }
-
     public void getInfoFromNumericoWindow() {
         NumeracaoController controller = loaderTamanho.getController();
         t34 = controller.getT34();
@@ -175,7 +174,6 @@ public class AdicionarProdutoController implements Initializable {
         t52 = controller.getT52();
         System.out.println(ModelEstoque.getListaEstoqueProdutos().toString());
     }
-
     private void adicionarProdutoNumerico() {
         StringProperty stringProperty = new SimpleStringProperty();
         for (int i = 0; i < t34; i++) {

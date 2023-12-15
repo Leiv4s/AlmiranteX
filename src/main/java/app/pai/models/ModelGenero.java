@@ -26,6 +26,14 @@ public class ModelGenero {
         }
     }
 
+    public static ArrayList<String> getListaGeneroToString() {
+        ArrayList<String> listaString = new ArrayList<>();
+        for (StringProperty stringProperty : listaGenero) {
+            listaString.add(stringProperty.get());
+        }
+        return listaString;
+    }
+
     public ArrayList<String> getListaGeneroString() {
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < listaGenero.size();i++){

@@ -4,6 +4,7 @@ package app.pai.Controllers.MenuSectionControllers;
 import app.pai.Controllers.PersistanceController;
 import app.pai.models.*;
 import app.pai.models.Utils.ModelURL;
+import javafx.beans.property.StringProperty;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static app.pai.models.Model.getInstance;
@@ -29,13 +31,13 @@ public class EstoqueController implements Initializable {
     @FXML
     private Button limparFiltrosBtn;
     @FXML
-    private ChoiceBox<?> categoriaChoiceBox;
+    private ChoiceBox<String> categoriaChoiceBox;
     @FXML
-    private ChoiceBox<?> generoChoiceBox;
+    private ChoiceBox<String> generoChoiceBox;
     @FXML
-    private ChoiceBox<?> produtoChoiceBox;
+    private ChoiceBox<String> produtoChoiceBox;
     @FXML
-    private ChoiceBox<?> publicoAlvoChoiceBox;
+    private ChoiceBox<String> publicoAlvoChoiceBox;
     @FXML
     private VBox produtoDefinicaoContainer;
     @FXML
@@ -55,8 +57,6 @@ public class EstoqueController implements Initializable {
     private ModelURL modelURL = new ModelURL();
 
     private static ObservableList<ModelProduto> listaProdutoEstoqueObservable = ModelEstoque.getListaEstoqueProdutos();
-
-    //estou fazendo o serialize desde, vou parar para jantar e ja volto
     private ListChangeListener<ModelProduto> listenerProdutoEstoque = c -> {
         // serialização abaixo:
         PersistanceController persistanceController = new PersistanceController();
@@ -69,8 +69,6 @@ public class EstoqueController implements Initializable {
             }
         }
     };
-
-
     private static ObservableList<ModelProdutoDefinicao> listaProdutoDefinicaoObservable = ModelProdutoDefinicao.getListaProdutoDefinicao();
     private ListChangeListener<ModelProdutoDefinicao> listenerProdutoDefinicao = c -> {
         System.out.println("percebi publico");
@@ -91,11 +89,31 @@ public class EstoqueController implements Initializable {
             }
         }
     };
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeProdutoDefinicaoLoadedInstances(listaProdutoDefinicaoObservable, listenerProdutoDefinicao);
         initializeEstoque(listaProdutoEstoqueObservable, listenerProdutoEstoque);
+        categoriaChoiceBox.getItems().setAll(ModelCategoria.getlistaCategoriaToString());
+        categoriaChoiceBox.setOnAction(this::localizarCategorias);
+        generoChoiceBox.getItems().setAll(ModelGenero.getListaGeneroToString());
+        generoChoiceBox.setOnAction(this::localizarGenero);
+        publicoAlvoChoiceBox.getItems().setAll(ModelPublicoAlvo.getListaPublicoAlvoToString());
+        publicoAlvoChoiceBox.setOnAction(this::localizarPublicoAlvo);
+        produtoChoiceBox.getItems().setAll(ModelProdutoDefinicao.getListaProdutoDefinicaoToString());
+        produtoChoiceBox.setOnAction(this::localizarProdutos);
     }
+
+    private void localizarProdutos(ActionEvent event) {
+    }
+
+    private void localizarCategorias(ActionEvent event) {
+    }
+    private void localizarPublicoAlvo(ActionEvent event) {
+    }
+    private void localizarGenero(ActionEvent event) {
+    }
+
 
     private void initializeProdutoDefinicaoLoadedInstances(ObservableList<ModelProdutoDefinicao> ObservableList, ListChangeListener<ModelProdutoDefinicao> listener) {
         PersistanceController persistanceController = new PersistanceController();
@@ -106,9 +124,7 @@ public class EstoqueController implements Initializable {
             e.printStackTrace();
         }
     }
-
-    //aquiiiiiiiiiiiiiiiiiiiiiiiii
-    private void initializeEstoque(ObservableList<ModelProduto> ObservableList, ListChangeListener<ModelProduto> listener){
+    private void initializeEstoque(ObservableList<ModelProduto> ObservableList, ListChangeListener<ModelProduto> listener) {
         PersistanceController persistanceController = new PersistanceController();
         ObservableList.addListener(listener);
         try {
@@ -117,8 +133,6 @@ public class EstoqueController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
 
 
     public void criarProdutoBtnOnClick() throws IOException {
@@ -134,5 +148,12 @@ public class EstoqueController implements Initializable {
         Model.getInstance().getViewFactory().loadDialogView(modelURL.getRemoverDoEstoqueFXML());
     }
     public void limparFiltrosBtnOnClick(ActionEvent event) {
+        produtoDefinicaoContainer.getChildren().clear();
     }
+
+
+
+
 }
+
+

@@ -1,4 +1,5 @@
 package app.pai.models;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -16,12 +17,6 @@ public class ModelCategoria implements Serializable {
 
     //constructor
 
-
-
-    public ModelCategoria(String nomeCategoria) {
-        this.nome = new SimpleStringProperty(nomeCategoria);
-    }
-
     public ModelCategoria() {
 
     }
@@ -31,18 +26,28 @@ public class ModelCategoria implements Serializable {
     public String getNome() {
         return this.nome.get();
     }
-    public static ObservableList<StringProperty> getListaCategoria() { return listaCategoria;}
 
+    public static ObservableList<StringProperty> getListaCategoria() {
+        return listaCategoria;
+    }
+
+    public static ArrayList<String> getlistaCategoriaToString() {
+        ArrayList<String> listaString = new ArrayList<>();
+        for (StringProperty stringProperty : listaCategoria) {
+            listaString.add(stringProperty.get());
+        }
+        return listaString;
+    }
 
 
     //setters section
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome.set(nome);
     }
 
 
     public static void setListaCategoria(ArrayList<StringProperty> list) {
-        for (StringProperty categoria: list) {
+        for (StringProperty categoria : list) {
             listaCategoria.add(new SimpleStringProperty(categoria.getValue()));
         }
 
@@ -52,15 +57,15 @@ public class ModelCategoria implements Serializable {
     //                                  OPERAÇÕES CRUD                                //
 
 
-                                //Auxiliar operation variables
-    
-    public static void createNewCategoriaInstance(StringProperty newCategoria){
+    //Auxiliar operation variables
+
+    public static void createNewCategoriaInstance(StringProperty newCategoria) {
         listaCategoria.add(newCategoria);
     }
 
-    public static void updateCategoriaInstance(StringProperty oldCategoria,StringProperty newCategoria) {
-        for(int i = 0; i<listaCategoria.size();i++){
-            if (Objects.equals(oldCategoria.toString(), listaCategoria.get(i).toString())){
+    public static void updateCategoriaInstance(StringProperty oldCategoria, StringProperty newCategoria) {
+        for (int i = 0; i < listaCategoria.size(); i++) {
+            if (Objects.equals(oldCategoria.toString(), listaCategoria.get(i).toString())) {
                 listaCategoria.set(i, newCategoria);
                 listaCategoria.addLast(new SimpleStringProperty());
                 listaCategoria.removeLast();
@@ -72,11 +77,11 @@ public class ModelCategoria implements Serializable {
 
         System.out.println(newCategoria);
 
-        for (int i = 0; i <listaCategoria.size();i++){
+        for (int i = 0; i < listaCategoria.size(); i++) {
             System.out.println("começo do for");
             System.out.println(newCategoria);
             System.out.println(listaCategoria.get(i).toString());
-            if (Objects.equals(newCategoria, listaCategoria.get(i).toString())){
+            if (Objects.equals(newCategoria, listaCategoria.get(i).toString())) {
                 System.out.println("entrei");
                 listaCategoria.remove(i);
             }
@@ -86,9 +91,6 @@ public class ModelCategoria implements Serializable {
     }
 
 
-
-
-    
     @Override
     public String toString() {
         return "ModelCategoria{" + "nome=" + nome + '}';

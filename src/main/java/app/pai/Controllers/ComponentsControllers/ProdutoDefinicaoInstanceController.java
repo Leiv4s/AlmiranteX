@@ -40,8 +40,8 @@ public class ProdutoDefinicaoInstanceController {
         System.out.println("cheguei no setProduto Definicao");
         produtoData = produtoDefinicao;
         produtoTextfield.setText(produtoDefinicao.getNomeProduto());
-        precoCusto.setText(String.valueOf(produtoDefinicao.getPrecoCusto()));
-        precoVenda.setText(String.valueOf(produtoDefinicao.getPrecoVenda()));
+        precoCusto.setText(String.valueOf(produtoDefinicao.getPrecoCusto()).replace(".",","));
+        precoVenda.setText(String.valueOf(produtoDefinicao.getPrecoVenda()).replace(".",","));
     }
 
     //parei criando esse receiver de sono, só criar uma instancia de produto definição, preencher e passar setar ela no receiver de ExcluirProdutoDefinicao

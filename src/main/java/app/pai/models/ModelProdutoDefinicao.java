@@ -39,95 +39,77 @@ public class ModelProdutoDefinicao implements Serializable {
         this.precoVenda = new SimpleFloatProperty(precoVenda);
     }
 
+    public static ArrayList<String> getListaProdutoDefinicaoToString() {
+        ArrayList<String> listaString = new ArrayList<>();
+        for (ModelProdutoDefinicao produtoDefinicao : listaProdutoDefinicao) {
+            listaString.add(produtoDefinicao.getNomeProduto());
+        }
+        return listaString;
+    }
+
 
     //GETTERS AND SETTERS
 
     public String getNomeProduto() {
         return nomeProduto.get();
     }
-
     public StringProperty nomeProdutoProperty() {
         return nomeProduto;
     }
-
     public void setNomeProduto(String nomeProduto) {
         this.nomeProduto.set(nomeProduto);
     }
-
-
     public String getCategoria() {
         return categoria.get();
     }
-
     public StringProperty categoriaProperty() {
         return categoria;
     }
-
     public void setCategoria(String categoria) {
         this.categoria.set(categoria);
     }
-
-
     public String getGenero() {
         return genero.get();
     }
-
     public StringProperty generoProperty() {
         return genero;
     }
-
     public void setGenero(String genero) {
         this.genero.set(genero);
     }
-
-
     public String getPublicoAlvo() {
         return publicoAlvo.get();
     }
-
     public StringProperty publicoAlvoProperty() {
         return publicoAlvo;
     }
-
     public void setPublicoAlvo(String publicoAlvo) {
         this.publicoAlvo.set(publicoAlvo);
     }
-
-
     public String getTipoTamanho() {
         return tipoTamanho.get();
     }
-
     public StringProperty tipoTamanhoProperty() {
         return tipoTamanho;
     }
-
     public void setTipoTamanho(String tipoTamanho) {
         this.tipoTamanho.set(tipoTamanho);
     }
-
-
     public float getPrecoCusto() {
         return precoCusto.get();
     }
-
     public FloatProperty precoCustoProperty() {
         return precoCusto;
     }
-
     public void setPrecoCusto(float precoCusto) {
         this.precoCusto.set(precoCusto);
     }
-
-
     public float getPrecoVenda() {
         return precoVenda.get();
     }
-
     public FloatProperty precoVendaProperty() {
         return precoVenda;
     }
-
     public void setPrecoVenda(float precoVenda) {
         this.precoVenda.set(precoVenda);
     }

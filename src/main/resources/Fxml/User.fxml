@@ -15,7 +15,7 @@
               <fx:include source="FXMLComponents/ComponentMenu.fxml" />
           </left>
           <center>
-              <fx:include source="FXMLSections/Inicio.fxml" BorderPane.alignment="TOP_LEFT" />
+              <fx:include source="FXMLSections/Inicio.fxml" BorderPane.alignment="TOP_CENTER" />
           </center>
       </BorderPane>
       <Pane fx:id="fogPane" disable="true" opacity="0.9" prefHeight="771.0" prefWidth="1550.0" style="-fx-background-color: black;" visible="false" />

@@ -22,6 +22,15 @@ public class ModelPublicoAlvo {
     public static ObservableList<StringProperty> getListaPublicoAlvo(){
         return listaPublicoAlvo;
     }
+
+    public static ArrayList<String> getListaPublicoAlvoToString() {
+        ArrayList<String> listaString = new ArrayList<>();
+        for (StringProperty stringProperty : listaPublicoAlvo) {
+            listaString.add(stringProperty.get());
+        }
+        return listaString;
+    }
+
     public ArrayList<String> getListaPublicoAlvoString() {
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < listaPublicoAlvo.size(); i++) {
