@@ -35,7 +35,7 @@
                </children>
             </VBox>
             <Separator layoutX="385.0" layoutY="71.0" orientation="VERTICAL" prefHeight="300.0" />
-            <HBox fx:id="definirTamanhoContainer" layoutX="502.0" layoutY="129.0" />
+            <HBox fx:id="definirTamanhoContainer" layoutX="416.0" layoutY="77.0" />
                <HBox layoutX="163.0" layoutY="424.0" prefHeight="38.0" prefWidth="418.0" spacing="30.0">
                    <children>
                        <Button id="deleteBtn" fx:id="removerBtn" mnemonicParsing="false" onAction="#removerBtnOnClick" prefHeight="38.0" prefWidth="203.0" stylesheets="@../../Styles/Login.css" text="Remover Produtos" textAlignment="CENTER" textFill="WHITE">
@@ -77,7 +77,7 @@
    <header>
         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" styleClass="topBarContainer" stylesheets="@../../Styles/ComponentTopBar.css">
             <children>
-                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Produto ao Estoque" textAlignment="CENTER">
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Remover Produto do Estoque" textAlignment="CENTER">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>

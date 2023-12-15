@@ -15,8 +15,6 @@ import java.util.ArrayList;
 public class PersistanceController implements Serializable {
 
 
-
-
     class Aux implements Serializable {
         private String nomeProduto;
         private String tipoTamanho;
@@ -40,6 +38,7 @@ public class PersistanceController implements Serializable {
         public Aux(String nomeProduto, String tipoTamanho, String unidadeTamanho, String categoria, String publicoAlvo, String genero, float precoCusto, float precoVenda) {
             this.nomeProduto = nomeProduto;
             this.tipoTamanho = tipoTamanho;
+            this.unidadeTamanho = unidadeTamanho;
             this.categoria = categoria;
             this.publicoAlvo = publicoAlvo;
             this.genero = genero;
@@ -133,21 +132,28 @@ public class PersistanceController implements Serializable {
         }
         ArrayList<ModelProduto> arrayProdutoEstoque = new ArrayList<>();
         ModelProdutoDefinicao produtoDefinicaoCarregado = new ModelProdutoDefinicao();
-        for (Aux aux: arrayCarregado) {
-            produtoDefinicaoCarregado.setNomeProduto(aux.nomeProduto);
-            produtoDefinicaoCarregado.setTipoTamanho(aux.tipoTamanho);
-            produtoDefinicaoCarregado.setCategoria(aux.categoria);
-            produtoDefinicaoCarregado.setPublicoAlvo(aux.publicoAlvo);
-            produtoDefinicaoCarregado.setGenero(aux.genero);
-            produtoDefinicaoCarregado.setPrecoCusto(aux.precoCusto);
-            produtoDefinicaoCarregado.setPrecoVenda(aux.precoVenda);
+        SimpleStringProperty stringProperty = new SimpleStringProperty();
+        ;
+        for (Aux auxiliar : arrayCarregado) {
+            System.out.println("oi vc n ta doido leivas");
+            arrayProdutoEstoque.add(
+                    new ModelProduto(
+                            new ModelProdutoDefinicao(auxiliar.nomeProduto,
+                                    auxiliar.tipoTamanho,
+                                    auxiliar.categoria,
+                                    auxiliar.publicoAlvo,
+                                    auxiliar.genero,
+                                    auxiliar.precoCusto,
+                                    auxiliar.precoVenda),
+                            new SimpleStringProperty(auxiliar.unidadeTamanho)));
 
-            arrayProdutoEstoque.add(new ModelProduto(produtoDefinicaoCarregado, new SimpleStringProperty(aux.unidadeTamanho)));
         }
         System.out.println("cheguei aq");
+        System.out.println(arrayProdutoEstoque);
         return arrayProdutoEstoque;
 
     }
+
     public void serializeProdutoEstoque(ObservableList<ModelProduto> list) throws IOException {
         FileOutputStream fileOut = new FileOutputStream("ProdutoEstoque.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -172,6 +178,7 @@ public class PersistanceController implements Serializable {
         fileOut.close();
 
     }
+
     public void serializeProdutoDefinicao(ObservableList<ModelProdutoDefinicao> list) throws IOException {
         FileOutputStream fileOut = new FileOutputStream("ProdutoDefinicao.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -180,13 +187,13 @@ public class PersistanceController implements Serializable {
         for (ModelProdutoDefinicao modelProdutoDefinicao : list) {
             auxArrayList.add(
                     new Aux(
-                    modelProdutoDefinicao.getNomeProduto(),
-                    modelProdutoDefinicao.getTipoTamanho(),
-                    modelProdutoDefinicao.getCategoria(),
-                    modelProdutoDefinicao.getPublicoAlvo(),
-                    modelProdutoDefinicao.getGenero(),
-                    modelProdutoDefinicao.getPrecoCusto(),
-                    modelProdutoDefinicao.getPrecoVenda()
+                            modelProdutoDefinicao.getNomeProduto(),
+                            modelProdutoDefinicao.getTipoTamanho(),
+                            modelProdutoDefinicao.getCategoria(),
+                            modelProdutoDefinicao.getPublicoAlvo(),
+                            modelProdutoDefinicao.getGenero(),
+                            modelProdutoDefinicao.getPrecoCusto(),
+                            modelProdutoDefinicao.getPrecoVenda()
                     )
             );
         }
@@ -195,6 +202,7 @@ public class PersistanceController implements Serializable {
         fileOut.close();
 
     }
+
     public void serializeCategoria(ObservableList<StringProperty> list) throws IOException {
         FileOutputStream fileOut = new FileOutputStream("Categoria.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -213,6 +221,7 @@ public class PersistanceController implements Serializable {
         out.close();
         fileOut.close();
     }
+
     public void serializePublicoAlvo(ObservableList<StringProperty> observableList) throws IOException {
         FileOutputStream fileOut = new FileOutputStream("PublicoAlvo.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -228,6 +237,7 @@ public class PersistanceController implements Serializable {
 
 
     }
+
     public void serializeGenero(ObservableList<StringProperty> observableList) throws IOException {
         FileOutputStream fileOut = new FileOutputStream("Genero.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -265,7 +275,7 @@ public class PersistanceController implements Serializable {
         }
         ArrayList<ModelProdutoDefinicao> arrayProdutoDefinicao = new ArrayList<>();
 
-        for (Aux aux: arrayCarregado) {
+        for (Aux aux : arrayCarregado) {
             arrayProdutoDefinicao.add(new ModelProdutoDefinicao(aux.nomeProduto, aux.categoria, aux.genero, aux.publicoAlvo, aux.tipoTamanho, aux.precoCusto, aux.precoVenda));
         }
         System.out.println("cheguei aq");
